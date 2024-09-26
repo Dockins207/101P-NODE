@@ -1,0 +1,71 @@
+.howToBuyContainer {
+  background-color: white;
+  color: #333;
+  width: 90%;
+  max-width: 100%;
+  margin-top: 8rem;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.howToBuyContainer h2 {
+  text-align: center;
+  color: black;
+  margin-bottom: 1.25rem;
+}
+
+.step {
+  background-color: #f2f2f2;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-left: 0.25rem solid red;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.0625rem 0.3125rem rgba(0, 0, 0, 0.1);
+}
+
+.step h3 {
+  color: blue;
+  margin: 0 0 0.625rem 0;
+  font-size: 1.5rem;
+}
+
+.step p {
+  color: black;
+  margin: 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .howToBuyContainer {
+    margin-left: 0;
+    margin-right: 0;
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .step h3 {
+    font-size: 1.25rem;
+  }
+
+  .step p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .howToBuyContainer {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .step h3 {
+    font-size: 1.1rem;
+  }
+
+  .step p {
+    font-size: 0.8rem;
+  }
+}

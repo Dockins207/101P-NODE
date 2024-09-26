@@ -1,0 +1,67 @@
+/* Top Bar (Blue Bar) */
+.topBar {
+  background: #0000ff;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* Distribute space between social icons and contact info */
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  z-index: 1500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* Social Icons Section */
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.icon:hover {
+  color: lightgray;
+}
+
+/* Contact Info */
+.contactInfo {
+  display: flex;
+  gap: 1rem;
+  white-space: nowrap;
+}
+
+/* Styling for Links */
+.contactLink {
+  color: white;
+  text-decoration: none;
+}
+
+.contactLink:hover {
+  color: lightgreen;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  /* Adjust layout for smaller screens */
+  .topBar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .socialIcons {
+    margin-bottom: 0.5rem;
+  }
+
+  .contactLink {
+    font-size: 0.7rem;
+  }
+}

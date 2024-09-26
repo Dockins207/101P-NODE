@@ -1,0 +1,104 @@
+/* components/StatisticsSection.module.css */
+
+.statisticsSection {
+  padding: 2rem 0; /* Reduced overall padding for the section */
+  background: url('../public/101 properties imgs/STATISTICS 2.svg') no-repeat center center/cover;
+  position: relative;
+  color: black;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.statisticsBackground {
+  padding: 0.5rem; /* Reduced padding for the background */
+}
+
+.statisticsSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 7rem; /* Reduced margin-bottom to decrease space between header and boxes */
+  color: blue;
+}
+
+.statisticsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateX(3.125rem);
+  transition: all 0.8s ease;
+}
+
+.statBox {
+  background-color: white;
+  border-radius: 0.9375rem;
+  padding: 1rem;
+  text-align: center;
+  width: 18.75rem;
+  height: 6.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border: 0.0625rem solid #ddd;
+}
+
+.statHeading {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.statNumber {
+  font-size: 2rem;
+  color: black;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 1024px) {
+  .statisticsContainer {
+    gap: 1.5rem;
+  }
+
+  .statBox {
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .statisticsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .statBox {
+    width: 90%;
+    height: auto;
+  }
+
+  .statisticsSection h2 {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statisticsSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .statHeading {
+    font-size: 1rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
+}

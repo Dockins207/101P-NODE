@@ -1,0 +1,43 @@
+.about {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 1rem;
+  background-color: #f9f9f9; /* Optional background */
+}
+
+.about h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.about p {
+  margin: 0 auto;
+  max-width: 80%;
+  font-size: clamp(0.875rem, 3vw, 1rem);
+}
+
+.ctaButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: white;
+  background-color: blue; /* Adjust color as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background-color: green; /* Change on hover */
+}
+
+@media (max-width: 600px) {
+  .about h2 {
+    font-size: 1.5rem;
+  }
+
+  .about p {
+    font-size: 0.875rem;
+    max-width: 90%;
+  }
+}

@@ -1,0 +1,164 @@
+/* General layout */
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  margin-top: 6rem;
+}
+
+.heroImage {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.heroText {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.heroText h1 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.price,
+.location {
+  font-size: 1.5rem;
+}
+
+/* Gallery Section */
+.gallerySection {
+  margin-top: 5rem;
+}
+
+.galleryHeading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.imageThumbnail {
+  cursor: pointer;
+}
+
+.image {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px;
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+.imageThumbnail:hover .image {
+  transform: scale(1.05);
+}
+
+/* Description Section */
+.description {
+  margin-top: 30px;
+}
+
+.heading {
+  font-size: 1.8rem;
+}
+
+.detailedInformation {
+  margin-top: 20px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+  .heroImage {
+    height: 70vh;
+  }
+
+  .heroText h1 {
+    font-size: 2.5rem;
+  }
+
+  .price,
+  .location {
+    font-size: 1.3rem;
+  }
+
+  .image {
+    width: 180px;
+    height: 140px;
+  }
+}
+
+@media (max-width: 992px) {
+  .heroImage {
+    height: 40vh;
+  }
+
+  .heroText h1 {
+    font-size: 2.2rem;
+  }
+
+  .price,
+  .location {
+    font-size: 1.2rem;
+  }
+
+  .image {
+    width: 160px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroImage {
+    height: 35vh;
+  }
+
+  .heroText h1 {
+    font-size: 2rem;
+  }
+
+  .price,
+  .location {
+    font-size: 1.1rem;
+  }
+
+  .image {
+    width: 140px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroImage {
+    height: 30vh;
+  }
+
+  .heroText h1 {
+    font-size: 1.8rem;
+  }
+
+  .price,
+  .location {
+    font-size: 1rem;
+  }
+
+  .image {
+    width: 120px;
+    height: 100px;
+  }
+}

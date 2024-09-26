@@ -1,0 +1,135 @@
+.faqSection {
+  background-color: #ffffff;
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 8rem auto;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+}
+
+.faqSection h2 {
+  color: #000000;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  text-align: center;
+  border-bottom: 3px solid #007bff;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.faqItem {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faqItem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.faqQuestion {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  font-size: 1.125rem;
+  outline: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.faqQuestion:hover {
+  background-color: #0056b3;
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  background-color: #f8f8f8;
+  padding: 0 15px;
+  border-radius: 0 0 8px 8px;
+}
+
+.faqAnswer p {
+  padding: 15px 0;
+  margin: 0;
+  color: #333;
+}
+
+.backToHome {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.backHomeLink {
+  color: #ff0000;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.backHomeLink:hover {
+  color: green;
+}
+
+/* Responsive Design for All Screens */
+@media (max-width: 1200px) {
+  .faqSection {
+    margin: 6rem 15px;
+    padding: 40px 15px;
+  }
+
+  .faqSection h2 {
+    font-size: 1.75rem;
+  }
+
+  .faqQuestion {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .faqSection {
+    margin: 7.5rem 10px;
+    padding: 30px 15px;
+  }
+
+  .faqSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faqSection {
+    margin: 7.5rem 5px;
+    padding: 20px 10px;
+  }
+
+  .faqSection h2 {
+    font-size: 1.25rem;
+  }
+
+  .faqQuestion {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .faqAnswer p {
+    font-size: 0.8rem;
+  }
+
+  .backHomeLink {
+    font-size: 0.8rem;
+  }
+}

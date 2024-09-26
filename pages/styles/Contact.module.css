@@ -1,0 +1,133 @@
+#contactPageSection {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 75%;
+  margin: 7rem auto;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Left Section: Contact Information */
+.contactSection {
+  flex: 1;
+  margin-right: 2rem;
+  min-width: 18rem;
+}
+
+.contactHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contactHeader h1 {
+  font-size: 2.5rem;
+  color: #000;
+  margin-bottom: 0.625rem;
+}
+
+.contactHeader p {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.contactBox {
+  background-color: #f0f8ff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.contactBox h2 {
+  color: #000;
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.contactBox p {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.625rem;
+}
+
+.contactBox a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.contactBox a:hover {
+  color: green;
+}
+
+/* Right Section: Quick Enquiry Form */
+.formSection {
+  flex: 1;
+  min-width: 18.75rem;
+}
+
+.formSection h2 {
+  color: #000;
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.formGroup {
+  margin-bottom: 1.25rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  width: 90%;
+  padding: 1rem;
+  border: 0.125rem solid #0056b3;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.formGroup textarea {
+  height: 9.375rem;
+  resize: none;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #333;
+}
+
+.submitBtn {
+  background-color: red;
+  color: white;
+  padding: 1rem 1.875rem;
+  border: none;
+  border-radius: 0.625rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: green;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #contactPageSection {
+    flex-direction: column;
+    padding: 1.25rem;
+  }
+
+  .contactSection {
+    margin-right: 0;
+    margin-bottom: 1.25rem;
+  }
+}

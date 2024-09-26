@@ -1,0 +1,81 @@
+/* components/PartnerCenter.module.css */
+
+.partnerCenterSection {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-top: 7rem;
+}
+
+.partnerContent {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.partnerTitle {
+  font-size: 2.5rem;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.partnerText {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  font-size: 1.2rem;
+  color: #004182;
+  font-weight: bold;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: red;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.ctaLink::after {
+  content: '\2192'; /* Unicode arrow */
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+
+.ctaLink:hover {
+  color: green;
+}
+
+.terms {
+  color: #555;
+  font-style: italic;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .partnerTitle {
+    font-size: 2rem;
+  }
+
+  .partnerText {
+    font-size: 1rem;
+  }
+
+  .ctaLink {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+}

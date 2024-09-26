@@ -1,0 +1,28 @@
+footer {
+    background-color: red; /* Red background color */
+    height: 2rem; /* Footer height set to 2rem */
+    display: flex;
+    align-items: center; /* Vertically center content */
+}
+
+.footer-content {
+    width: 100%;
+    text-align: center; /* Center content horizontally */
+}
+
+footer p {
+    margin: 0;
+    color: white; /* White text color */
+    font-size: 0.5rem; /* Scaled text for readability */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    footer {
+        height: 2.5rem; /* Increase footer height for smaller screens */
+    }
+
+    footer p {
+        font-size: 0.6rem; /* Slightly larger text for small screens */
+    }
+}

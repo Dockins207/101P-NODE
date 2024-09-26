@@ -1,0 +1,70 @@
+.whyInvestSection {
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 2px solid #0056b3; /* Blue border */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-top: 8rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  color: #000; /* Blue title */
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #0056b3;
+  padding-bottom: 0.5rem;
+}
+
+.investmentContent h3 {
+  font-size: 1.8rem;
+  color: #0056b3;
+  margin-top: 1rem;
+}
+
+.investmentContent p {
+  font-size: 1.2rem;
+  color: #333333;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.investmentContent ul {
+  list-style-type: square;
+  margin-left: 1.5rem;
+  color: #0056b3;
+}
+
+.investmentContent ul li {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlightText {
+  color: red;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .whyInvestSection {
+    padding: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .investmentContent h3 {
+    font-size: 1.5rem;
+  }
+
+  .investmentContent p,
+  .investmentContent ul li {
+    font-size: 1rem;
+  }
+}

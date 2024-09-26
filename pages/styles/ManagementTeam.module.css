@@ -1,0 +1,141 @@
+.treeContainer {
+  padding: 3.125rem;
+  text-align: center;
+  background-color: #f5f5f5;
+  margin-top: 6rem;
+}
+
+.treeContainer h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.tree {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.level {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3.75rem;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.teamCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 0.625rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  width: 25%;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: 1.25rem;
+  /* min-height: 13rem; */
+  max-height: 30rem;
+  flex-direction: column;
+}
+
+.teamCard img {
+  width: 100%;
+  max-height: 12.5rem;
+  object-fit: cover;
+}
+
+.teamCard:nth-child(even) {
+  flex-direction: column;
+}
+
+.teamInfo {
+  width: 100%;
+  padding: 1.25rem;
+  text-align: left;
+  max-height: 12.5rem;
+  overflow-y: auto;
+}
+
+.teamInfo h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.625rem;
+  color: #2c3e50;
+  font-family: 'Roboto', sans-serif;
+}
+
+.teamInfo p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media (max-width: 75rem) {
+  .treeContainer h2 {
+    font-size: 2rem;
+  }
+
+  .teamCard {
+    width: 80%;
+    margin: 1.25rem auto;
+  }
+
+  .teamInfo h3 {
+    font-size: 1.5rem;
+  }
+
+  .teamInfo p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 48rem) {
+  .level {
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+    gap: 1.25rem;
+  }
+
+  .teamCard {
+    flex-direction: column;
+    width: 90%;
+    margin: 0.625rem auto;
+    max-height: auto;
+  }
+
+  .teamCard img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .teamInfo {
+    width: 100%;
+    text-align: center;
+    padding: 0.625rem;
+    max-height: none;
+    overflow-y: auto;
+  }
+}
+
+@media (max-width: 30rem) {
+  .treeContainer {
+    padding: 1.875rem;
+  }
+
+  .treeContainer h2 {
+    font-size: 1.8rem;
+  }
+
+  .teamInfo h3 {
+    font-size: 1.2rem;
+  }
+
+  .teamInfo p {
+    font-size: 0.85rem;
+  }
+}

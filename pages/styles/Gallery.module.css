@@ -1,0 +1,105 @@
+.title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: black;
+  margin-top: 9rem;
+}
+
+.galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.categoryBox {
+  width: 45%;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  margin: 30px;
+  overflow: hidden;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.categoryBox:hover {
+  transform: scale(1.05);
+}
+
+.imageStack {
+  position: relative;
+  height: 250px;
+  width: 100%;
+}
+
+.imageStack img {
+  position: absolute;
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+}
+
+.imageStack img:nth-child(1) {
+  top: 0;
+  z-index: 3;
+}
+
+.imageStack img:nth-child(2) {
+  top: 20px;
+  z-index: 2;
+}
+
+.imageStack img:nth-child(3) {
+  top: 40px;
+  z-index: 1;
+}
+
+.contentSection {
+  padding: 20px;
+  color: #333;
+  text-align: right;
+  position: relative;
+}
+
+.contentSection h2 {
+  font-size: 1.8rem;
+  color: black;
+}
+
+.contentSection p {
+  font-size: 1.1rem;
+}
+
+.categoryBox:nth-child(even) .contentSection {
+  text-align: left;
+}
+
+.popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .categoryBox {
+    width: 90%;
+    margin: 20px 0;
+  }
+
+  .contentSection {
+    text-align: center;
+  }
+}

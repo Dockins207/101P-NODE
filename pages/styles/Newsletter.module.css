@@ -1,0 +1,153 @@
+.newsletterSection,
+.subscriptionSection {
+  padding: 50px 20px;
+  background-color: #ffffff;
+  text-align: center;
+  margin-top: 8rem;
+}
+
+/* Newsletter Row Styles */
+.newsletterRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  position: relative;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.newsletterRow:hover {
+  transform: scale(1.03);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.imageContainer {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.newsletterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.newsletterContent {
+  flex: 1;
+  text-align: left;
+}
+
+.newsletterContent h2 {
+  font-size: 1.8rem;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+.newsletterContent p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.rowPopup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.2rem;
+  border-radius: 10px;
+}
+
+.newsletterRow:hover .rowPopup {
+  opacity: 1;
+}
+
+/* Subscription Form Styles */
+.subscriptionContent {
+  background-color: #f9f9f9;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+.subscriptionContent h2 {
+  font-size: 1.8rem;
+  color: #000;
+}
+
+.subscriptionForm {
+  display: inline-flex;
+  margin-top: 20px;
+}
+
+.subscriptionForm input {
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 2px solid #004182;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  flex: 1;
+}
+
+.subscriptionForm input:focus {
+  border-color: green;
+}
+
+.subscribeBtn {
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: red;
+  color: #ffffff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribeBtn:hover {
+  background-color: green;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .newsletterRow {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imageContainer {
+    margin: 0 0 15px 0;
+    width: 100px;
+    height: 100px;
+  }
+
+  .newsletterContent h2,
+  .subscriptionContent h2 {
+    font-size: 1.5rem;
+  }
+
+  .newsletterContent p,
+  .subscriptionContent p {
+    font-size: 1rem;
+  }
+}
