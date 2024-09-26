@@ -45,7 +45,10 @@ export default function Blogs() {
         <meta name="keywords" content="Site keywords here" />
         <meta name="description" content="" />
         <meta name="copyright" content="" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <title>Blogs</title>
       </Head>
       <main className={styles.blogSection}>
@@ -56,10 +59,13 @@ export default function Blogs() {
             data-content="Kitengela, a fast-growing suburb just south of Nairobi, has long been a focal point for real estate investment in Kenya. Known for its strategic location................"
           >
             <h2>
-              Unlocking Value: How the Nairobi-Mombasa Expressway Will Transform Your Investment in Kitengela and its Environ
+              Unlocking Value: How the Nairobi-Mombasa Expressway Will Transform
+              Your Investment in Kitengela and its Environ
             </h2>
             <p className={styles.blogExcerpt}>
-              Kitengela, a fast-growing suburb just south of Nairobi, has long been a focal point for real estate investment in Kenya. Known for its strategic location................
+              Kitengela, a fast-growing suburb just south of Nairobi, has long
+              been a focal point for real estate investment in Kenya. Known for
+              its strategic location................
             </p>
             <a
               href="../101 properties pages/blogs/Kitengela A Prime Investment Opportunity.html"
@@ -74,10 +80,18 @@ export default function Blogs() {
             data-content="Kajiado County, with its expansive landscapes and strategic location, has long been a jewel for real estate investors in Kenya. The region, which includes fast-growing areas like Isinya, Lenchani, Kitengela, and Kisaju, is set to experience a transformative boost with the proposed Isinya-Konza bypass. This major infrastructure project promises to enhance connectivity, drive economic growth, and unlock new opportunities for real estate investors...................................."
           >
             <h2>
-              The Proposed Isinya-Konza Bypass: A New Frontier for Real Estate Investment in Kajiado County
+              The Proposed Isinya-Konza Bypass: A New Frontier for Real Estate
+              Investment in Kajiado County
             </h2>
             <p className={styles.blogExcerpt}>
-              Kajiado County, with its expansive landscapes and strategic location, has long been a jewel for real estate investors in Kenya. The region, which includes fast-growing areas like Isinya, Lenchani, Kitengela, and Kisaju, is set to experience a transformative boost with the proposed Isinya-Konza bypass. This major infrastructure project promises to enhance connectivity, drive economic growth, and unlock new opportunities for real estate investors....................................
+              Kajiado County, with its expansive landscapes and strategic
+              location, has long been a jewel for real estate investors in
+              Kenya. The region, which includes fast-growing areas like Isinya,
+              Lenchani, Kitengela, and Kisaju, is set to experience a
+              transformative boost with the proposed Isinya-Konza bypass. This
+              major infrastructure project promises to enhance connectivity,
+              drive economic growth, and unlock new opportunities for real
+              estate investors....................................
             </p>
             <a
               href="../101 properties pages/blogs/The Proposed Isinya-Konza Bypass.html"
@@ -92,10 +106,18 @@ export default function Blogs() {
             data-content="Konza Technopolis, often referred to as Kenya's Silicon Savannah, is more than just a grand vision—it's a burgeoning reality set to transform the country's real estate landscape. As one of Africa’s most ambitious smart city projects, Konza is poised to become a hub of innovation, technology, and sustainable urban living. For real estate investors, this presents a golden opportunity to capitalize on what is emerging as one of Kenya’s most dynamic growth areas........."
           >
             <h2>
-              Konza Technopolis: A Game-Changer for Real Estate Investments in Kenya
+              Konza Technopolis: A Game-Changer for Real Estate Investments in
+              Kenya
             </h2>
             <p className={styles.blogExcerpt}>
-              Konza Technopolis, often referred to as Kenya's Silicon Savannah, is more than just a grand vision—it's a burgeoning reality set to transform the country's real estate landscape. As one of Africa’s most ambitious smart city projects, Konza is poised to become a hub of innovation, technology, and sustainable urban living. For real estate investors, this presents a golden opportunity to capitalize on what is emerging as one of Kenya’s most dynamic growth areas.........
+              Konza Technopolis, often referred to as Kenya's Silicon Savannah,
+              is more than just a grand vision—it's a burgeoning reality set to
+              transform the country's real estate landscape. As one of Africa’s
+              most ambitious smart city projects, Konza is poised to become a
+              hub of innovation, technology, and sustainable urban living. For
+              real estate investors, this presents a golden opportunity to
+              capitalize on what is emerging as one of Kenya’s most dynamic
+              growth areas.........
             </p>
             <a
               href="../101 properties pages/blogs/Konza Technopolis.html"
@@ -110,7 +132,9 @@ export default function Blogs() {
       {popupVisible && (
         <div id="popup" className={styles.popup}>
           <div className={styles.popupContent}>
-            <span className="close" onClick={() => setPopupVisible(false)}>&times;</span>
+            <span className="close" onClick={() => setPopupVisible(false)}>
+              &times;
+            </span>
             <h2 id="popup-title">{popupContent.title}</h2>
             <p id="popup-content">{popupContent.content}</p>
           </div>

@@ -2,11 +2,11 @@
   padding: 2rem;
   text-align: center;
   margin-top: 2rem;
-  background-color: #0057b8; 
+  background-color: #0057b8;
   border-radius: 1rem;
-  width: 100vw; 
-  box-sizing: border-box; 
-  margin: 0; 
+  width: 100vw;
+  box-sizing: border-box;
+  margin: 0;
 }
 
 .video-grid {
@@ -14,14 +14,16 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   justify-content: center;
-  padding: 0 2rem; 
+  padding: 0 2rem;
 }
 
 .video-item {
   overflow: hidden;
   perspective: 1000px;
   border-radius: 1rem;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
   width: 100%;
   height: 12.5rem;
   background-color: #fff;
@@ -53,15 +55,14 @@
 }
 
 .youtube-button:hover {
-  background-color: green; 
-  color: white; 
+  background-color: green;
+  color: white;
 }
 .video-gallery h2 {
   font-size: 2rem;
   color: black;
   margin-bottom: 1rem;
 }
-
 
 /* For medium screens, switch to two columns */
 @media (max-width: 768px) {

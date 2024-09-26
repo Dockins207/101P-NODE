@@ -18,8 +18,7 @@ export async function getStaticProps() {
 const Gallery = ({ galleryItems }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  useEffect(() => {
-  }, [galleryItems]);
+  useEffect(() => {}, [galleryItems]);
 
   const handleImageClick = (img) => {
     setSelectedImage(img);
@@ -46,18 +45,18 @@ const Gallery = ({ galleryItems }) => {
       {/* Right Grid Section */}
       <div className={styles.right}>
         {galleryItems.map((item) =>
-          item.images && item.images.length > 0 ? (
-            item.images.map((img, i) => (
-              <div key={i} className={styles.gridItem}>
-                <img
-                  src={img}
-                  alt={item.title}
-                  className={styles.gridImage}
-                  onClick={() => handleImageClick(img)}
-                />
-              </div>
-            ))
-          ) : null
+          item.images && item.images.length > 0
+            ? item.images.map((img, i) => (
+                <div key={i} className={styles.gridItem}>
+                  <img
+                    src={img}
+                    alt={item.title}
+                    className={styles.gridImage}
+                    onClick={() => handleImageClick(img)}
+                  />
+                </div>
+              ))
+            : null
         )}
       </div>
 

@@ -6,16 +6,76 @@ import styles from './FeaturedProperties.module.css';
 
 const FeaturedProperties = () => {
   const properties = [
-    { id: 1, name: 'Emerald Gardens', location: 'Watamu', price: 'Ksh. 1,500,000', img: '/101 properties imgs/house2.jpeg' },
-    { id: 2, name: 'Sunset Villas', location: 'Diani', price: 'Ksh. 2,300,000', img: '/101 properties imgs/house1.jpeg' },
-    { id: 3, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/house3.jpeg' },
-    { id: 4, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF.jpg' },
-    { id: 5, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF2.jpg' },
-    { id: 6, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF3.jpg' },
-    { id: 7, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF4.jpg' },
-    { id: 8, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF5.jpg' },
-    { id: 9, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF6.jpg' },
-    { id: 10, name: 'Ocean Breeze', location: 'Malindi', price: 'Ksh. 3,000,000', img: '/101 properties imgs/imgF7.jpg' },
+    {
+      id: 1,
+      name: 'Emerald Gardens',
+      location: 'Watamu',
+      price: 'Ksh. 1,500,000',
+      img: '/101 properties imgs/house2.jpeg',
+    },
+    {
+      id: 2,
+      name: 'Sunset Villas',
+      location: 'Diani',
+      price: 'Ksh. 2,300,000',
+      img: '/101 properties imgs/house1.jpeg',
+    },
+    {
+      id: 3,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/house3.jpeg',
+    },
+    {
+      id: 4,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF.jpg',
+    },
+    {
+      id: 5,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF2.jpg',
+    },
+    {
+      id: 6,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF3.jpg',
+    },
+    {
+      id: 7,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF4.jpg',
+    },
+    {
+      id: 8,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF5.jpg',
+    },
+    {
+      id: 9,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF6.jpg',
+    },
+    {
+      id: 10,
+      name: 'Ocean Breeze',
+      location: 'Malindi',
+      price: 'Ksh. 3,000,000',
+      img: '/101 properties imgs/imgF7.jpg',
+    },
   ];
   useEffect(() => {
     const glide = new Glide('#featured-properties-glide', {
@@ -36,12 +96,11 @@ const FeaturedProperties = () => {
       },
     });
     glide.mount();
-  
+
     return () => {
       glide.destroy();
     };
   }, []);
-  
 
   return (
     <div className={styles['featured-properties']}>
@@ -63,7 +122,11 @@ const FeaturedProperties = () => {
         </div>
         <div className="glide__bullets" data-glide-el="controls">
           {properties.map((_, index) => (
-            <button className="glide__bullet" key={index} data-glide-dir={`=${index}`}></button>
+            <button
+              className="glide__bullet"
+              key={index}
+              data-glide-dir={`=${index}`}
+            ></button>
           ))}
         </div>
       </div>

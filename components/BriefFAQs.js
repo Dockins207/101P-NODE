@@ -7,7 +7,8 @@ const BriefFAQs = () => {
       <div className={styles.briefFaqItem}>
         <p className={styles.briefQuestion}>Where are your projects located?</p>
         <p className={styles.briefAnswer}>
-          We have properties in Kitengela, Kisaju, Isinya, Lenchani, Malindi, Watamu...
+          We have properties in Kitengela, Kisaju, Isinya, Lenchani, Malindi,
+          Watamu...
           <a href="/faqspage">Read more</a>.
         </p>
       </div>
@@ -30,10 +31,7 @@ const BriefFAQs = () => {
         </p>
       </div>
       <div className={styles.seeAllFaqs}>
-        <a
-          href="/faqspage"
-          className={styles.seeAllLink}
-        >
+        <a href="/faqspage" className={styles.seeAllLink}>
           View More FAQs &rarr;
         </a>
       </div>

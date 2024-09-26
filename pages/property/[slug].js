@@ -27,7 +27,7 @@ export async function getStaticPaths() {
   const properties = await sanityClient.fetch(pathsQuery);
 
   // Log the fetched properties to check the slugs
-  console.log("Fetched properties:", properties);
+  console.log('Fetched properties:', properties);
 
   const paths = properties.map((property) => ({
     params: { slug: String(property.slug) },
@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
   const property = await sanityClient.fetch(query, { slug });
 
   // Log the fetched property to debug
-  console.log("Fetched property:", property);
+  console.log('Fetched property:', property);
 
   if (!property) {
     return {
@@ -53,14 +53,15 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { property },
-    revalidate: 10, 
+    revalidate: 10,
   };
 }
 
 const PropertyDetails = ({ property }) => {
   // Handle image selection, defaulting to the mainImage or the first gallery image
   const [selectedImage, setSelectedImage] = useState(
-    property.mainImage || (property.detailedPage?.detailedGallery?.[0]?.asset?.url)
+    property.mainImage ||
+      property.detailedPage?.detailedGallery?.[0]?.asset?.url
   );
 
   const handleImageClick = (img) => {

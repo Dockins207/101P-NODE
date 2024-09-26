@@ -34,7 +34,7 @@ const Properties = ({ properties }) => (
       <div className={styles.right}>
         {properties.map((property) => (
           <Link
-            href={`/property/${property.slug.current}`}  
+            href={`/property/${property.slug.current}`}
             key={property.slug.current}
             className={styles.propertyCard}
           >

@@ -105,18 +105,9 @@ export default function Gallery() {
           onClick={() => (window.location.href = '/Teamhike')}
         >
           <div className={styles.imageStack}>
-            <img
-              src="#"
-              alt="Team Hikes"
-            />
-            <img
-              src="#"
-              alt="Team Hikes"
-            />
-            <img
-              src="#"
-              alt="Team Hikes"
-            />
+            <img src="#" alt="Team Hikes" />
+            <img src="#" alt="Team Hikes" />
+            <img src="#" alt="Team Hikes" />
           </div>
           <div className={styles.contentSection}>
             <h2>Team Hikes</h2>
@@ -132,18 +123,9 @@ export default function Gallery() {
           onClick={() => (window.location.href = '/Charityevents')}
         >
           <div className={styles.imageStack}>
-            <img
-              src="#"
-              alt="Charity events"
-            />
-            <img
-              src="#"
-              alt="Charity events"
-            />
-            <img
-              src="#"
-              alt="Charity events"
-            />
+            <img src="#" alt="Charity events" />
+            <img src="#" alt="Charity events" />
+            <img src="#" alt="Charity events" />
           </div>
           <div className={styles.contentSection}>
             <h2>Charity events</h2>

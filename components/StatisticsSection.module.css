@@ -2,7 +2,8 @@
 
 .statisticsSection {
   padding: 2rem 0; /* Reduced overall padding for the section */
-  background: url('../public/101 properties imgs/STATISTICS 2.svg') no-repeat center center/cover;
+  background: url('../public/101 properties imgs/STATISTICS 2.svg') no-repeat
+    center center/cover;
   position: relative;
   color: black;
   text-align: center;

@@ -1,16 +1,15 @@
 /* Social Icons */
 .socialIcons {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .icon {
-    color: white;
-    font-size: 1rem;
-    text-decoration: none;
-  }
-  
-  .icon:hover {
-    color: lightgray;
-  }
-  
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.icon:hover {
+  color: lightgray;
+}

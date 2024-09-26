@@ -24,7 +24,7 @@ export default function AboutSection() {
         journey to owning a home is as smooth and rewarding as possible.
       </p>
       <Link href="/sellingnow" passHref>
-      <button className={styles.ctaButton}>Get Started</button>
+        <button className={styles.ctaButton}>Get Started</button>
       </Link>
     </motion.section>
   );
