@@ -9,9 +9,9 @@ const slides = [
     src: '/flyers/VINTAGE001.svg',
     alt: 'Slide 1',
     price: '',
-    description: 'Prime Location',
+    description: 'Vintage Gardens kitengela',
     paragraph:
-      'This area offers beautiful views and access to local amenities.',
+      'Ksh. 6,500,000',
     infoLink: '/sellingnow',
   },
   {
@@ -26,8 +26,8 @@ const slides = [
     src: '/flyers/Watamu001.svg',
     alt: 'Slide 3',
     price: '',
-    description: 'Prime Location',
-    paragraph: 'Ideal for families and holidaymakers alike.',
+    description: 'Emerald gardens Watamu',
+    paragraph: 'Ksh. 1,500,000.',
     infoLink: '/sellingnow',
   },
   {
@@ -42,12 +42,12 @@ const slides = [
     src: '/flyers/FAHARI KISAJU 001.svg',
     alt: 'Slide 5',
     price: '',
-    description: 'Prime Location',
-    paragraph: 'Perfect for relaxation and entertainment.',
+    description: 'Fahari gardens Kisaju',
+    paragraph: 'Ksh.450,000',
     infoLink: '/sellingnow',
   },
   {
-    src: '/flyers/WATAMU 002.svg',
+    src: '/flyers/WATAM 002.svg',
     alt: 'Slide 6',
     price: '',
     description: 'Prime Location',
