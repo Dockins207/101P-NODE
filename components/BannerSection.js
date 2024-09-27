@@ -47,7 +47,7 @@ const slides = [
     infoLink: '/sellingnow',
   },
   {
-    src: '/flyers/WATAM 002.svg',
+    src: '/flyers/WATAMu 002.svg',
     alt: 'Slide 6',
     price: '',
     description: 'Prime Location',
