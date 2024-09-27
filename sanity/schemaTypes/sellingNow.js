@@ -5,6 +5,13 @@ export default {
   title: 'Selling Now',
   type: 'document',
   fields: [
+    {
+      name: 'uuid',
+      title: 'UUID',
+      type: 'string',
+      readOnly: true,
+      initialValue: () => uuidv4(),
+    },
     { name: 'title', title: 'Title', type: 'string' },
     { name: 'price', title: 'Price', type: 'string' },
     { name: 'location', title: 'Location', type: 'string' },
@@ -22,7 +29,7 @@ export default {
         source: 'title',
         maxLength: 200,
         slugify: (input) =>
-          `${input.toLowerCase().replace(/\s+/g, '-').slice(0, 100)}-${uuidv4()}`,
+          `${input.toLowerCase().replace(/\s+/g, '-').slice(0, 100)}-${uuidv4()}`, // Slug with UUID
       },
     },
     {

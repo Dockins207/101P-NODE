@@ -11,9 +11,11 @@ const BannerSection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*%5B_type+%3D%3D+%22banner%22%5D%7B%0A++description%2C%0A++%22imageUrl%22%3A+image.asset-%3Eurl%2C%0A++properties%5B%5D-%3E+%7B+title%2C+price+%7D%0A%7D&returnQuery=false');
+        const response = await fetch(
+          'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*%5B_type+%3D%3D+%22banner%22%5D%7B%0A++description%2C%0A++%22imageUrl%22%3A+image.asset-%3Eurl%2C%0A++propertyName%2C%0A++location%2C%0A++price%2C%0A++relatedProperty-%3E%7B+title%2C+price%2C+location%7D%0A%7D&returnQuery=false'
+        );
         const data = await response.json();
-        
+
         console.log('Fetched data:', data);
 
         if (data.result) {
@@ -30,7 +32,7 @@ const BannerSection = () => {
   }, []);
 
   useEffect(() => {
-    if (slides.length > 0 && glideRef.current) { // Check if slides are available
+    if (slides.length > 0 && glideRef.current) {
       const glide = new Glide(glideRef.current, {
         type: 'carousel',
         perView: 1,
@@ -45,7 +47,7 @@ const BannerSection = () => {
         glide.destroy();
       };
     }
-  }, [glideRef, slides]); // Add slides as a dependency
+  }, [glideRef, slides]);
 
   return (
     <div className={styles.sliderContainer}>
@@ -56,13 +58,20 @@ const BannerSection = () => {
               <li key={index} className="glide__slide">
                 <img src={slide.imageUrl} alt={slide.description} className={styles.image} />
                 <div className={styles.bannerText}>
-                  <h2>{slide.description}</h2>
-                  {slide.properties.map((property, idx) => (
-                    <p key={idx}>
-                      {property.title ? property.title : 'No Title'} - {property.price}
-                    </p>
-                  ))}
-                  <a href="/sellingnow" className={styles.buyButton}>More Info</a>
+                  {/* Display Property Name */}
+                  <h2>{slide.propertyName || 'No Title Available'}</h2>
+
+                  {/* Display Property Location */}
+                  <p>{slide.location || 'Location Not Available'}</p>
+
+                  {/* Display Description */}
+                  <p>{slide.description}</p>
+
+                  {/* Display Property Price */}
+                  <p>{slide.price ? `${slide.price}` : 'Price Not Available'}</p>
+
+                  {/* More Info Button */}
+                  <a href="#" className={styles.moreInfoButton}>More Info</a>
                 </div>
               </li>
             ))}
