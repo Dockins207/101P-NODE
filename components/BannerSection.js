@@ -8,10 +8,9 @@ const slides = [
   {
     src: '/flyers/VINTAGE001.svg',
     alt: 'Slide 1',
-    price: '',
+    price: 'Ksh. 6,500,000',
     description: 'Vintage Gardens kitengela',
-    paragraph:
-      'Ksh. 6,500,000',
+    paragraph: '',
     infoLink: '/sellingnow',
   },
   {
@@ -25,9 +24,9 @@ const slides = [
   {
     src: '/flyers/Watamu001.svg',
     alt: 'Slide 3',
-    price: '',
+    price: 'Ksh. 1,500,000',
     description: 'Emerald gardens Watamu',
-    paragraph: 'Ksh. 1,500,000.',
+    paragraph: '',
     infoLink: '/sellingnow',
   },
   {
@@ -41,9 +40,9 @@ const slides = [
   {
     src: '/flyers/FAHARI KISAJU 001.svg',
     alt: 'Slide 5',
-    price: '',
+    price: 'Ksh.450,000',
     description: 'Fahari gardens Kisaju',
-    paragraph: 'Ksh.450,000',
+    paragraph: '',
     infoLink: '/sellingnow',
   },
   {
