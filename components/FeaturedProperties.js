@@ -60,7 +60,7 @@ const FeaturedProperties = () => {
                   <img src={property.imageUrl} alt={property.name} />
                   <h3>{property.name}</h3>
                   <p>{property.location}</p>
-                  <p className={styles['price']}>Ksh: {property.price}</p>
+                  <p className={styles['price']}>{property.price}</p>
                 </div>
               </li>
             ))}
