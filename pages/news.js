@@ -89,12 +89,12 @@ const News = () => {
       </div>
 
       {/* News Section */}
-      <div id="news-articles">
+      <section id="news-articles">
         {filteredNews.length > 0 ? (
           filteredNews.map((news, index) => (
-            <div
+            <article
               key={index}
-              className={`news-card ${styles.newsCard}`}
+              className={`${styles.newsCard}`}
               onClick={() => openPopup(news.title, news.excerpt)}
             >
               <img
@@ -102,14 +102,16 @@ const News = () => {
                 alt={news.title}
                 className={styles.newsCardImg}
               />
-              <h3>{news.title}</h3>
+              <header>
+                <h3>{news.title}</h3>
+              </header>
               <p className={styles.newsExcerpt}>{news.excerpt}</p>
-            </div>
+            </article>
           ))
         ) : (
           <p>No news found.</p>
         )}
-      </div>
+      </section>
 
       {/* Popup Modal */}
       {popupVisible && (

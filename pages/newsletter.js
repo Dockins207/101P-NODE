@@ -1,9 +1,22 @@
 import React from 'react';
+import Head from 'next/head';
 import styles from './styles/Newsletter.module.css';
 
 const Newsletter = () => {
   return (
     <>
+      <Head>
+        <title>Subscribe to Our Newsletter</title>
+        <meta
+          name="description"
+          content="Stay updated with the latest news and investment opportunities in the Kenyan real estate market."
+        />
+        <meta
+          name="keywords"
+          content="newsletter, real estate, investment, updates, Kenyan market"
+        />
+      </Head>
+
       <section className={styles.newsletterSection}>
         <div
           className={styles.newsletterRow}
@@ -23,7 +36,6 @@ const Newsletter = () => {
               investment tips.
             </p>
           </div>
-          <div className={styles.rowPopup}></div>
         </div>
 
         <div
@@ -44,7 +56,6 @@ const Newsletter = () => {
               estate sector.
             </p>
           </div>
-          <div className={styles.rowPopup}></div>
         </div>
 
         <div
@@ -65,7 +76,6 @@ const Newsletter = () => {
               secure future.
             </p>
           </div>
-          <div className={styles.rowPopup}></div>
         </div>
       </section>
 
@@ -74,7 +84,12 @@ const Newsletter = () => {
           <h2>Subscribe to Our Newsletter</h2>
           <p>Stay updated with the latest news and investment opportunities.</p>
           <form className={styles.subscriptionForm}>
-            <input type="email" placeholder="Enter your email" required />
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              className={styles.subscriptionInput}
+            />
             <button type="submit" className={styles.subscribeBtn}>
               Subscribe
             </button>

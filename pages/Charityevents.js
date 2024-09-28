@@ -1,5 +1,5 @@
 import { sanityClient } from '../sanity/lib/client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './styles/Staffgallery.module.css';
 
 const query = `*[_type == "gallery" && category == "Charity events"]{
@@ -18,8 +18,6 @@ export async function getStaticProps() {
 const Gallery = ({ galleryItems }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  useEffect(() => {}, [galleryItems]);
-
   const handleImageClick = (img) => {
     setSelectedImage(img);
   };
@@ -34,8 +32,7 @@ const Gallery = ({ galleryItems }) => {
       <div className={styles.headerContainer}>
         <h1 className={styles.header}>Beyond the Office: Wings Of Hope</h1>
         <p className={styles.headerText}>
-          Explore the activities that strengthen our team and contribute to the
-          community.
+          Explore the activities that strengthen our team and contribute to the community.
         </p>
       </div>
 
@@ -43,11 +40,11 @@ const Gallery = ({ galleryItems }) => {
       <div className={styles.right}>
         {galleryItems.map((item) =>
           item.images && item.images.length > 0
-            ? item.images.map((img, i) => (
-                <div key={i} className={styles.gridItem}>
+            ? item.images.map((img, index) => (
+                <div key={`${item.title}-${index}`} className={styles.gridItem}>
                   <img
                     src={img}
-                    alt={item.title}
+                    alt={`Image from ${item.title}`}
                     className={styles.gridImage}
                     onClick={() => handleImageClick(img)}
                   />

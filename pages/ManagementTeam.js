@@ -1,9 +1,19 @@
+import Head from 'next/head';
 import React from 'react';
 import styles from './styles/ManagementTeam.module.css';
 
 export default function ManagementTeam() {
   return (
     <div>
+      <Head>
+        <title>Meet Our Management Team - Company Name</title>
+        <meta
+          name="description"
+          content="Meet our dedicated management team committed to excellence in real estate."
+        />
+        <meta name="keywords" content="management team, real estate, leadership" />
+      </Head>
+      
       <section className={styles.treeContainer}>
         <h2>Meet Our Management Team</h2>
         <div className={styles.tree}>
@@ -12,7 +22,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/David2.png"
-                alt="David Kihuga"
+                alt="David Kihuga, CEO - Innovative leader with 12 years in sales and management."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -32,7 +42,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/gtrude2.png"
-                alt="Getrude Kanana"
+                alt="Getrude Kanana - Accomplished sales executive with 8 years of experience."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -51,7 +61,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/rahma2.png"
-                alt="Rahma Boru"
+                alt="Rahma Boru - Result-driven sales and marketing professional."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -71,7 +81,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/victoria1.png"
-                alt="Ms. Victoria"
+                alt="Ms. Victoria - Real Estate Investment Consultant with 8 years of experience."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -93,7 +103,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/mercy1.png"
-                alt="Ms. Mercy"
+                alt="Ms. Mercy - Accounts expert with 8 years of experience."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -117,7 +127,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/grace2.png"
-                alt="Grace Kioko"
+                alt="Grace Kioko - Dynamic sales and marketing professional."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -139,7 +149,7 @@ export default function ManagementTeam() {
             <div className={styles.teamCard}>
               <img
                 src="/staff photos/ndalira.png"
-                alt="Miss Ndalira"
+                alt="Miss Ndalira - Results-driven sales and marketing professional."
                 className={styles.teamImage}
               />
               <div className={styles.teamInfo}>
@@ -159,7 +169,7 @@ export default function ManagementTeam() {
           <div className={styles.teamCard}>
             <img
               src="/staff photos/judith.png"
-              alt="Judith Mbayi"
+              alt="Judith Mbayi - Collaborative and decisive leader."
               className={styles.teamImage}
             />
             <div className={styles.teamInfo}>

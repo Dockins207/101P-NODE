@@ -1,5 +1,6 @@
 import { sanityClient } from '../sanity/lib/client';
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import styles from './styles/Sitevisitsgallery.module.css';
 
 const query = `*[_type == "gallery" && category == "Others"]{
@@ -34,45 +35,67 @@ const Gallery = ({ galleryItems }) => {
   };
 
   return (
-    <div className={styles.container}>
-      {/* Header Section */}
-      <div className={styles.headerContainer}>
-        <h1 className={styles.header}>Captured Moments</h1>
-        <p className={styles.headerText}>
-          Discover a variety of unique events, milestones, and behind-the-scenes
-          glimpses from our journey.
-        </p>
-      </div>
+    <>
+      <Head>
+        <title>Gallery | Captured Moments</title>
+        <meta
+          name="description"
+          content="Discover unique events, milestones, and behind-the-scenes glimpses from our journey at 101 Properties."
+        />
+        <meta
+          name="keywords"
+          content="gallery, site visits, events, milestones, real estate, 101 Properties"
+        />
+        <meta property="og:title" content="Gallery | Captured Moments" />
+        <meta
+          property="og:description"
+          content="Discover unique events, milestones, and behind-the-scenes glimpses from our journey at 101 Properties."
+        />
+        <meta property="og:image" content="https://101-properties.com/gallery-image.jpg" /> {/* Replace with a relevant image URL */}
+        <meta property="og:url" content="https://101-properties.com/gallery" />
+        <meta property="og:type" content="website" />
+      </Head>
 
-      {/* Left and Right Split */}
-      <div className={styles.content}>
-        {/* Right Grid Section */}
-        <div className={styles.right}>
-          {galleryItems.map((item) =>
-            item.images.map((img, i) => (
-              <div key={i} className={styles.gridItem}>
-                <img
-                  src={img}
-                  alt={item.title}
-                  className={styles.gridImage}
-                  onClick={() => handleImageClick(img)}
-                />
-              </div>
-            ))
-          )}
+      <div className={styles.container}>
+        {/* Header Section */}
+        <div className={styles.headerContainer}>
+          <h1 className={styles.header}>Captured Moments</h1>
+          <p className={styles.headerText}>
+            Discover a variety of unique events, milestones, and behind-the-scenes
+            glimpses from our journey.
+          </p>
         </div>
-      </div>
 
-      {/* Image Popup */}
-      {selectedImage && (
-        <div className={styles.popup} onClick={closePopup}>
-          <span className={styles.closeButton} onClick={closePopup}>
-            &times;
-          </span>
-          <img src={selectedImage} alt="Popup" className={styles.popupImage} />
+        {/* Left and Right Split */}
+        <div className={styles.content}>
+          {/* Right Grid Section */}
+          <div className={styles.right}>
+            {galleryItems.map((item) =>
+              item.images.map((img, i) => (
+                <div key={i} className={styles.gridItem}>
+                  <img
+                    src={img}
+                    alt={item.title}
+                    className={styles.gridImage}
+                    onClick={() => handleImageClick(img)}
+                  />
+                </div>
+              ))
+            )}
+          </div>
         </div>
-      )}
-    </div>
+
+        {/* Image Popup */}
+        {selectedImage && (
+          <div className={styles.popup} onClick={closePopup}>
+            <span className={styles.closeButton} onClick={closePopup}>
+              &times;
+            </span>
+            <img src={selectedImage} alt="Popup" className={styles.popupImage} />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

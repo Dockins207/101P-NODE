@@ -1,7 +1,44 @@
+import Head from 'next/head';
 import styles from './styles/WhyInvest.module.css';
+
 const WhyInvest = () => {
   return (
     <>
+      <Head>
+        <title>Why Invest with 101 Properties | Affordable Land in Kenya</title>
+        <meta
+          name="description"
+          content="Discover why 101 Properties is the best choice for affordable land investments in Kenya. Free title deed transfers, flexible payments, and properties in prime locations."
+        />
+        <meta
+          name="keywords"
+          content="Affordable land in Kenya, Real estate investment, land for sale in Kenya, title deed transfer, strategic investments, prime properties"
+        />
+        <meta name="author" content="101 Properties" />
+        <meta property="og:title" content="Why Invest with 101 Properties" />
+        <meta
+          property="og:description"
+          content="Invest with 101 Properties for affordable land prices, free title deed transfers, and properties in strategic growth areas."
+        />
+        <meta
+          property="og:image"
+          content="https://101-properties.com/home-image.jpg"
+        />
+        <meta property="og:url" content="https://101-properties.com/why-invest" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Why Invest with 101 Properties" />
+        <meta
+          name="twitter:description"
+          content="Discover affordable land and strategic investments with 101 Properties, your trusted real estate partner."
+        />
+        <meta
+          name="twitter:image"
+          content="https://101-properties.com/home-image.jpg"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://101-properties.com/why-invest" />
+      </Head>
       <section className={styles.whyInvestSection}>
         <h2 className={styles.sectionTitle}>Why Invest With 101 Properties</h2>
         <div className={styles.investmentContent}>
