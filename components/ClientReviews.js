@@ -11,7 +11,7 @@ export default function ClientReviews() {
         <div className={styles['review-item']}>
           <div className={styles['review-header']}>
             <img
-              src="./review icons/RON-PASS.svg"
+              src="./review icons/RON-PASS.png"
               alt="Ronald Icon"
               className={styles['review-icon']}
             />
@@ -35,7 +35,7 @@ export default function ClientReviews() {
         <div className={styles['review-item']}>
           <div className={styles['review-header']}>
             <img
-              src="./review icons/john.jpg"
+              src="./review icons/john.png"
               alt="John Icon"
               className={styles['review-icon']}
             />

@@ -12,17 +12,18 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.75rem;
-  font-size: 0.875rem;
+  gap: 0.5rem;
+  font-size: 1rem; /* Default font size */
   width: 90%;
-  height: 85%;
-  margin: 0 auto; 
+  margin: 0 auto;
+  height: 250px; /* Fixed height for large screens */
+  overflow: hidden;
 }
 
 .review-header {
   display: flex;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .review-icon {
@@ -50,20 +51,23 @@
   display: flex;
   justify-content: start;
   color: gold;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .review-item p {
   color: #ffffff;
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
   line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .read-more {
   color: #ff0000;
   text-decoration: none;
   display: inline-block;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .read-more:hover {
@@ -80,11 +84,33 @@
   padding: 0 1.25rem;
 }
 
+/* Adjust for screens smaller than 1200px */
+@media (max-width: 75rem) {
+  .reviews {
+    grid-template-columns: repeat(3, 1fr); /* Three columns for medium screens */
+  }
+
+  .review-item {
+    font-size: 0.95rem; /* Slightly smaller font size */
+  }
+}
+
+/* Adjust for screens smaller than 992px */
+@media (max-width: 62rem) {
+  .reviews {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets and small desktops */
+  }
+
+  .review-item {
+    height: 220px; /* Slightly smaller height for medium screens */
+    font-size: 0.9rem; /* Reduce font size further */
+  }
+}
+
+/* Adjust for screens smaller than 768px */
 @media (max-width: 48rem) {
   .reviews {
-    grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
-    grid-template-rows: repeat(2, auto); /* Two rows for small screens */
-    padding: 0 1rem;
+    grid-template-columns: 1fr; /* Single column for mobile screens */
   }
 
   .client-reviews {
@@ -93,6 +119,32 @@
 
   .review-item {
     padding: 0.625rem;
-    width: 100%; /* Full width for smaller screens */
+    height: 200px; /* Smaller height for mobile screens */
+    width: 100%;
+    font-size: 0.85rem; /* Further reduce font size */
+  }
+
+  .review-stars {
+    font-size: 0.9rem;
+  }
+}
+
+/* Adjust for screens smaller than 576px */
+@media (max-width: 36rem) {
+  .review-item {
+    height: 180px; /* Further reduce height for very small mobile screens */
+    font-size: 0.75rem; /* Small font size for smallest screens */
+  }
+
+  .review-header {
+    margin-bottom: 0.2rem;
+  }
+
+  .review-stars {
+    font-size: 0.85rem;
+  }
+
+  .read-more {
+    margin-top: 0.3rem;
   }
 }
