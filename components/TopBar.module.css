@@ -1,9 +1,9 @@
 /* Top Bar (Blue Bar) */
 .topBar {
-  background: #0000ff;
+  background: black;
   color: white;
   display: flex;
-  justify-content: space-between; /* Distribute space between social icons and contact info */
+  justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
   font-size: 0.75rem;

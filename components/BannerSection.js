@@ -1,12 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import Glide from '@glidejs/glide';
+import { useEffect, useState } from 'react';
 import styles from './BannerSection.module.css';
-import '@glidejs/glide/dist/css/glide.core.min.css';
-import '@glidejs/glide/dist/css/glide.theme.min.css';
 
 const BannerSection = () => {
-  const glideRef = useRef(null);
   const [slides, setSlides] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,8 +12,6 @@ const BannerSection = () => {
           'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*[_type == "banner"]{description, "imageUrl": image.asset->url, propertyName, location, price, uuid}'
         );
         const data = await response.json();
-
-        console.log('Fetched data:', data);
 
         if (data.result) {
           setSlides(data.result);
@@ -32,52 +27,37 @@ const BannerSection = () => {
   }, []);
 
   useEffect(() => {
-    if (slides.length > 0 && glideRef.current) {
-      const glide = new Glide(glideRef.current, {
-        type: 'carousel',
-        perView: 1,
-        autoplay: 5000,
-        hoverpause: true,
-        rewind: false,
-      });
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Change slides every 5 seconds
 
-      glide.mount();
-
-      return () => {
-        glide.destroy();
-      };
-    }
-  }, [glideRef, slides]);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
   return (
     <div className={styles.sliderContainer}>
-      <div className="glide" ref={glideRef} id="banner-slider">
-        <div className="glide__track" data-glide-el="track">
-          <ul className="glide__slides">
-            {slides.map((slide) => (
-              <li key={slide.uuid} className="glide__slide">
-                <img
-                  src={slide.imageUrl}
-                  alt={slide.description}
-                  className={styles.image}
-                />
-                <div
-                  className={styles.bannerText}
-                  id={`banner-text-${slide.uuid}`} // Unique ID for each banner based on uuid
-                >
-                  <h2>{slide.propertyName || 'No Title Available'}</h2>
-                  <p>{slide.location || 'Location Not Available'}</p>
-                  <p>{slide.description}</p>
-                  <p>{slide.price ? `${slide.price}` : 'Price Not Available'}</p>
-                  <a href="#" className={styles.moreInfoButton}>
-                    More Info
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
+      {slides.map((slide, index) => (
+        <div
+          key={slide.uuid}
+          className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
+        >
+          <img
+            src={slide.imageUrl}
+            alt={slide.description}
+            className={styles.image}
+            loading="lazy" // Lazy load images
+          />
+          <div className={styles.bannerText}>
+            <h2>{slide.propertyName || 'No Title Available'}</h2>
+            <p>{slide.location || 'Location Not Available'}</p>
+            <p>{slide.description}</p>
+            <p>{slide.price ? `${slide.price}` : 'Price Not Available'}</p>
+            <a href="#" className={styles.moreInfoButton}>
+              More Info
+            </a>
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
