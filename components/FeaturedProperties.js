@@ -1,82 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Glide from '@glidejs/glide';
 import '@glidejs/glide/dist/css/glide.core.min.css';
 import '@glidejs/glide/dist/css/glide.theme.min.css';
 import styles from './FeaturedProperties.module.css';
 
 const FeaturedProperties = () => {
-  const properties = [
-    {
-      id: 1,
-      name: 'Emerald Gardens',
-      location: 'Watamu',
-      price: 'Ksh. 1,500,000',
-      img: '/101 properties imgs/house2.jpeg',
-    },
-    {
-      id: 2,
-      name: 'Sunset Villas',
-      location: 'Diani',
-      price: 'Ksh. 2,300,000',
-      img: '/101 properties imgs/house1.jpeg',
-    },
-    {
-      id: 3,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/house3.jpeg',
-    },
-    {
-      id: 4,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF.jpg',
-    },
-    {
-      id: 5,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF2.jpg',
-    },
-    {
-      id: 6,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF3.jpg',
-    },
-    {
-      id: 7,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF4.jpg',
-    },
-    {
-      id: 8,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF5.jpg',
-    },
-    {
-      id: 9,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF6.jpg',
-    },
-    {
-      id: 10,
-      name: 'Ocean Breeze',
-      location: 'Malindi',
-      price: 'Ksh. 3,000,000',
-      img: '/101 properties imgs/imgF7.jpg',
-    },
-  ];
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    const fetchProperties = async () => {
+      const response = await fetch(
+        'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*[_type == "featuredProperties"]{name, location, price, "imageUrl": image.asset->url, slug}'
+      );
+
+      const data = await response.json();
+      setProperties(data.result);
+    };
+
+    fetchProperties();
+  }, []);
+
   useEffect(() => {
     const glide = new Glide('#featured-properties-glide', {
       direction: 'rtl',
@@ -95,12 +38,15 @@ const FeaturedProperties = () => {
         },
       },
     });
-    glide.mount();
+
+    if (properties.length > 0) {
+      glide.mount();
+    }
 
     return () => {
       glide.destroy();
     };
-  }, []);
+  }, [properties]);
 
   return (
     <div className={styles['featured-properties']}>
@@ -109,12 +55,12 @@ const FeaturedProperties = () => {
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
             {properties.map((property) => (
-              <li className="glide__slide" key={property.id}>
+              <li className="glide__slide" key={property.slug ? property.slug.current : property.name}>
                 <div className={styles['card']}>
-                  <img src={property.img} alt={property.name} />
+                  <img src={property.imageUrl} alt={property.name} />
                   <h3>{property.name}</h3>
                   <p>{property.location}</p>
-                  <p className={styles['price']}>{property.price}</p>
+                  <p className={styles['price']}>Ksh: {property.price}</p>
                 </div>
               </li>
             ))}

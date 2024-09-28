@@ -12,7 +12,7 @@ const BannerSection = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*%5B_type+%3D%3D+%22banner%22%5D%7B%0A++description%2C%0A++%22imageUrl%22%3A+image.asset-%3Eurl%2C%0A++propertyName%2C%0A++location%2C%0A++price%2C%0A++relatedProperty-%3E%7B+title%2C+price%2C+location%7D%0A%7D&returnQuery=false'
+          'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*[_type == "banner"]{description, "imageUrl": image.asset->url, propertyName, location, price, uuid}'
         );
         const data = await response.json();
 
@@ -54,24 +54,24 @@ const BannerSection = () => {
       <div className="glide" ref={glideRef} id="banner-slider">
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {slides.map((slide, index) => (
-              <li key={index} className="glide__slide">
-                <img src={slide.imageUrl} alt={slide.description} className={styles.image} />
-                <div className={styles.bannerText}>
-                  {/* Display Property Name */}
+            {slides.map((slide) => (
+              <li key={slide.uuid} className="glide__slide">
+                <img
+                  src={slide.imageUrl}
+                  alt={slide.description}
+                  className={styles.image}
+                />
+                <div
+                  className={styles.bannerText}
+                  id={`banner-text-${slide.uuid}`} // Unique ID for each banner based on uuid
+                >
                   <h2>{slide.propertyName || 'No Title Available'}</h2>
-
-                  {/* Display Property Location */}
                   <p>{slide.location || 'Location Not Available'}</p>
-
-                  {/* Display Description */}
                   <p>{slide.description}</p>
-
-                  {/* Display Property Price */}
                   <p>{slide.price ? `${slide.price}` : 'Price Not Available'}</p>
-
-                  {/* More Info Button */}
-                  <a href="#" className={styles.moreInfoButton}>More Info</a>
+                  <a href="#" className={styles.moreInfoButton}>
+                    More Info
+                  </a>
                 </div>
               </li>
             ))}

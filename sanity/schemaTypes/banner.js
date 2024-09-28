@@ -10,7 +10,7 @@ export default {
       title: 'UUID',
       type: 'string',
       readOnly: true,
-      initialValue: () => uuidv4(),
+      initialValue: () => uuidv4(), 
     },
     {
       name: 'image',
@@ -43,7 +43,6 @@ export default {
       name: 'price',
       title: 'Price',
       type: 'string',
-      
     },
     {
       name: 'relatedProperty',
