@@ -9,6 +9,7 @@ const Diaspora = () => {
           name="description"
           content="Simplifying Kenyan real estate investment for the diaspora. Trustworthy processes and dedicated support for your investment journey."
         />
+        <meta name="robots" content="index, follow" />
       </head>
       <section className={styles.diasporaSection}>
         <div className={styles.diasporaContent}>

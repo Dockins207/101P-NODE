@@ -41,6 +41,7 @@ const Properties = ({ properties }) => {
   return (
     <div className={styles.container}>
       <Head>
+      <meta name="robots" content="index, follow" />
         <title>Newly Listed Properties</title>
         <meta name="description" content="Discover the latest properties freshly added to the market." />
       </Head>

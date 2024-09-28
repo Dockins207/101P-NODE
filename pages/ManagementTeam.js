@@ -11,6 +11,7 @@ export default function ManagementTeam() {
           name="description"
           content="Meet our dedicated management team committed to excellence in real estate."
         />
+        <meta name="robots" content="index, follow" />
         <meta name="keywords" content="management team, real estate, leadership" />
       </Head>
       

@@ -16,6 +16,7 @@ const FAQ = () => {
           name="description"
           content="Find answers to the most frequently asked questions about buying land, financing options, and property details on our website."
         />
+        <meta name="robots" content="index, follow" />
       </head>
       <section className={styles.faqSection}>
         <h2>Frequently Asked Questions</h2>

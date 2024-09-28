@@ -37,6 +37,7 @@ const Properties = ({ properties }) => (
         content="Discover exclusive deals and discounts on premium properties. Don't miss out on your dream home!"
       />
       <meta property="og:image" content="https://101-properties.com/default-image.jpg" /> {/* Replace with a relevant image URL */}
+      <meta name="robots" content="index, follow" />
       <meta property="og:url" content="https://101-properties.com/selling-now" />
       <meta property="og:type" content="website" />
     </Head>

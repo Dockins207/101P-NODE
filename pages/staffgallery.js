@@ -50,6 +50,7 @@ const Gallery = ({ galleryItems }) => {
           property="og:image"
           content="https://101-properties.com/staff-team-image.jpg" // Replace with the appropriate image URL
         />
+        <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/staff-gallery" />
         <meta property="og:type" content="website" />
       </Head>

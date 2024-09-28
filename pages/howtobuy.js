@@ -10,6 +10,7 @@ export default function HowToBuy() {
           name="description"
           content="Step-by-step guide on how to buy properties from our company. Learn how to book a site visit, fill out an offer letter, and complete your purchase."
         />
+        <meta name="robots" content="index, follow" />
         <meta name="keywords" content="how to buy, real estate, property purchase" />
       </Head>
       <div className={styles.howToBuyContainer}>

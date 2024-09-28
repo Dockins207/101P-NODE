@@ -9,6 +9,7 @@ const Contact = () => {
           name="description"
           content="Get in touch with 101 Properties for inquiries about Kenyan real estate. We’re here to help you with your property investment questions."
         />
+        <meta name="robots" content="index, follow" />
       </head>
       <section id={styles.contactPageSection}>
         <div className={styles.contactSection}>

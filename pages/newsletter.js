@@ -11,6 +11,7 @@ const Newsletter = () => {
           name="description"
           content="Stay updated with the latest news and investment opportunities in the Kenyan real estate market."
         />
+        <meta name="robots" content="index, follow" />
         <meta
           name="keywords"
           content="newsletter, real estate, investment, updates, Kenyan market"

@@ -52,6 +52,7 @@ const Gallery = ({ galleryItems }) => {
           content="Explore our gallery showcasing site visits and potential properties. Discover investment opportunities with 101 Properties."
         />
         <meta property="og:image" content="https://101-properties.com/gallery-image.jpg" /> {/* Replace with a relevant image URL */}
+        <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/gallery" />
         <meta property="og:type" content="website" />
       </Head>

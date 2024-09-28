@@ -41,6 +41,7 @@ const Properties = ({ properties }) => (
         property="og:image"
         content="https://101-properties.com/sold-out-image.jpg" // Replace with an appropriate image URL
       />
+      <meta name="robots" content="index, follow" />
       <meta property="og:url" content="https://101-properties.com/sold-out" />
       <meta property="og:type" content="website" />
     </Head>

@@ -10,6 +10,7 @@ export default function Gallery() {
           name="description"
           content="Explore our gallery showcasing staff, site visits, ceremonies, team hikes, and charity events. Discover memorable moments captured through images."
         />
+        <meta name="robots" content="index, follow" />
         <meta name="keywords" content="gallery, staff photos, site visits, ceremonies, team hikes, charity events" />
       </Head>
       <h1 className={styles.title}>Welcome to Our Gallery</h1>
