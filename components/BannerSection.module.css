@@ -1,25 +1,23 @@
-/* General container and slider styles */
 .sliderContainer {
   width: 100%;
   height: auto;
   position: relative;
   overflow: hidden;
   margin-top: 7rem;
-
 }
+
 .glide__slide {
   position: relative;
   width: 100%;
   height: auto;
 }
-/* Image styling */
+
 .image {
   width: 100%;
   height: 65vh;
   object-fit: cover;
 }
 
-/* Banner text section */
 .bannerText {
   background-color: rgba(2, 0, 0, 0.6);
   position: absolute;
@@ -33,7 +31,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
-/* Styling for text within the banner */
+
 .bannerText h2 {
   font-size: 1rem;
 }
@@ -42,7 +40,6 @@
   font-size: 0.5rem;
 }
 
-/* More info button styling */
 .moreInfoButton {
   display: inline-block;
   background-color: red;
@@ -57,7 +54,14 @@
 .moreInfoButton:hover {
   background-color: green;
 }
-/* Responsive adjustments for text sizing */
+
+/* Media query for the entire slider section */
+@media (max-width: 1600px) {
+  .sliderContainer {
+    margin-top: 5rem; /* Adjust top margin */
+  }
+}
+
 @media (min-width: 1600px) {
   .bannerText h2 {
     font-size: 2rem;

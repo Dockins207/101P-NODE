@@ -6,13 +6,6 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'uuid',
-      title: 'UUID',
-      type: 'string',
-      readOnly: true,
-      initialValue: () => uuidv4(), 
-    },
-    {
       name: 'image',
       title: 'Image',
       type: 'image',
