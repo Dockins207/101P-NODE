@@ -6,7 +6,7 @@ const LatestBlogs = () => {
   return (
     <section className={styles.latestBlogs}>
       <div className={styles.container}>
-        <h2>LATEST BLOG POSTS</h2>
+        <h2>Latest Blogs</h2>
         <div className={styles.row}>
           <div className={styles.blogCard}>
             <img src="/101 properties imgs/isinyakonza.jpg" alt="Blog 1" />

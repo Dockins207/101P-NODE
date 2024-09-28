@@ -3,7 +3,8 @@ import styles from './BriefFAQs.module.css';
 const BriefFAQs = () => {
   return (
     <section className={styles.briefFaqSection}>
-      <h2>FREQUENTLY ASKED QUESTIONS</h2>
+      <h2>
+        Frequently Asked Questions</h2>
       <div className={styles.briefFaqItem}>
         <p className={styles.briefQuestion}>Where are your projects located?</p>
         <p className={styles.briefAnswer}>

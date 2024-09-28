@@ -12,7 +12,7 @@ export default function VideoGallery() {
   return (
     <section className={styles['video-gallery']}>
       <h2>
-        <strong>WATCH AND LEARN ABOUT OUR PROJECTS</strong>
+        <strong>Watch and Discover Our Projects</strong>
       </h2>
       <div className={styles['video-grid']}>
         {videos.map((video, index) => (

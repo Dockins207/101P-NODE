@@ -50,7 +50,7 @@ const FeaturedProperties = () => {
 
   return (
     <div className={styles['featured-properties']}>
-      <h2>FEATURED PROPERTIES</h2>
+      <h2>Featured Properties</h2>
       <div id="featured-properties-glide" className="glide">
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">

@@ -5,7 +5,7 @@ export default function ClientReviews() {
   return (
     <section className={styles['client-reviews']}>
       <h2>
-        <strong>WHAT CLIENTS HAVE TO SAY ABOUT US</strong>
+        <strong>What Clients Say About Us</strong>
       </h2>
       <div className={styles['reviews']}>
         <div className={styles['review-item']}>
@@ -18,7 +18,7 @@ export default function ClientReviews() {
             <div className={styles['review-info']}>
               <strong>Ronald Kasanga</strong>
               <span className={styles['review-date']}>
-                2023-10-31 - 10 months ago
+                2023-10-31
               </span>
             </div>
           </div>
@@ -30,12 +30,6 @@ export default function ClientReviews() {
             attention to detail and commitment to client satisfaction make them
             my go-to choice for real estate investments."
           </p>
-          <a
-            href="https://www.google.com/search?q=101+Properties+Google+reviews"
-            className={styles['read-more']}
-          >
-            Read More
-          </a>
         </div>
 
         <div className={styles['review-item']}>
@@ -48,7 +42,7 @@ export default function ClientReviews() {
             <div className={styles['review-info']}>
               <strong>John Gichohi</strong>
               <span className={styles['review-date']}>
-                2024-07-26 - 1 month ago
+                2024-07-26
               </span>
             </div>
           </div>
@@ -60,14 +54,8 @@ export default function ClientReviews() {
             have made my experience seamless and profitable. I highly recommend
             them to anyone looking to invest in real estate."
           </p>
-          <a
-            href="https://www.google.com/search?q=101+Properties+Google+reviews"
-            className={styles['read-more']}
-          >
-            Read More
-          </a>
-        </div>
 
+        </div>
         <div className={styles['review-item']}>
           <div className={styles['review-header']}>
             <img
@@ -78,7 +66,7 @@ export default function ClientReviews() {
             <div className={styles['review-info']}>
               <strong>Maurice Otieno (Diaspora)</strong>
               <span className={styles['review-date']}>
-                2024-01-15 - 8 months ago
+                2024-01-15
               </span>
             </div>
           </div>
@@ -90,14 +78,7 @@ export default function ClientReviews() {
             ensured that everything was handled smoothly. I now own prime land
             in Kitengela, all thanks to their excellent service."
           </p>
-          <a
-            href="https://www.google.com/search?q=101+Properties+Google+reviews"
-            className={styles['read-more']}
-          >
-            Read More
-          </a>
         </div>
-
         <div className={styles['review-item']}>
           <div className={styles['review-header']}>
             <img
@@ -108,7 +89,7 @@ export default function ClientReviews() {
             <div className={styles['review-info']}>
               <strong>Mercy Kariuki</strong>
               <span className={styles['review-date']}>
-                2024-08-15 - 1 month ago
+                2024-08-15
               </span>
             </div>
           </div>
@@ -120,12 +101,6 @@ export default function ClientReviews() {
             investment. I would recommend them to anyone looking to buy property
             with confidence."
           </p>
-          <a
-            href="https://www.google.com/search?q=101+Properties+Google+reviews"
-            className={styles['read-more']}
-          >
-            Read More
-          </a>
         </div>
       </div>
     </section>

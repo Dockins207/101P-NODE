@@ -2,7 +2,7 @@
   padding: 2rem;
   text-align: center;
   margin-top: 2rem;
-  background-color: #0057b8;
+  background-color: rgba(128, 128, 128, 0.137);
   border-radius: 1rem;
   width: 100vw;
   box-sizing: border-box;
@@ -60,7 +60,6 @@
 }
 .video-gallery h2 {
   font-size: 2rem;
-  color: black;
   margin-bottom: 1rem;
 }
 
