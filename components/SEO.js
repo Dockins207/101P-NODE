@@ -35,7 +35,7 @@ const SEO = ({ title, description, keywords, image, url }) => {
 
       {/* Additional SEO tags */}
       <meta name="robots" content="index, follow" />
-      <meta name="author" content="101 Properties" />
+      <meta name="author" content="101-Properties" />
 
       {/* Real Estate Specific Meta Tags */}
       <meta name="geo.position" content="1.2921;36.8219" /> {/* Latitude and longitude for Nairobi, Kenya */}
