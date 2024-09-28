@@ -83,6 +83,21 @@
   margin: 0 auto;
   padding: 0 1.25rem;
 }
+.read-more-button {
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover {
+  background-color: green;
+}
 
 /* Adjust for screens smaller than 1200px */
 @media (max-width: 75rem) {

@@ -51,7 +51,7 @@ const StatisticsSection = () => {
   return (
     <section className={styles.statisticsSection} id="statistics">
       <div className={styles.statisticsBackground}>
-        <h2>CURRENT STATISTICS</h2>
+        <h2>Current Statistics</h2>
         <div className={styles.statisticsContainer} ref={containerRef}>
           <div className={styles.statBox}>
             <h3 className={styles.statHeading}>Happy Clients</h3>
