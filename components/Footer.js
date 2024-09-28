@@ -82,7 +82,7 @@ export default function Footer() {
               <h4>Contacts</h4>
               <ul>
                 <li>
-                  <a href="tel:+254708929173">+2547 0892 9173(Sales)</a>
+                  <a href="tel:+254708929173">+254 700 101 101(Sales)</a>
                 </li>
                 <li>
                   <a href="tel:+254722227066">+2547 2222 7066</a>
