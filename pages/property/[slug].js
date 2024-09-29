@@ -117,6 +117,7 @@ const PropertyDetails = ({ property }) => {
 
       {/* Blue separator line */}
       <div className={styles.sectionSeparator}></div>
+      
       {/* Map Section */}
       <section className={styles.mapSection}>
         <h2 className={styles.heading}>Location</h2>
