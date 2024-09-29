@@ -92,13 +92,12 @@ const WhyInvest = () => {
             locations, including:
           </p>
           <ul>
+            <li>kitengela</li>
             <li>Kisaju</li>
-            <li>Lema</li>
-            <li>Malindi</li>
-            <li>Kitengela</li>
-            <li>Lenchani</li>
-            <li>Watamu</li>
             <li>Isinya</li>
+            <li>Lenchani </li>
+            <li>Malindi</li>
+            <li>Watamu</li>
           </ul>
           <p>
             Invest today with 101 Properties—your trusted partner in real

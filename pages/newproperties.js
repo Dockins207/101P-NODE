@@ -77,7 +77,7 @@ const Properties = ({ properties }) => {
                       <h2 className={styles.propertyTitle}>{property.title}</h2>
                       <p className={styles.propertyLocation}>{property.location}</p>
                       <p className={styles.propertyPrice}>
-                        ${property.price.toLocaleString()}
+                        {property.price.toLocaleString()}
                       </p>
                     </div>
                   </article>
