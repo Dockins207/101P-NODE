@@ -1,4 +1,5 @@
 import styles from './styles/Diaspora.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 const Diaspora = () => {
   return (
@@ -56,6 +57,7 @@ const Diaspora = () => {
             Start Your Investment Journey
           </a>
         </div>
+        <FeaturedProperties />
       </section>
     </>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import styles from './styles/Awards.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 export default function Awards() {
   return (
@@ -37,6 +38,7 @@ export default function Awards() {
             />
           </div>
         </div>
+       <FeaturedProperties />
       </main>
     </>
   );

@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './styles/WhyInvest.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 const WhyInvest = () => {
   return (
@@ -104,6 +105,7 @@ const WhyInvest = () => {
             estate.
           </p>
         </div>
+        <FeaturedProperties />
       </section>
     </>
   );

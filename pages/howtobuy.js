@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './styles/HowToBuy.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 export default function HowToBuy() {
   return (
@@ -61,6 +62,7 @@ export default function HowToBuy() {
           </p>
         </div>
       </div>
+      <FeaturedProperties />
     </>
   );
 }

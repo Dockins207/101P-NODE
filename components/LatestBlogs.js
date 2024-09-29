@@ -11,24 +11,24 @@ const LatestBlogs = () => {
           <div className={styles.blogCard}>
             <img src="/101 properties imgs/isinyakonza.jpg" alt="Blog 1" />
             <h3>
-              <a href="/blog/1" className={styles.blogTitle}>The Proposed Isinya-Konza Bypass</a>
+              <a href="/blogs" className={styles.blogTitle}>The Proposed Isinya-Konza Bypass</a>
             </h3>
           </div>
           <div className={styles.blogCard}>
             <img src="/101 properties imgs/konzacity.jpg" alt="Blog 2" />
             <h3>
-              <a href="/blog/2" className={styles.blogTitle}>Konza Technopolis: A Game-Changer for Real Estate Investments in Kenya</a>
+              <a href="/blogs" className={styles.blogTitle}>Konza Technopolis: A Game-Changer for Real Estate Investments in Kenya</a>
             </h3>
           </div>
           <div className={styles.blogCard}>
             <img src="/101 properties imgs/nrb-mbsa.jpg" alt="Blog 3" />
             <h3>
-              <a href="/blog/3" className={styles.blogTitle}>How the Nairobi-Mombasa Expressway Will Transform Your Investment in Kitengela and its Environs</a>
+              <a href="/blogs" className={styles.blogTitle}>How the Nairobi-Mombasa Expressway Will Transform Your Investment in Kitengela and its Environs</a>
             </h3>
           </div>
         </div>
         <div className={styles.viewMore}>
-          <a href="/101 properties pages/blogs.html" className={styles.seeAllLink}>
+          <a href="../pages/blogs" className={styles.seeAllLink}>
             View More Blogs &rarr;
           </a>
         </div>

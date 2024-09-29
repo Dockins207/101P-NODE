@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './styles/FAQ.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -121,6 +122,7 @@ const FAQ = () => {
             Back Home &rarr;
           </a>
         </div>
+        <FeaturedProperties />
       </section>
     </>
   );

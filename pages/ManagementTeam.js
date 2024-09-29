@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import styles from './styles/ManagementTeam.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 export default function ManagementTeam() {
   return (
@@ -184,6 +185,7 @@ export default function ManagementTeam() {
             </div>
           </div>
         </div>
+        <FeaturedProperties />
       </section>
     </div>
   );

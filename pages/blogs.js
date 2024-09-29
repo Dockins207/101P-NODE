@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import FeaturedProperties from '../components/FeaturedProperties';
 import Head from 'next/head';
 import styles from './styles/Blogs.module.css';
 
@@ -119,6 +120,7 @@ export default function Blogs() {
           </div>
         </div>
       )}
+      <FeaturedProperties />
     </>
   );
 }

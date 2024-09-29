@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import styles from './styles/Careers.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 const Careers = () => {
   return (
@@ -29,6 +30,7 @@ const Careers = () => {
             <button className={styles.subscribeButton}>Subscribe</button>
           </div>
         </div>
+        <FeaturedProperties />
       </section>
     </>
   );

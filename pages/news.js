@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from './styles/News.module.css';
-
+import FeaturedProperties from '../components/FeaturedProperties';
 const News = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -125,6 +125,7 @@ const News = () => {
           </div>
         </div>
       )}
+      <FeaturedProperties />
     </div>
   );
 };
