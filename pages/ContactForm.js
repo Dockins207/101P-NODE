@@ -20,7 +20,7 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData); // Handle form submission
+    console.log('Form submitted:', formData);
   };
 
   return (
@@ -52,7 +52,7 @@ const ContactForm = () => {
       />
       <textarea
         name="message"
-        placeholder="Hey, I would like to visit Amber Estate - Kitengela"
+        placeholder="Hey, I would like to visit [property name]"
         value={formData.message}
         onChange={handleChange}
         className={styles.textarea}
