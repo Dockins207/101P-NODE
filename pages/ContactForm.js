@@ -8,6 +8,7 @@ const ContactForm = () => {
     email: '',
     message: '',
     siteVisit: false,
+    visitDate: '', // New state for date
   });
 
   const handleChange = (e) => {
@@ -25,7 +26,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.contactForm}>
-      <h2>Contact Us</h2>
+      <h2>Book Site Visit</h2> {/* Changed heading */}
       <input
         type="text"
         name="name"
@@ -56,6 +57,13 @@ const ContactForm = () => {
         value={formData.message}
         onChange={handleChange}
         className={styles.textarea}
+      />
+        <input
+        type="date"
+        name="visitDate"
+        value={formData.visitDate}
+        onChange={handleChange}
+        className={styles.input}
       />
       <div className={styles.checkboxGroup}>
         <label>
