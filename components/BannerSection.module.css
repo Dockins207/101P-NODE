@@ -39,10 +39,11 @@
 }
 
 .bannerText h2 {
-  font-size: 1rem;
+  background-color: rgba(4, 4, 180, 0.712); 
+  padding: 10px;
+  border-radius: 5px;
   color: red;
-}
-
+}  
 .bannerText p {
   font-size: 0.5rem;
 }
