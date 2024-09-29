@@ -36,7 +36,7 @@ const Properties = ({ properties }) => (
         property="og:description"
         content="Discover exclusive deals and discounts on premium properties. Don't miss out on your dream home!"
       />
-      <meta property="og:image" content="https://101-properties.com/default-image.jpg" /> {/* Replace with a relevant image URL */}
+      <meta property="og:image" content="https://101-properties.com/default-image.jpg" /> 
       <meta name="robots" content="index, follow" />
       <meta property="og:url" content="https://101-properties.com/selling-now" />
       <meta property="og:type" content="website" />
@@ -54,23 +54,36 @@ const Properties = ({ properties }) => (
       {/* Property Grid Section */}
       <div className={styles.content}>
         <div className={styles.right}>
-          {properties.map((property) => (
-            <Link
-              href={`/property/${property.slug.current}`}
-              key={property.slug.current}
-              className={styles.propertyCard}
-            >
-              <div
-                className={styles.propertyImage}
-                style={{ backgroundImage: `url(${property.imageUrl})` }}
-              ></div>
-              <div className={styles.propertyInfo}>
-                <h2 className={styles.propertyTitle}>{property.title}</h2>
-                <p className={styles.propertyLocation}>{property.location}</p>
-                <p className={styles.propertyPrice}>{property.price}</p>
-              </div>
-            </Link>
-          ))}
+          {properties && properties.length > 0 ? (
+            properties.map((property) => {
+              // Check if slug and current exist before accessing them
+              const slug = property.slug?.current;
+
+              return slug ? (
+                <Link
+                  href={`/property/${slug}`}
+                  key={slug}
+                  className={styles.propertyCard}
+                >
+                  <div
+                    className={styles.propertyImage}
+                    style={{ backgroundImage: `url(${property.imageUrl})` }}
+                  ></div>
+                  <div className={styles.propertyInfo}>
+                    <h2 className={styles.propertyTitle}>{property.title}</h2>
+                    <p className={styles.propertyLocation}>{property.location}</p>
+                    <p className={styles.propertyPrice}>{property.price}</p>
+                  </div>
+                </Link>
+              ) : (
+                <div key={property.title} className={styles.propertyCard}>
+                  <p>Invalid property data</p>
+                </div>
+              );
+            })
+          ) : (
+            <p>No properties available.</p>
+          )}
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import { sanityClient } from '../sanity/lib/client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
 import styles from './styles/Sitevisitsgallery.module.css';
 
@@ -18,13 +18,6 @@ export async function getStaticProps() {
 
 const Gallery = ({ galleryItems }) => {
   const [selectedImage, setSelectedImage] = useState(null);
-
-  useEffect(() => {
-    const pileImages = document.querySelectorAll(`.${styles.pileImage}`);
-    pileImages.forEach((image, index) => {
-      image.style.setProperty('--index', index);
-    });
-  }, [galleryItems]);
 
   const handleImageClick = (img) => {
     setSelectedImage(img);
@@ -53,7 +46,7 @@ const Gallery = ({ galleryItems }) => {
         />
         <meta
           property="og:image"
-          content="https://101-properties.com/site-visits-image.jpg" // Replace with a relevant image URL
+          content="https://101-properties.com/site-visits-image.jpg" 
         />
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/site-visits" />
@@ -74,17 +67,32 @@ const Gallery = ({ galleryItems }) => {
         <div className={styles.content}>
           {/* Right Grid Section */}
           <div className={styles.right}>
-            {galleryItems.map((item) =>
-              item.images.map((img, i) => (
-                <div key={i} className={styles.gridItem}>
-                  <img
-                    src={img}
-                    alt={item.title}
-                    className={styles.gridImage}
-                    onClick={() => handleImageClick(img)}
-                  />
-                </div>
-              ))
+            {galleryItems && galleryItems.length > 0 ? (
+              galleryItems.map((item) =>
+                item.images.map((img, i) => (
+                  <div key={i} className={styles.gridItem}>
+                    <img
+                      src={img}
+                      alt={item.title}
+                      className={styles.gridImage}
+                      onClick={() => handleImageClick(img)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          handleImageClick(img);
+                        }
+                      }}
+                      onError={(e) => {
+                        e.target.onerror = null; // Prevent infinite loop
+                        e.target.src = 'https://101-properties.com/default-image.jpg';
+                      }}
+                    />
+                  </div>
+                ))
+              )
+            ) : (
+              <p>No site visit photos available.</p>
             )}
           </div>
         </div>

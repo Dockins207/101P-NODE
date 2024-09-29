@@ -9,7 +9,7 @@ const query = `*[_type == "newProperties"]{
   title,
   price,
   location,
-  "imageUrl": mainImage.asset->url,  // Updated to reference the correct field
+  "imageUrl": mainImage.asset->url,
   slug
 }`;
 
@@ -22,7 +22,7 @@ export async function getStaticProps() {
   } catch (error) {
     console.error("Failed to fetch properties:", error);
     return {
-      props: { properties: [] }, // Return an empty array on error
+      props: { properties: [] },
     };
   }
 }
@@ -41,7 +41,7 @@ const Properties = ({ properties }) => {
   return (
     <div className={styles.container}>
       <Head>
-      <meta name="robots" content="index, follow" />
+        <meta name="robots" content="index, follow" />
         <title>Newly Listed Properties</title>
         <meta name="description" content="Discover the latest properties freshly added to the market." />
       </Head>
@@ -57,7 +57,7 @@ const Properties = ({ properties }) => {
       {/* Property Grid Section */}
       <div className={styles.content}>
         {loading ? (
-          <p>Loading properties...</p>
+          <p>Loading properties...</p> 
         ) : (
           <div className={styles.right}>
             {properties.length > 0 ? (
@@ -67,15 +67,20 @@ const Properties = ({ properties }) => {
                   key={property.slug.current}
                   className={styles.propertyCard}
                 >
-                  <div
-                    className={styles.propertyImage}
-                    style={{ backgroundImage: `url(${property.imageUrl})` }}
-                  ></div>
-                  <div className={styles.propertyInfo}>
-                    <h2 className={styles.propertyTitle}>{property.title}</h2>
-                    <p className={styles.propertyLocation}>{property.location}</p>
-                    <p className={styles.propertyPrice}>${property.price.toLocaleString()}</p>
-                  </div>
+                  <article>
+                    <div
+                      className={styles.propertyImage}
+                      style={{ backgroundImage: `url(${property.imageUrl})` }}
+                      aria-label={`Image of ${property.title}`} 
+                    ></div>
+                    <div className={styles.propertyInfo}>
+                      <h2 className={styles.propertyTitle}>{property.title}</h2>
+                      <p className={styles.propertyLocation}>{property.location}</p>
+                      <p className={styles.propertyPrice}>
+                        ${property.price.toLocaleString()}
+                      </p>
+                    </div>
+                  </article>
                 </Link>
               ))
             ) : (

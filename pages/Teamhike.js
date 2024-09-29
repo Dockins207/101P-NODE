@@ -1,5 +1,5 @@
 import { sanityClient } from '../sanity/lib/client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Head from 'next/head';
 import styles from './styles/Staffgallery.module.css';
 
@@ -18,8 +18,6 @@ export async function getStaticProps() {
 
 const Gallery = ({ galleryItems }) => {
   const [selectedImage, setSelectedImage] = useState(null);
-
-  useEffect(() => {}, [galleryItems]);
 
   const handleImageClick = (img) => {
     setSelectedImage(img);
@@ -48,7 +46,7 @@ const Gallery = ({ galleryItems }) => {
         />
         <meta
           property="og:image"
-          content="https://101-properties.com/team-hike-image.jpg" // Replace with the appropriate image URL
+          content="https://101-properties.com/team-hike-image.jpg"
         />
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/gallery" />
@@ -65,19 +63,34 @@ const Gallery = ({ galleryItems }) => {
 
         {/* Right Grid Section */}
         <div className={styles.right}>
-          {galleryItems.map((item) =>
-            item.images && item.images.length > 0
-              ? item.images.map((img, i) => (
-                  <div key={i} className={styles.gridItem}>
-                    <img
-                      src={img}
-                      alt={item.title}
-                      className={styles.gridImage}
-                      onClick={() => handleImageClick(img)}
-                    />
-                  </div>
-                ))
-              : null
+          {galleryItems && galleryItems.length > 0 ? (
+            galleryItems.map((item) =>
+              item.images && item.images.length > 0
+                ? item.images.map((img, i) => (
+                    <div key={i} className={styles.gridItem}>
+                      <img
+                        src={img}
+                        alt={item.title}
+                        className={styles.gridImage}
+                        onClick={() => handleImageClick(img)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyPress={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            handleImageClick(img);
+                          }
+                        }}
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = 'https://101-properties.com/default-image.jpg';
+                        }}
+                      />
+                    </div>
+                  ))
+                : null
+            )
+          ) : (
+            <p>No images available.</p>
           )}
         </div>
 

@@ -3,6 +3,14 @@ import Head from 'next/head';
 import styles from './styles/Newsletter.module.css';
 
 const Newsletter = () => {
+  const handleSubscription = (event) => {
+    event.preventDefault(); 
+    const emailInput = event.target.elements.email.value;
+    // Handle subscription logic here, e.g., sending the email to your backend or a third-party service
+    alert(`Thank you for subscribing with ${emailInput}`);
+    event.target.reset();n
+  };
+
   return (
     <>
       <Head>
@@ -22,12 +30,16 @@ const Newsletter = () => {
         <div
           className={styles.newsletterRow}
           onClick={() => (window.location.href = 'newsletter1.html')}
+          role="button"
+          tabIndex={0} // Makes the div focusable
+          onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter1.html')} 
         >
           <div className={styles.imageContainer}>
             <img
               src="newsletter1.jpg"
               alt="Newsletter Image 1"
               className={styles.newsletterImg}
+              loading="lazy" // Enable lazy loading
             />
           </div>
           <div className={styles.newsletterContent}>
@@ -42,12 +54,16 @@ const Newsletter = () => {
         <div
           className={styles.newsletterRow}
           onClick={() => (window.location.href = 'newsletter2.html')}
+          role="button"
+          tabIndex={0}
+          onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter2.html')}
         >
           <div className={styles.imageContainer}>
             <img
               src="newsletter2.jpg"
               alt="Newsletter Image 2"
               className={styles.newsletterImg}
+              loading="lazy"
             />
           </div>
           <div className={styles.newsletterContent}>
@@ -62,12 +78,16 @@ const Newsletter = () => {
         <div
           className={styles.newsletterRow}
           onClick={() => (window.location.href = 'newsletter3.html')}
+          role="button"
+          tabIndex={0}
+          onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter3.html')}
         >
           <div className={styles.imageContainer}>
             <img
               src="newsletter3.jpg"
               alt="Newsletter Image 3"
               className={styles.newsletterImg}
+              loading="lazy"
             />
           </div>
           <div className={styles.newsletterContent}>
@@ -84,9 +104,10 @@ const Newsletter = () => {
         <div className={styles.subscriptionContent}>
           <h2>Subscribe to Our Newsletter</h2>
           <p>Stay updated with the latest news and investment opportunities.</p>
-          <form className={styles.subscriptionForm}>
+          <form className={styles.subscriptionForm} onSubmit={handleSubscription}>
             <input
               type="email"
+              name="email" 
               placeholder="Enter your email"
               required
               className={styles.subscriptionInput}

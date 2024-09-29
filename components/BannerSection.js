@@ -5,6 +5,7 @@ const BannerSection = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Fetch the complete data including description, location, and price
   useEffect(() => {
@@ -15,14 +16,16 @@ const BannerSection = () => {
         );
         const data = await response.json();
 
-        if (data.result) {
+        if (response.ok && data.result) {
           setSlides(data.result);
-          setLoading(false);
         } else {
-          console.error('No result found in data');
+          throw new Error('No result found in data or fetch failed');
         }
       } catch (error) {
         console.error('Error fetching data:', error);
+        setError('Failed to load banners.');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -39,6 +42,8 @@ const BannerSection = () => {
 
   // Auto-rotate slides every 5 seconds
   useEffect(() => {
+    if (slides.length === 0) return;
+
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
@@ -51,6 +56,10 @@ const BannerSection = () => {
       {loading ? (
         <div className={styles.loadingSpinner}>
           <p>Loading...</p>
+        </div>
+      ) : error ? (
+        <div className={styles.error}>
+          <p>{error}</p>
         </div>
       ) : (
         slides.map((slide, index) => (
@@ -67,10 +76,10 @@ const BannerSection = () => {
               height="400"
             />
             <div className={styles.bannerText}>
-            {slide.propertyName && <h2>{slide.propertyName}</h2>}
-            {slide.location && <p>{slide.location}</p>}
-            {slide.description && <p>{slide.description}</p>}
-            {slide.price && <p>{slide.price}</p>}          
+              {slide.propertyName && <h2>{slide.propertyName}</h2>}
+              {slide.location && <p>{slide.location}</p>}
+              {slide.description && <p>{slide.description}</p>}
+              {slide.price && <p>{slide.price}</p>}          
               <a href="#" className={styles.moreInfoButton}>
                 More Info
               </a>

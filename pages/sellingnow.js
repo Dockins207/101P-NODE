@@ -38,7 +38,7 @@ const Properties = ({ properties }) => (
       />
       <meta
         property="og:image"
-        content="https://101-properties.com/selling-now-image.jpg" // Replace with a relevant image URL
+        content="https://101-properties.com/selling-now-image.jpg"
       />
       <meta name="robots" content="index, follow" />
       <meta property="og:url" content="https://101-properties.com/selling-now" />
@@ -59,23 +59,32 @@ const Properties = ({ properties }) => (
       {/* Property Grid Section */}
       <div className={styles.content}>
         <div className={styles.right}>
-          {properties.map((property) => (
-            <Link
-              href={`/property/${property.slug.current}`}
-              key={property.slug.current}
-              className={styles.propertyCard}
-            >
-              <div
-                className={styles.propertyImage}
-                style={{ backgroundImage: `url(${property.imageUrl})` }}
-              ></div>
-              <div className={styles.propertyInfo}>
-                <h2 className={styles.propertyTitle}>{property.title}</h2>
-                <p className={styles.propertyLocation}>{property.location}</p>
-                <p className={styles.propertyPrice}>{property.price}</p>
-              </div>
-            </Link>
-          ))}
+          {properties.length > 0 ? (
+            properties.map((property) => (
+              <Link
+                href={`/property/${property.slug.current}`}
+                key={`property-${property.slug.current}`}
+                className={styles.propertyCard}
+                role="link"
+              >
+                <div
+                  className={styles.propertyImage}
+                  style={{ backgroundImage: `url(${property.imageUrl})` }}
+                  onError={(e) => {
+                    e.target.onerror = null; // Prevent infinite loop
+                    e.target.style.backgroundImage = 'url(https://101-properties.com/default-image.jpg)';
+                  }}
+                ></div>
+                <div className={styles.propertyInfo}>
+                  <h2 className={styles.propertyTitle}>{property.title}</h2>
+                  <p className={styles.propertyLocation}>{property.location}</p>
+                  <p className={styles.propertyPrice}>{property.price}</p>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <p>No properties available for sale at the moment.</p>
+          )}
         </div>
       </div>
     </div>

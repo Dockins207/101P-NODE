@@ -51,7 +51,7 @@ const Gallery = ({ galleryItems }) => {
           property="og:description"
           content="Discover unique events, milestones, and behind-the-scenes glimpses from our journey at 101 Properties."
         />
-        <meta property="og:image" content="https://101-properties.com/gallery-image.jpg" /> {/* Replace with a relevant image URL */}
+        <meta property="og:image" content="https://101-properties.com/gallery-image.jpg" /> 
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/gallery" />
         <meta property="og:type" content="website" />
@@ -73,12 +73,20 @@ const Gallery = ({ galleryItems }) => {
           <div className={styles.right}>
             {galleryItems.map((item) =>
               item.images.map((img, i) => (
-                <div key={i} className={styles.gridItem}>
+                <div key={`${item.title}-${i}`} className={styles.gridItem}>
                   <img
                     src={img}
                     alt={item.title}
                     className={styles.gridImage}
                     onClick={() => handleImageClick(img)}
+                    role="button"
+                    tabIndex={0} 
+                    onKeyPress={(e) => e.key === 'Enter' && handleImageClick(img)} 
+                    onError={(e) => {
+                      e.target.onerror = null; // Prevent infinite loop
+                      e.target.src = 'https://101-properties.com/default-image.jpg'; 
+                    }}
+                    loading="lazy" 
                   />
                 </div>
               ))

@@ -51,7 +51,7 @@ const Gallery = ({ galleryItems }) => {
           property="og:description"
           content="Explore our gallery showcasing site visits and potential properties. Discover investment opportunities with 101 Properties."
         />
-        <meta property="og:image" content="https://101-properties.com/gallery-image.jpg" /> {/* Replace with a relevant image URL */}
+        <meta property="og:image" content="https://101-properties.com/gallery-image.jpg" /> 
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/gallery" />
         <meta property="og:type" content="website" />
@@ -71,16 +71,20 @@ const Gallery = ({ galleryItems }) => {
         <div className={styles.content}>
           {/* Left Pile Effect */}
           <div className={styles.left}>
-            {galleryItems.map((item) =>
-              item.images.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={item.title}
-                  className={styles.pileImage}
-                  onClick={() => handleImageClick(img)}
-                />
-              ))
+            {galleryItems && galleryItems.length > 0 ? (
+              galleryItems.map((item) =>
+                item.images.map((img, i) => (
+                  <img
+                    key={i}
+                    src={img}
+                    alt={item.title}
+                    className={styles.pileImage}
+                    onClick={() => handleImageClick(img)}
+                  />
+                ))
+              )
+            ) : (
+              <p>No images available.</p>
             )}
           </div>
 
@@ -89,17 +93,21 @@ const Gallery = ({ galleryItems }) => {
 
           {/* Right Grid Section */}
           <div className={styles.right}>
-            {galleryItems.map((item) =>
-              item.images.map((img, i) => (
-                <div key={i} className={styles.gridItem}>
-                  <img
-                    src={img}
-                    alt={item.title}
-                    className={styles.gridImage}
-                    onClick={() => handleImageClick(img)}
-                  />
-                </div>
-              ))
+            {galleryItems && galleryItems.length > 0 ? (
+              galleryItems.map((item) =>
+                item.images.map((img, i) => (
+                  <div key={i} className={styles.gridItem}>
+                    <img
+                      src={img}
+                      alt={item.title}
+                      className={styles.gridImage}
+                      onClick={() => handleImageClick(img)}
+                    />
+                  </div>
+                ))
+              )
+            ) : (
+              <p>No images available.</p>
             )}
           </div>
         </div>
