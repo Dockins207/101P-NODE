@@ -1,11 +1,10 @@
-/* General layout */
 .container {
   margin: 0 auto;
   padding: 20px;
   margin-top: 4rem;
 }
 
-/* Hero Section */
+
 .heroSection {
   position: relative;
   margin-top: 6rem;
@@ -14,7 +13,7 @@
 .heroImage {
   width: 80%;
   height: 60vh;
-  object-fit: contain;
+  object-fit: cover;
   border-radius: 10px;
   background-color: #f0f0f0;
 }
@@ -28,7 +27,7 @@
 }
 
 .heroText h1 {
-  font-size: clamp(1.8rem, 2.5vw, 3rem); /* Automatically scales font */
+  font-size: clamp(1.8rem, 2.5vw, 3rem);
 }
 
 .price,
@@ -36,7 +35,7 @@
   font-size: 1.5rem;
 }
 
-/* Gallery Section */
+
 .gallerySection {
   margin-top: 2rem;
 }
@@ -66,7 +65,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Description Section */
+
 .description {
   margin-top: 1rem;
 }
@@ -75,17 +74,17 @@
   font-size: 1.8rem;
 }
 
-/* Map Section */
+
 .mapSection {
   margin-top: 3rem;
-  width: 50%; /* Adjusts for smaller screens */
+  width: 50%; 
 }
 
 .mapSection h2 {
   margin-bottom: 1rem;
 }
 
-/* Main Content Layout */
+
 .mainContent {
   display: flex;
   justify-content: space-between;
@@ -102,12 +101,11 @@
   top: 100px;
 }
 
-/* Additional Information Section */
 .detailedInformation {
   margin-top: 2rem;
 }
 
-/* Media Queries for Responsiveness */
+
 @media (max-width: 1200px) {
   .heroImage {
     height: 50vh;
@@ -168,7 +166,7 @@
   }
 
   .mainContent {
-    flex-direction: column; /* Stacks the content */
+    flex-direction: column;
   }
 
   .leftSide {
@@ -177,12 +175,11 @@
   }
 
   .rightSide {
-    position: static; /* Removes sticky for small screens */
+    position: static;
   }
 
-  /* Contact Section (Right Side) now goes between additional info and map */
   .contactAboveMap {
-    order: 1; /* Places the contact section after additional information */
+    order: 1; 
     margin-top: 2rem;
   }
 
@@ -210,7 +207,7 @@
     height: 50px;
   }
 
-  /* Ensure proper stacking of sections on small screens */
+  
   .mainContent {
     flex-direction: column;
   }

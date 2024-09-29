@@ -67,11 +67,20 @@ const PropertyDetails = ({ property }) => {
         {/* Left side with property details */}
         <div className={styles.leftSide}>
           <section className={styles.gallerySection}>
+            {/* Property Title */}
+            <h1 className={styles.propertyTitle}>{property.title}</h1>
+
+            {/* Property Price */}
+            <h2 className={styles.propertyPrice}>Price: {property.price}</h2>
+
+            {/* Big Image */}
             <img
               src={selectedImage}
               alt={property.title}
               className={styles.heroImage}
             />
+
+            {/* Thumbnail Gallery */}
             <div className={styles.gallery}>
               {property.detailedPage?.detailedGallery?.map((image, index) => (
                 <div
@@ -89,24 +98,27 @@ const PropertyDetails = ({ property }) => {
             </div>
           </section>
 
+          {/* Property Description */}
           <div className={styles.description}>
             <h2 className={styles.heading}>Description</h2>
             <p>{property.detailedPage?.description}</p>
           </div>
 
+          {/* Additional Information */}
           <div className={styles.detailedInformation}>
             <h2 className={styles.heading}>Additional Information</h2>
             <PortableText value={property.detailedPage?.detailedInformation} />
           </div>
         </div>
-  
+
         {/* Right side with the contact form */}
         <div className={styles.rightSide}>
           <ContactForm />
         </div>
       </div>
-        {/* Map Section */}
-        <section className={styles.mapSection}>
+
+      {/* Map Section */}
+      <section className={styles.mapSection}>
         <h2 className={styles.heading}>Location</h2>
         <iframe
           src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(property.location)}`}
