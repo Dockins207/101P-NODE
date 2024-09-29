@@ -9,10 +9,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 2rem;
   z-index: 1000;
   margin-top: 1rem;
-}
+  }
 
 /* Logo Styling */
 .headerLogo {
@@ -23,9 +23,9 @@
 
 .headerLogo img {
   max-width: 90%;
-  width: 7rem;
+  width: 10rem;
   object-fit: contain;
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
 }
 
 /* Navigation for Large Screens */
