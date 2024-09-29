@@ -49,8 +49,8 @@
 
 .moreInfoButton {
   display: inline-block;
-  background-color: white;
-  color: blue;
+  background-color: red;
+  color: white;
   padding: 0.5rem 1.5rem;
   border-radius: 5px;
   text-decoration: none;
