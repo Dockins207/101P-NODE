@@ -66,21 +66,19 @@ const PropertyDetails = ({ property }) => {
       <div className={styles.mainContent}>
         {/* Left side with property details */}
         <div className={styles.leftSide}>
-          <section className={styles.gallerySection}>
-            {/* Property Title */}
-            <h1 className={styles.propertyTitle}>{property.title}</h1>
-
-            {/* Property Price */}
-            <h2 className={styles.propertyPrice}>Price: {property.price}</h2>
-
-            {/* Big Image */}
+          <section className={styles.heroSection}>
+            <div className={styles.heroText}>
+              <h1>{property.title}</h1>
+              <p className={styles.price}>${property.price}</p>
+            </div>
             <img
               src={selectedImage}
               alt={property.title}
               className={styles.heroImage}
             />
+          </section>
 
-            {/* Thumbnail Gallery */}
+          <div className={styles.gallerySection}>
             <div className={styles.gallery}>
               {property.detailedPage?.detailedGallery?.map((image, index) => (
                 <div
@@ -96,15 +94,13 @@ const PropertyDetails = ({ property }) => {
                 </div>
               ))}
             </div>
-          </section>
+          </div>
 
-          {/* Property Description */}
           <div className={styles.description}>
             <h2 className={styles.heading}>Description</h2>
             <p>{property.detailedPage?.description}</p>
           </div>
 
-          {/* Additional Information */}
           <div className={styles.detailedInformation}>
             <h2 className={styles.heading}>Additional Information</h2>
             <PortableText value={property.detailedPage?.detailedInformation} />
@@ -121,7 +117,9 @@ const PropertyDetails = ({ property }) => {
       <section className={styles.mapSection}>
         <h2 className={styles.heading}>Location</h2>
         <iframe
-          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(property.location)}`}
+          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(
+            property.location
+          )}`}
           width="100%"
           height="400"
           style={{ border: 0 }}

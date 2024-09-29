@@ -1,50 +1,49 @@
 .contactForm {
-    background-color: #fff;
-    border: 1px solid #dcdcdc;
-    padding: 20px;
-    margin-top: 4rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-  }
-  .recaptcha {
-    margin: 1rem 0;
-  }  
-  .contactForm h2 {
-    color: blue; /* Blue theme color */
-    margin-bottom: 1rem;
-  }
-  
-  .input, .textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 1rem;
-    border: 1px solid blue;
-    border-radius: 5px;
-  }
-  
-  .textarea {
-    height: 100px;
-  }
-  
-  .checkboxGroup {
-    margin-bottom: 1rem;
-  }
-  
-  .recaptcha {
-    margin-bottom: 1rem;
-  }
-  
-  .submitButton {
-    background-color: red;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .submitButton:hover {
-    background-color: #218838;
-  }
-  
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+  padding: 20px;
+  margin-top: 13rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.contactForm h2 {
+  color: blue;
+  margin-bottom: 1rem;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid blue;
+  border-radius: 5px;
+}
+
+.textarea {
+  height: 100px;
+}
+
+.checkboxGroup {
+  margin-bottom: 1rem;
+}
+
+.submitButton {
+  background-color: red;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.submitButton:active {
+  transform: scale(0.95);
+}

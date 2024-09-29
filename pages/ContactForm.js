@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styles from './styles/ContactForm.module.css';
-import ReCAPTCHA from "react-google-recaptcha";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +9,6 @@ const ContactForm = () => {
     message: '',
     siteVisit: false,
   });
-  const [captchaValue, setCaptchaValue] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -20,16 +18,8 @@ const ContactForm = () => {
     });
   };
 
-  const handleCaptchaChange = (value) => {
-    setCaptchaValue(value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!captchaValue) {
-      alert("Please verify that you are not a robot.");
-      return;
-    }
     console.log('Form submitted:', formData);
   };
 
