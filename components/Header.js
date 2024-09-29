@@ -17,7 +17,7 @@ export default function Header() {
           <img
             id="logo"
             className={styles.cropClip}
-            src="/logo/new.webp"
+            src="/logo/logo2-1.webp"
             alt="Logo"
           />
         </Link>

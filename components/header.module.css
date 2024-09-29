@@ -23,9 +23,9 @@
 
 .headerLogo img {
   max-width: 90%;
-  width: 10rem;
+  width: 8rem;
   object-fit: contain;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
 }
 
 /* Navigation for Large Screens */

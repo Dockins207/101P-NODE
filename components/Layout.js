@@ -1,3 +1,4 @@
+import React from 'react';
 import TopBar from './TopBar';
 import Header from './Header';
 import Footer from './Footer';
@@ -9,7 +10,9 @@ export default function Layout({ children }) {
     <div className={styles.pageWrapper}>
       <TopBar />
       <Header />
-      <main className={styles.mainContent}>{children}</main>
+      <main className={styles.mainContent}>
+        {children} 
+      </main>
       <FloatingIcons />
       <Footer />
     </div>
