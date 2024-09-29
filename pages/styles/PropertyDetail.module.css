@@ -2,6 +2,7 @@
 .container {
   margin: 0 auto;
   padding: 20px;
+  margin-top: 4rem;
 }
 
 /* Hero Section */
@@ -11,7 +12,7 @@
 }
 
 .heroImage {
-  width: 50%;
+  width: 80%;
   height: 60vh;
   object-fit: contain;
   border-radius: 10px;
@@ -27,8 +28,7 @@
 }
 
 .heroText h1 {
-  font-size: 3rem;
-  margin: 0;
+  font-size: clamp(1.8rem, 2.5vw, 3rem); /* Automatically scales font */
 }
 
 .price,
@@ -63,19 +63,48 @@
 
 .imageThumbnail:hover .image {
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Description Section */
 .description {
-  margin-top: 30px;
+  margin-top: 1rem;
 }
 
 .heading {
   font-size: 1.8rem;
 }
 
+/* Map Section */
+.mapSection {
+  margin-top: 3rem;
+  width: 50%; /* Adjusts for smaller screens */
+}
+
+.mapSection h2 {
+  margin-bottom: 1rem;
+}
+
+/* Main Content Layout */
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftSide {
+  flex: 3;
+  margin-right: 20px;
+}
+
+.rightSide {
+  flex: 1;
+  position: sticky;
+  top: 100px;
+}
+
+/* Additional Information Section */
 .detailedInformation {
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 /* Media Queries for Responsiveness */
@@ -137,6 +166,29 @@
     width: 70px;
     height: 55px;
   }
+
+  .mainContent {
+    flex-direction: column; /* Stacks the content */
+  }
+
+  .leftSide {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .rightSide {
+    position: static; /* Removes sticky for small screens */
+  }
+
+  /* Contact Section (Right Side) now goes between additional info and map */
+  .contactAboveMap {
+    order: 1; /* Places the contact section after additional information */
+    margin-top: 2rem;
+  }
+
+  .mapSection {
+    margin-top: 1.5rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -156,5 +208,16 @@
   .image {
     width: 60px;
     height: 50px;
+  }
+
+  /* Ensure proper stacking of sections on small screens */
+  .mainContent {
+    flex-direction: column;
+  }
+
+  .rightSide {
+    position: static;
+    order: 1;
+    margin-top: 1rem;
   }
 }
