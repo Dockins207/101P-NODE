@@ -122,8 +122,8 @@ const FAQ = () => {
             Back Home &rarr;
           </a>
         </div>
-        <FeaturedProperties />
       </section>
+      <FeaturedProperties />
     </>
   );
 };
