@@ -2,6 +2,8 @@
   margin: 0 auto;
   padding: 20px;
   margin-top: 1rem;
+  max-width: 100%; /* Prevent overflow */
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 .heroSection {
@@ -11,7 +13,7 @@
 
 .heroText {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduced margin */
 }
 
 .heroText h1 {
@@ -36,7 +38,7 @@
 }
 
 .gallerySection {
-  margin-top: 2rem;
+  margin-top: 1.5rem; /* Reduced space */
 }
 
 .gallery {
@@ -73,7 +75,7 @@
 }
 
 .mapSection {
-  margin-top: 3rem;
+  margin-top: 2rem; /* Reduced space */
   width: 50%;
 }
 
@@ -98,9 +100,22 @@
 }
 
 .detailedInformation {
-  margin-top: 2rem;
+  margin-top: 1.5rem; /* Reduced margin */
 }
 
+.sectionSeparator {
+  border-top: 1px solid blue; /* Thin blue line */
+  width: 80%; /* Matches the width of the content */
+  margin: 1rem auto; /* Center the line */
+}
+
+
+.text-content {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Responsive Adjustments */
 @media (max-width: 1200px) {
   .heroImage {
     height: 50vh;

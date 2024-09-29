@@ -48,8 +48,7 @@ export async function getStaticProps({ params }) {
 
 const PropertyDetails = ({ property }) => {
   const [selectedImage, setSelectedImage] = useState(
-    property.mainImage ||
-    property.detailedPage?.detailedGallery?.[0]?.asset?.url
+    property.mainImage || property.detailedPage?.detailedGallery?.[0]?.asset?.url
   );
 
   const handleImageClick = (img) => {
@@ -101,6 +100,9 @@ const PropertyDetails = ({ property }) => {
             <p>{property.detailedPage?.description}</p>
           </div>
 
+          {/* Blue separator line */}
+          <div className={styles.sectionSeparator}></div>
+
           <div className={styles.detailedInformation}>
             <h2 className={styles.heading}>Additional Information</h2>
             <PortableText value={property.detailedPage?.detailedInformation} />
@@ -113,6 +115,8 @@ const PropertyDetails = ({ property }) => {
         </div>
       </div>
 
+      {/* Blue separator line */}
+      <div className={styles.sectionSeparator}></div>
       {/* Map Section */}
       <section className={styles.mapSection}>
         <h2 className={styles.heading}>Location</h2>

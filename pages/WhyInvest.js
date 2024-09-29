@@ -104,8 +104,8 @@ const WhyInvest = () => {
             estate.
           </p>
         </div>
-        <FeaturedProperties />
       </section>
+      <FeaturedProperties />
     </>
   );
 };
