@@ -49,7 +49,7 @@
 
 .review-stars {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   color: gold;
   font-size: 1rem;
   margin-bottom: 0.25rem;
