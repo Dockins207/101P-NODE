@@ -4,7 +4,9 @@ import styles from './BannerSection.module.css';
 const BannerSection = () => {
   const [slides, setSlides] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [loading, setLoading] = useState(true);
 
+  // Fetch the complete data including description, location, and price
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,6 +17,7 @@ const BannerSection = () => {
 
         if (data.result) {
           setSlides(data.result);
+          setLoading(false);
         } else {
           console.error('No result found in data');
         }
@@ -26,38 +29,55 @@ const BannerSection = () => {
     fetchData();
   }, []);
 
+  // Preload images for smoother transitions
+  useEffect(() => {
+    slides.forEach(slide => {
+      const img = new Image();
+      img.src = slide.imageUrl;
+    });
+  }, [slides]);
+
+  // Auto-rotate slides every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000); // Change slides every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slides.length]);
 
   return (
     <div className={styles.sliderContainer}>
-      {slides.map((slide, index) => (
-        <div
-          key={slide.uuid}
-          className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
-        >
-          <img
-            src={slide.imageUrl}
-            alt={slide.description}
-            className={styles.image}
-            loading="lazy" // Lazy load images
-          />
-          <div className={styles.bannerText}>
-            <h2>{slide.propertyName || 'No Title Available'}</h2>
-            <p>{slide.location || 'Location Not Available'}</p>
-            <p>{slide.description}</p>
-            <p>{slide.price ? `${slide.price}` : 'Price Not Available'}</p>
-            <a href="#" className={styles.moreInfoButton}>
-              More Info
-            </a>
-          </div>
+      {loading ? (
+        <div className={styles.loadingSpinner}>
+          <p>Loading...</p>
         </div>
-      ))}
+      ) : (
+        slides.map((slide, index) => (
+          <div
+            key={slide.uuid}
+            className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
+          >
+            <img
+              src={slide.imageUrl}
+              alt={slide.description}
+              className={styles.image}
+              loading="lazy"
+              width="600"
+              height="400"
+            />
+            <div className={styles.bannerText}>
+            {slide.propertyName && <h2>{slide.propertyName}</h2>}
+            {slide.location && <p>{slide.location}</p>}
+            {slide.description && <p>{slide.description}</p>}
+            {slide.price && <p>{slide.price}</p>}          
+              <a href="#" className={styles.moreInfoButton}>
+                More Info
+              </a>
+            </div>
+          </div>
+        ))
+      )}
     </div>
   );
 };
