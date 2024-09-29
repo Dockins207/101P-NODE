@@ -185,8 +185,8 @@ export default function ManagementTeam() {
             </div>
           </div>
         </div>
-        <FeaturedProperties />
       </section>
+      <FeaturedProperties />
     </div>
   );
 }

@@ -38,8 +38,8 @@ export default function Awards() {
             />
           </div>
         </div>
-       <FeaturedProperties />
       </main>
+      <FeaturedProperties />
     </>
   );
 }

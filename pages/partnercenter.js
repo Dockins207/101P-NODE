@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import styles from './styles/PartnerCenter.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 const PartnerCenter = () => {
   return (
@@ -52,7 +53,9 @@ const PartnerCenter = () => {
             <a className={styles.ctaLink}>Refer Now</a>
           </Link>
         </div>
+        
       </section>
+      <FeaturedProperties />
     </>
   );
 };

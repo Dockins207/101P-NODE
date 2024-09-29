@@ -30,8 +30,8 @@ const Careers = () => {
             <button className={styles.subscribeButton}>Subscribe</button>
           </div>
         </div>
-        <FeaturedProperties />
       </section>
+      <FeaturedProperties />
     </>
   );
 };

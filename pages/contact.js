@@ -1,4 +1,5 @@
 import styles from './styles/Contact.module.css';
+import FeaturedProperties from '../components/FeaturedProperties';
 
 const Contact = () => {
   return (
@@ -70,6 +71,7 @@ const Contact = () => {
           </form>
         </div>
       </section>
+      <FeaturedProperties />
     </>
   );
 };
