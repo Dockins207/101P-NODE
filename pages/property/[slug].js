@@ -26,9 +26,6 @@ export async function getStaticPaths() {
   const pathsQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut"]]{ "slug": slug.current }`;
   const properties = await sanityClient.fetch(pathsQuery);
 
-  // Log the fetched properties to check the slugs
-  console.log('Fetched properties:', properties);
-
   const paths = properties.map((property) => ({
     params: { slug: String(property.slug) },
   }));
@@ -41,9 +38,6 @@ export async function getStaticProps({ params }) {
 
   // Fetch property details based on slug
   const property = await sanityClient.fetch(query, { slug });
-
-  // Log the fetched property to debug
-  console.log('Fetched property:', property);
 
   if (!property) {
     return {
@@ -91,7 +85,6 @@ const PropertyDetails = ({ property }) => {
 
       {/* Property Gallery Section */}
       <section className={styles.gallerySection}>
-        <h2 className={styles.galleryHeading}>Property Gallery</h2>
         <div className={styles.gallery}>
           {property.detailedPage?.detailedGallery?.map((image, index) => (
             <div
