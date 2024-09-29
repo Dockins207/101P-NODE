@@ -115,9 +115,9 @@ export default function Gallery() {
           onClick={() => (window.location.href = '/Teamhike')}
         >
           <div className={styles.imageStack}>
-            <img src="#" alt="Team hike adventure 1" />
-            <img src="#" alt="Team hike adventure 2" />
-            <img src="#" alt="Team hike adventure 3" />
+          <img src="/101 properties imgs/ad3.png" alt="Team hike adventure 3" />
+            <img src="/101 properties imgs/ad2.png" alt="Team hike adventure 2" />
+            <img src="/101 properties imgs/ad1.png" alt="Team hike adventure 1" />
           </div>
           <div className={styles.contentSection}>
             <h2>Team Hikes</h2>
