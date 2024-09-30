@@ -10,14 +10,14 @@ import banner from './banner';
 import featuredProperties from './featuredProperties';
 
 export const schemaTypes = [
-  gallery,
+  banner, 
+  featuredProperties,
   sellingNow,
   offers,
   newProperties,
   soldOut,
+  gallery,
   news,
   blogPost,
   blockContent,
-  banner,
-  featuredProperties, 
 ];

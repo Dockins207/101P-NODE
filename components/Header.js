@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from './header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import Search from './Search'; // Ensure this path is correct
 
 export default function Header() {
   const [isNavActive, setIsNavActive] = useState(false);
@@ -74,7 +75,7 @@ export default function Header() {
         <button id="search-toggle" onClick={toggleSearch}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
-        <input type="text" id="search-input" placeholder="Search..." />
+        <Search /> {/* Use the Search component here */}
       </div>
       <button
         className={`${styles.hamburger} ${isNavActive ? styles.active : ''}`}
