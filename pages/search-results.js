@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
-import { client } from '../sanity/lib/client';
+import { sanityClient as client } from '../sanity/lib/client'; // Updated to match your Sanity client setup
 import Link from 'next/link';
+import styles from './styles/SellingNow.module.css';
 
-
-export default function SearchResults({ properties, totalPages, currentPage }) {
+export default function NewSearchResults({ properties, totalPages, currentPage }) {
   const router = useRouter();
   const { location } = router.query;
 
@@ -25,20 +25,20 @@ export default function SearchResults({ properties, totalPages, currentPage }) {
       </ul>
 
       {/* Pagination controls */}
-      <div className="pagination">
+      <div className={styles.pagination}>
         {currentPage > 1 && (
           <Link href={`/search-results?location=${location}&page=${currentPage - 1}`}>
-            <a>Previous</a>
+            Previous
           </Link>
         )}
         {Array.from({ length: totalPages }, (_, i) => (
           <Link key={i} href={`/search-results?location=${location}&page=${i + 1}`}>
-            <a className={currentPage === i + 1 ? 'active' : ''}>{i + 1}</a>
+            <span className={currentPage === i + 1 ? styles.active : ''}>{i + 1}</span>
           </Link>
         ))}
         {currentPage < totalPages && (
-          <Link href={`/search-results?location=${location}&page=${currentPage + 1}`}>
-            <a>Next</a>
+          <Link href={`/search-results?location=${location}&page={currentPage + 1}`}>
+            Next
           </Link>
         )}
       </div>

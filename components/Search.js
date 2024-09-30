@@ -1,7 +1,6 @@
-// components/Search.js
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { client } from '../sanity/lib/client';
+import { sanityClient as client } from '../sanity/lib/client'; // Adjust the import
 import styles from './Search.module.css';
 
 export default function Search() {
@@ -12,42 +11,38 @@ export default function Search() {
   const router = useRouter();
   let debounceTimer;
 
-  // Handle input change and debounce the API call
   const handleInputChange = (e) => {
     const value = e.target.value;
     setQuery(value);
 
-    // Clear previous timer
     if (debounceTimer) {
       clearTimeout(debounceTimer);
     }
 
-    // Set a new debounce timer
     debounceTimer = setTimeout(() => {
       if (value.length > 1) {
-        setLoading(true); // Show loading indicator
+        setLoading(true);
         fetchSuggestions(value);
       } else {
         setSuggestions([]);
         setDropdownVisible(false);
         setLoading(false);
       }
-    }, 300); // Delay of 300ms before fetching data
+    }, 300);
   };
 
-  // Fetch matching locations from Sanity
   const fetchSuggestions = async (searchValue) => {
     const results = await client.fetch(
       `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties", "soldOut"] && location match $location]{
         location
       }`,
-      { location: `${searchValue}*` } // Perform location search
+      { location: `${searchValue}*` }
     );
 
     const uniqueLocations = [...new Set(results.map((item) => item.location))];
     setSuggestions(uniqueLocations);
     setDropdownVisible(true);
-    setLoading(false); // Hide loading indicator
+    setLoading(false);
   };
 
   const handleLocationClick = (location) => {
