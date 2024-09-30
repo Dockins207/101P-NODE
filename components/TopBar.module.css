@@ -20,16 +20,16 @@
 }
 
 .icon {
-  font-size: 1rem; /* Adjust this size as necessary */
+  font-size: 1rem;
   text-decoration: none;
-  padding: 0.5rem; /* Adjust padding as needed */
-  max-width: 50px; /* Limit the icon size */
-  max-height: 50px; /* Limit the icon size */
-  display: inline-block; /* Ensure they stay in line */
+  padding: 0.5rem;
+  max-width: 50px;
+  max-height: 50px;
+  display: inline-block;
 }
 
 .icon:hover {
-  color: lightgray; /* Change color on hover */
+  color: lightgray; 
 }
 
 .contactInfo {
@@ -44,21 +44,20 @@
 }
 
 .contactLink:hover {
-  color: black; /* Change color on hover */
+  color: black; 
 }
 
-/* Responsive Styling */
 @media (max-width: 768px) {
   .topBar {
-    flex-direction: column; /* Stack items on smaller screens */
-    align-items: center; /* Center-align items */
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .socialIcons {
-    margin-bottom: 0.5rem; /* Margin for social icons */
+    margin-bottom: 0.5rem;
   }
 
   .contactLink {
-    font-size: 0.7rem; /* Smaller size on mobile */
+    font-size: 0.7rem; 
   }
 }
