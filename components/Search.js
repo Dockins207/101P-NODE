@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { sanityClient as client } from '../sanity/lib/client'; // Adjust the import
+import { sanityClient as client } from '../sanity/lib/client';
 import styles from './Search.module.css';
 
 export default function Search() {
@@ -33,7 +33,7 @@ export default function Search() {
 
   const fetchSuggestions = async (searchValue) => {
     const results = await client.fetch(
-      `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties", "soldOut"] && location match $location]{
+      `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties",] && location match $location]{
         location
       }`,
       { location: `${searchValue}*` }
@@ -48,8 +48,26 @@ export default function Search() {
   const handleLocationClick = (location) => {
     router.push(`/search-results?location=${location}`);
     setDropdownVisible(false);
-    setQuery(location);
+    setQuery(''); // Clear the query
+    setSuggestions([]); // Clear suggestions
   };
+
+  // Optional: Hide dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const dropdown = document.querySelector(`.${styles.suggestionsDropdown}`);
+      const searchInput = document.querySelector(`.${styles.searchContainer} input`);
+
+      if (dropdown && !dropdown.contains(event.target) && !searchInput.contains(event.target)) {
+        setDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className={styles.searchContainer}>

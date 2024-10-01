@@ -1,28 +1,37 @@
 import { useRouter } from 'next/router';
-import { sanityClient as client } from '../sanity/lib/client'; // Updated to match your Sanity client setup
+import { sanityClient as client } from '../sanity/lib/client';
 import Link from 'next/link';
-import styles from './styles/SellingNow.module.css';
+import styles from './styles/Properties.module.css';
 
 export default function NewSearchResults({ properties, totalPages, currentPage }) {
   const router = useRouter();
   const { location } = router.query;
 
   return (
-    <div>
-      <h1>Properties in {location}</h1>
-      <ul>
+    <div className={styles.container}>
+      <h1 className={styles.header}>
+        Explore Properties Available in {location}
+      </h1>
+      <p className={styles.headerText}>Browse our current listings of properties ready for sale.</p>
+
+      <div className={styles.gridContainer}>
         {properties.length > 0 ? (
           properties.map((property) => (
-            <li key={property._id}>
-              <h2>{property.title}</h2>
-              <p>{property.location}</p>
-              <img src={property.mainImage?.asset?.url} alt={property.title} />
-            </li>
+            <Link key={property._id} href={`/property/${property.slug.current}`} passHref>
+              <div className={styles.propertyCard}>
+                <img src={property.mainImage?.asset?.url} alt={property.title} className={styles.propertyImage} />
+                <div className={styles.propertyDetails}>
+                  <h2 className={styles.propertyTitle}>{property.title}</h2>
+                  <p className={styles.propertyLocation}>{property.location}</p>
+                  <p className={styles.propertyPrice}>Ksh. {property.price}</p>
+                </div>
+              </div>
+            </Link>
           ))
         ) : (
-          <li>No properties found in {location}.</li>
+          <p>No properties found in {location}.</p>
         )}
-      </ul>
+      </div>
 
       {/* Pagination controls */}
       <div className={styles.pagination}>
@@ -37,7 +46,7 @@ export default function NewSearchResults({ properties, totalPages, currentPage }
           </Link>
         ))}
         {currentPage < totalPages && (
-          <Link href={`/search-results?location=${location}&page={currentPage + 1}`}>
+          <Link href={`/search-results?location=${location}&page=${currentPage + 1}`}>
             Next
           </Link>
         )}
@@ -49,11 +58,11 @@ export default function NewSearchResults({ properties, totalPages, currentPage }
 // Get server-side properties for search results
 export async function getServerSideProps(context) {
   const { location, page = 1 } = context.query;
-  const perPage = 10; // Number of properties per page
+  const perPage = 10;
   const start = (page - 1) * perPage;
 
   // Query to fetch limited properties for the current page
-  const query = `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties", "soldOut"] && location match $location] | order(_createdAt desc) {
+  const query = `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location] | order(_createdAt desc) {
     _id,
     title,
     location,
@@ -61,13 +70,15 @@ export async function getServerSideProps(context) {
       asset -> {
         url
       }
-    }
+    },
+    price,
+    slug // Ensure you include the slug in the query
   } [${start}...${start + perPage}]`;
 
   const properties = await client.fetch(query, { location: `${location}*` });
 
   // Get the total number of properties for the location
-  const totalQuery = `count(*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties", "soldOut"] && location match $location])`;
+  const totalQuery = `count(*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location])`;
   const totalResults = await client.fetch(totalQuery, { location: `${location}*` });
 
   const totalPages = Math.ceil(totalResults / perPage);

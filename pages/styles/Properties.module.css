@@ -1,0 +1,129 @@
+.container {
+    padding: 1.25rem;
+    position: relative;
+    margin-top: 7rem;
+    width: 100%;
+}
+
+.headerContainer {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.header {
+    font-size: 2rem;
+    margin: 0;
+    color: blue;
+}
+
+.headerText {
+    margin-top: 0.625rem;
+    font-size: 1rem;
+    color: #555;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr)); /* Default for larger screens */
+    grid-gap: 1rem;
+    padding: 1rem;
+}
+
+.propertyCard {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.propertyCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.propertyImage {
+    width: 100%;
+    height: 200px; /* Default height for larger screens */
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.propertyDetails {
+    padding: 1rem;
+    text-align: left;
+}
+
+.propertyTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.propertyLocation {
+    font-size: 1rem;
+    color: #777;
+    margin: 0.5rem 0;
+}
+
+.propertyPrice {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: blue;
+}
+
+.pagination {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: blue;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
+
+.pagination a.active {
+    font-weight: bold; 
+    color: darkblue;
+}
+
+.propertyCard a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    }
+    .propertyCard {
+        width: auto; /* Auto width to take full available space */
+    }
+    .propertyImage {
+        height: 150px; /* Reduced height for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for small screens */
+    }
+    .propertyCard {
+        width: auto; /* Auto width to take full available space */
+    }
+    .propertyImage {
+        height: 120px; /* Further reduced height for small screens */
+    }
+}

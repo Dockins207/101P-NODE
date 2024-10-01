@@ -48,8 +48,10 @@ h2 {
   color: blue;
   margin-bottom: 1rem;
 }
-
-
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
 @media (max-width: 768px) {
   body {
     font-size: 0.875rem;

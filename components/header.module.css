@@ -1,241 +1,224 @@
 /* Header Styles */
 .headerWrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  box-shadow: 0 10px 16px rgba(0, 0, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 2rem;
-  z-index: 1000;
-  margin-top: 1rem;
-  }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0rem;
+    background-color: #fff;
+    box-shadow: 0 10px 16px rgba(0, 0, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4.5rem 2rem;
+    z-index: 1000;
+}
 
-/* Logo Styling */
+.contentWrapper {
+    margin-top: 0rem;
+}
+
 .headerLogo {
-  flex: 1;
-  display: flex;
-  align-items: center;
+    flex: 10 10 auto;
+    display: flex;
+    align-items: center;
 }
 
 .headerLogo img {
-  max-width: 90%;
-  width: 8rem;
-  object-fit: contain;
-  margin-top: 0.6rem;
+    max-width: 100%;
+    width: 10rem;
+    object-fit: contain;
+    margin-top: 2rem;
 }
 
-/* Navigation for Large Screens */
 .headerNav {
-  display: flex;
-  align-items: center;
-  flex: 2;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
 }
 
 .navLinks {
-  display: flex;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    list-style-type: none;
+    margin-top: 2rem;
+    padding: 0;
 }
 
 .navLinks > li {
-  margin: 0 1rem;
+    margin: 0 1rem;
 }
 
 .navLinks a {
-  color: black;
-  text-transform: none;
-  font-weight: bold;
-  text-decoration: none;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .headerDropdown {
-  position: relative;
+    position: relative;
 }
 
 .dropdownContent {
-  display: none;
-  position: absolute;
-  background-color: #0000ff;
-  min-width: 10rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-  padding: 0.625rem;
+    display: none;
+    position: absolute;
+    background-color: #0000ff;
+    min-width: 10rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    padding: 0.625rem;
 }
 
 .headerDropdown:hover .dropdownContent {
-  display: block;
+    display: block;
 }
 
 .dropdownContent a {
-  display: block;
-  padding: 0.5rem 0.75rem;
-  text-decoration: none;
-  color: #f7f4f4;
-  font-size: 0.875rem;
-  border-bottom: 1px solid red;
-  margin-bottom: 0.25rem;
-  transition: color 0.3s ease;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    text-decoration: none;
+    color: #f7f4f4;
+    font-size: 0.875rem;
+    border-bottom: 1px solid red;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
 }
 
-/* Hover Effect */
 .dropdownContent a:hover {
-  color: red;
+    color: red;
 }
 
-/* Hamburger Menu - Large screens */
 .hamburger {
-  display: none;
+    display: none;
 }
 
-/* Search Icon for Large Screens */
 .headerSearch {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  position: relative;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-left: auto;
+    position: relative;
+    transition: opacity 0.3s ease, left 0.3s ease;
 }
 
 .headerSearch input {
-  display: none; /* Hidden by default */
-  padding: 0.5rem;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
+    margin-right: 0.5rem;
 }
 
-.headerSearch button {
-  background: none;
-  border: none;
-  color: #000;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-/* Show search input when icon is clicked (for large screens) */
-.headerSearch.show input {
-  display: block;
-}
-
-/* Header Styling for Mobile */
-@media (max-width: 768px) {
-  .headerWrapper {
-    justify-content: space-between;
-    margin-top: 2rem;
-    height: 5rem;
-  }
-
-  /* Logo Styling */
-  .headerLogo {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    margin-left: -2rem;
-    height: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  /* Hamburger Menu - Show for mobile */
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 2rem;
-    height: 1.5rem;
-    cursor: pointer;
-    margin-bottom: 0;
-    margin-right: -1rem;
-  }
-
-  .hamburger .bar {
-    width: 100%;
-    height: 0.2rem;
-    background-color: blue;
-    border-radius: 0.3rem;
-    transition: all 0.3s ease;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg) translate(0.25rem, 0.25rem);
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg) translate(0.25rem, -0.25rem);
-  }
-
-  /* Mobile navigation menu */
-  .headerNav {
+.headerSearch input {
     display: none;
-    flex-direction: column;
-    position: fixed;
-    top: 6rem;
-    left: 0;
-    right: 0;
-    background-color: #f3f3f3;
-    z-index: 2002;
-    padding: 1rem;
-    justify-content: center;
-  }
-
-  .headerNav.active {
-    display: flex;
-  }
-
-  .navLinks {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  /* Reduced space between hamburger menu links */
-  .navLinks > li {
-    margin: 0.5rem 0;
-  }
-
-  /* Dropdown Centering for Mobile */
-  .dropdownContent {
-    width: 100%;
-    text-align: center;
-    margin-top: 0.5rem;
-    background-color: rgba(0, 0, 255, 1);
-    opacity: 1;
-    z-index: 2000;
-  }
-
-  /* Red Hover Effect on Dropdown Links (Mobile) */
-  .dropdownContent a:hover {
-    color: red;
-  }
-
-  .headerDropdown.active .dropdownContent {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: rgba(0, 0, 255, 1);
-    z-index: 2000;
-  }
-
-  /* Search Bar in Hamburger Menu */
-  .headerSearch {
-    margin-right: 1rem;
-  }
-
-  .headerNav.active .headerSearch {
-    display: block;
-  }
-
-  .headerNav.active .headerSearch input {
-    width: 100%;
     padding: 0.5rem;
     border: 1px solid #ddd;
     border-radius: 0.5rem;
-  }
+    font-size: 0.7rem;
+}
+
+.headerSearch button {
+    color: #000;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.headerSearch.show input {
+    display: block;
+}
+
+/* Mobile Header Styling */
+@media (max-width: 768px) {
+    .headerWrapper {
+        justify-content: space-between;
+        margin-top: 2rem;
+        height: 4rem;
+    }
+
+    .headerLogo {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        margin-left: -2rem;
+        height: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 1.5rem;
+        cursor: pointer;
+        margin-right: -1rem;
+    }
+
+    .hamburger .bar {
+        width: 100%;
+        height: 0.2rem;
+        background-color: blue;
+        border-radius: 0.3rem;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(0.25rem, 0.25rem);
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(0.25rem, -0.25rem);
+    }
+
+    .headerNav {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 6rem;
+        left: 0;
+        right: 0;
+        background-color: #f3f3f3;
+        z-index: 2002;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .headerNav.active {
+        display: flex;
+    }
+
+    .navLinks {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navLinks > li {
+        margin: 0.5rem 0;
+    }
+
+    .dropdownContent {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+        background-color: rgba(0, 0, 255, 1);
+        opacity: 1;
+        z-index: 2000;
+    }
+
+    .dropdownContent a {
+        border: none;
+    }
+
+    .headerSearch {
+        position: absolute;
+        right: 1rem;
+    }
+
+    .headerSearch.show input {
+        display: block;
+        position: absolute;
+        top: 3rem;
+        right: 0;
+        width: 15rem;
+    }
 }

@@ -8,7 +8,7 @@ const query = `*[_type == "sellingNow"]{
   title,
   price,
   location,
-  "imageUrl": mainImage.asset->url,  // Correct field for the main image
+  "imageUrl": mainImage.asset->url,
   slug
 }`;
 

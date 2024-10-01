@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Search from './Search'; // Ensure this path is correct
+import Search from './Search';
 
 export default function Header() {
   const [isNavActive, setIsNavActive] = useState(false);
@@ -15,68 +15,75 @@ export default function Header() {
   return (
     <header className={styles.headerWrapper}>
       <div className={styles.headerLogo}>
-        <Link href="/" passHref>
+        {/* No need for `a` tag */}
+        <Link href="/" className={styles.cropClip}>
           <img
             id="logo"
-            className={styles.cropClip}
-            src="/logo/logo2-1.webp"
+            src="/logo/logo2-1.webp" // Ensure the path is correct
             alt="Logo"
           />
         </Link>
       </div>
+
       <nav className={`${styles.headerNav} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.navLinks}>
           <li className={styles.headerDropdown}>
-            <a href="#">ABOUT</a>
+            <Link href="#">ABOUT</Link>
             <div className={styles.dropdownContent}>
-              <Link href="/WhyInvest" passHref>Why Invest With Us</Link>
-              <Link href="/ManagementTeam" passHref>Management Team</Link>
-              <Link href="/awards" passHref>Awards</Link>
-              <Link href="/careers" passHref>Careers</Link>
+              <Link href="/WhyInvest">Why Invest With Us</Link>
+              <Link href="/ManagementTeam">Management Team</Link>
+              <Link href="/awards">Awards</Link>
+              <Link href="/careers">Careers</Link>
             </div>
           </li>
           <li className={styles.headerDropdown}>
-            <a href="#">PROPERTIES</a>
+            <Link href="#">PROPERTIES</Link>
             <div className={styles.dropdownContent}>
-              <Link href="/newproperties" passHref>New Properties</Link>
-              <Link href="/sellingnow" passHref>Selling Now</Link>
-              <Link href="/offers" passHref>Offers</Link>
-              <Link href="/soldout" passHref>Sold Out</Link>
-              <Link href="/howtobuy" passHref>How To Buy Land</Link>
+              <Link href="/newproperties">New Properties</Link>
+              <Link href="/sellingnow">Selling Now</Link>
+              <Link href="/offers">Offers</Link>
+              <Link href="/soldout">Sold Out</Link>
+              <Link href="/howtobuy">How To Buy Land</Link>
             </div>
           </li>
           <li className={styles.headerDropdown}>
-            <a href="#">PRODUCTS</a>
+            <Link href="#">PRODUCTS</Link>
             <div className={styles.dropdownContent}>
-              <Link href="/partnercenter" passHref>Partner Center</Link>
+              <Link href="/partnercenter">Partner Center</Link>
             </div>
           </li>
           <li className={styles.headerDropdown}>
-            <a href="#">MEDIA</a>
+            <Link href="#">MEDIA</Link>
             <div className={styles.dropdownContent}>
-              <Link href="/blogs" passHref>Blogs</Link>
-              <Link href="/news" passHref>News</Link>
-              <Link href="/gallery" passHref>Gallery</Link>
-              <Link href="/newsletter" passHref>Newsletter</Link>
+              <Link href="/blogs">Blogs</Link>
+              <Link href="/news">News</Link>
+              <Link href="/gallery">Gallery</Link>
+              <Link href="/newsletter">Newsletter</Link>
             </div>
           </li>
+
+          {/* Mobile-only Links */}
           <li className={styles.mobileOnly}>
-            <Link href="/diaspora" passHref>DIASPORA</Link>
+            <Link href="/diaspora">DIASPORA</Link>
           </li>
           <li className={styles.mobileOnly}>
-            <Link href="/faqspage" passHref>FAQS</Link>
+            <Link href="/faqspage">FAQS</Link>
           </li>
           <li className={styles.mobileOnly}>
-            <Link href="/contact" passHref>CONTACT</Link>
+            <Link href="/contact">CONTACT</Link>
           </li>
         </ul>
       </nav>
+
+      {/* Search Component */}
       <div className={`${styles.headerSearch} ${isSearchVisible ? styles.show : ''}`}>
         <button id="search-toggle" onClick={toggleSearch}>
           <FontAwesomeIcon icon={faSearch} />
         </button>
-        <Search /> {/* Use the Search component here */}
+        {isSearchVisible && <Search />}
       </div>
+
+      {/* Hamburger Menu */}
       <button
         className={`${styles.hamburger} ${isNavActive ? styles.active : ''}`}
         aria-label="Menu Toggle"
