@@ -8,6 +8,7 @@ import blogPost from './blogPost';
 import blockContent from './blockContent';
 import banner from './banner';
 import featuredProperties from './featuredProperties';
+import statistics from './statistics';
 
 export const schemaTypes = [
   banner, 
@@ -20,4 +21,5 @@ export const schemaTypes = [
   news,
   blogPost,
   blockContent,
+  statistics,
 ];

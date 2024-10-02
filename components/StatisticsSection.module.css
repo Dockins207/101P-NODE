@@ -1,22 +1,16 @@
-/* components/StatisticsSection.module.css */
-
 .statisticsSection {
-  padding: 2rem 0; /* Reduced overall padding for the section */
-  background: url('../public/101 properties imgs/STATISTICS 2.svg') no-repeat
-    center center/cover;
+  padding: 0.5rem 0;
   position: relative;
-  color: black;
   text-align: center;
-  margin-top: 6rem;
 }
 
 .statisticsBackground {
-  padding: 0.5rem; /* Reduced padding for the background */
+  padding: 0.5rem;
 }
 
 .statisticsSection h2 {
   font-size: 2.5rem;
-  margin-bottom: 7rem; /* Reduced margin-bottom to decrease space between header and boxes */
+  margin-bottom: 7rem;
   color: blue;
 }
 
@@ -52,8 +46,8 @@
 }
 
 .statNumber {
-  font-size: 2rem;
-  color: black;
+  font-size: 3rem;
+  color: blue;
 }
 
 .show {
