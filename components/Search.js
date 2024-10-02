@@ -8,6 +8,7 @@ export default function Search() {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [noResults, setNoResults] = useState(false);
   const router = useRouter();
   let debounceTimer;
 
@@ -27,6 +28,7 @@ export default function Search() {
         setSuggestions([]);
         setDropdownVisible(false);
         setLoading(false);
+        setNoResults(false);
       }
     }, 300);
   };
@@ -43,16 +45,22 @@ export default function Search() {
     setSuggestions(uniqueLocations);
     setDropdownVisible(true);
     setLoading(false);
+
+    if (uniqueLocations.length === 0) {
+      setNoResults(true);
+      setTimeout(() => {
+        setNoResults(false);
+      }, 3000); 
+    }
   };
 
   const handleLocationClick = (location) => {
     router.push(`/search-results?location=${location}`);
     setDropdownVisible(false);
-    setQuery(''); // Clear the query
-    setSuggestions([]); // Clear suggestions
+    setQuery(''); 
+    setSuggestions([]);
+    setNoResults(false); 
   };
-
-  // Optional: Hide dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       const dropdown = document.querySelector(`.${styles.suggestionsDropdown}`);
@@ -79,6 +87,9 @@ export default function Search() {
         onFocus={() => setDropdownVisible(true)}
       />
       {loading && <div className={styles.loading}>Loading...</div>}
+      {noResults && !loading && (
+        <div className={styles.noResults}>No location found</div>
+      )}
       {isDropdownVisible && suggestions.length > 0 && (
         <ul className={styles.suggestionsDropdown}>
           {suggestions.map((location, index) => (

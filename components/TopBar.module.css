@@ -3,7 +3,6 @@
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 0.5rem 1rem;
   font-size: 0.75rem;
   z-index: 1500;
@@ -16,15 +15,15 @@
 
 .socialIcons {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .icon {
-  font-size: 1rem;
+  font-size: 0.6rem;
   text-decoration: none;
-  padding: 0.5rem;
-  max-width: 50px;
-  max-height: 50px;
+  padding: 0.25rem;
+  max-width: 40px;
+  max-height: 40px;
   display: inline-block;
 }
 
@@ -34,13 +33,14 @@
 
 .contactInfo {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   white-space: nowrap;
 }
 
 .contactLink {
   color: white;
   text-decoration: none;
+  font-size: 0.6rem;
 }
 
 .contactLink:hover {
@@ -49,15 +49,25 @@
 
 @media (max-width: 768px) {
   .topBar {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.25rem 0.5rem;
   }
 
   .socialIcons {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .contactInfo {
+    margin-bottom: 0;
+  }
+
+  .icon {
+    font-size: 0.5rem;
+    padding: 0.2rem;
   }
 
   .contactLink {
-    font-size: 0.7rem; 
+    font-size: 0.5rem;
   }
 }

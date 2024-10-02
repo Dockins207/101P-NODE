@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,18 +8,45 @@ import Search from './Search';
 export default function Header() {
   const [isNavActive, setIsNavActive] = useState(false);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleNav = () => setIsNavActive(!isNavActive);
   const toggleSearch = () => setIsSearchVisible(!isSearchVisible);
 
+  // Function to control the visibility of the header on scroll
+  const controlHeaderVisibility = () => {
+    if (typeof window !== 'undefined') {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsHeaderVisible(false);
+      } else {
+        setIsHeaderVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    }
+  };
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.addEventListener('scroll', controlHeaderVisibility);
+      return () => window.removeEventListener('scroll', controlHeaderVisibility);
+    }
+  }, [lastScrollY]);
+
+  const handleLinkClick = (e, isExternalLink) => {
+    if (isExternalLink) {
+      setIsNavActive(false); // Close the menu for external links
+    }
+  };
+
   return (
-    <header className={styles.headerWrapper}>
+    <header className={`${styles.headerWrapper} ${isHeaderVisible ? '' : styles.hidden}`}>
       <div className={styles.headerLogo}>
-        {/* No need for `a` tag */}
         <Link href="/" className={styles.cropClip}>
           <img
             id="logo"
-            src="/logo/logo2-1.webp" // Ensure the path is correct
+            src="/logo/logo2-1-3-1.png"
             alt="Logo"
           />
         </Link>
@@ -64,24 +91,24 @@ export default function Header() {
 
           {/* Mobile-only Links */}
           <li className={styles.mobileOnly}>
-            <Link href="/diaspora">DIASPORA</Link>
+            <Link href="/diaspora" onClick={(e) => handleLinkClick(e, true)}>DIASPORA</Link>
           </li>
           <li className={styles.mobileOnly}>
-            <Link href="/faqspage">FAQS</Link>
+            <Link href="/faqspage" onClick={(e) => handleLinkClick(e, true)}>FAQS</Link>
           </li>
           <li className={styles.mobileOnly}>
-            <Link href="/contact">CONTACT</Link>
+            <Link href="/contact" onClick={(e) => handleLinkClick(e, true)}>CONTACT</Link>
+          </li>
+
+          {/* Search Icon inside hamburger menu */}
+          <li className={styles.mobileSearch}>
+            <button id="search-toggle" onClick={toggleSearch}>
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
+            {isSearchVisible && <Search />}
           </li>
         </ul>
       </nav>
-
-      {/* Search Component */}
-      <div className={`${styles.headerSearch} ${isSearchVisible ? styles.show : ''}`}>
-        <button id="search-toggle" onClick={toggleSearch}>
-          <FontAwesomeIcon icon={faSearch} />
-        </button>
-        {isSearchVisible && <Search />}
-      </div>
 
       {/* Hamburger Menu */}
       <button
