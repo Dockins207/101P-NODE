@@ -30,6 +30,7 @@ const StatisticsSection = () => {
       try {
         const query = '*[_type == "statistics"]';
         const result = await sanityClient.fetch(query);
+        console.log('Fetch Result:', result);
         if (result.length > 0) {
           const statisticsData = result[0];
           statisticsData.image = urlFor(statisticsData.image);
@@ -39,7 +40,7 @@ const StatisticsSection = () => {
         }
       } catch (err) {
         setError('Failed to fetch statistics. Please try again later.');
-        console.error(err);
+        console.error('Fetch Error:', err);
       }
     };
 
@@ -92,7 +93,9 @@ const StatisticsSection = () => {
     <section className={styles.statisticsSection} id="statistics">
       <div
         className={styles.statisticsBackground}
-        style={{ backgroundImage: data?.image ? `url(${data.image})` : 'none' }}
+        style={{
+          backgroundImage: data?.image ? `url(${data.image})` : 'url(/path/to/default-image.jpg)',
+        }}
       >
         <h2>Current Statistics</h2>
         {!data?.image && <p>No background image available.</p>}
