@@ -8,7 +8,7 @@
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
 
-/* Left Section: Contact Information */
+
 .contactSection {
   flex: 1;
   margin-right: 2rem;
@@ -68,7 +68,6 @@
   color: green;
 }
 
-/* Right Section: Quick Enquiry Form */
 .formSection {
   flex: 1;
   min-width: 18.75rem;
@@ -119,15 +118,19 @@
   background-color: green;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   #contactPageSection {
     flex-direction: column;
-    padding: 1.25rem;
+    max-width: 90%;
+    padding: 1rem;
   }
 
   .contactSection {
     margin-right: 0;
     margin-bottom: 1.25rem;
+  }
+
+  .formSection {
+    margin-top: 1.25rem; 
   }
 }
