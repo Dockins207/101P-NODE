@@ -1,14 +1,5 @@
 import styles from './Footer.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFacebookF,
-  faTwitter,
-  faInstagram,
-  faTiktok,
-  faLinkedinIn,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import SocialIcons from './SocialIcons';
 
 export default function Footer() {
   return (
@@ -21,9 +12,7 @@ export default function Footer() {
             <div className={styles.column}>
               <h4>Quick Links</h4>
               <ul>
-                <li>
-                  <a href="/careers">Careers</a>
-                </li>
+                <li><a href="/careers">Careers</a></li>
                 <li>
                   <a
                     href="https://www.google.com/search?q=101+Properties+Google+reviews"
@@ -33,12 +22,8 @@ export default function Footer() {
                     Testimonials
                   </a>
                 </li>
-                <li>
-                  <a href="/blogs">Blogs</a>
-                </li>
-                <li>
-                  <a href="/howtobuy">How To Buy Land</a>
-                </li>
+                <li><a href="/blogs">Blogs</a></li>
+                <li><a href="/howtobuy">How To Buy Land</a></li>
               </ul>
             </div>
 
@@ -46,24 +31,12 @@ export default function Footer() {
             <div className={styles.column}>
               <h4>Plots for Sale</h4>
               <ul>
-                <li>
-                  <a href="#">Isinya</a>
-                </li>
-                <li>
-                  <a href="#">Kisaju</a>
-                </li>
-                <li>
-                  <a href="#">Watamu</a>
-                </li>
-                <li>
-                  <a href="#">Lenchani</a>
-                </li>
-                <li>
-                  <a href="#">Malindi-Boulala</a>
-                </li>
-                <li>
-                  <a href="#">Chuna Estate-Kitengela</a>
-                </li>
+                <li><a href="#">Isinya</a></li>
+                <li><a href="#">Kisaju</a></li>
+                <li><a href="#">Watamu</a></li>
+                <li><a href="#">Lenchani</a></li>
+                <li><a href="#">Malindi-Boulala</a></li>
+                <li><a href="#">Chuna Estate-Kitengela</a></li>
               </ul>
             </div>
 
@@ -72,7 +45,7 @@ export default function Footer() {
               <h4>Office Location</h4>
               <ul>
                 <li>
-                  <a href="https://www.google.com/maps/place/...">Location</a>
+                  <a href="https://www.google.com/maps/place/1%C2%B025'02.7%22S+36%C2%B057'13.3%22E/@-1.4174069,36.9511254,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.4174069!4d36.9537003?hl=en&entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">Location</a>
                 </li>
               </ul>
             </div>
@@ -81,83 +54,16 @@ export default function Footer() {
             <div className={styles.column}>
               <h4>Contacts</h4>
               <ul>
-                <li>
-                  <a href="tel:+254708929173">+254 700 101 101(Sales)</a>
-                </li>
-                <li>
-                  <a href="tel:+254722227066">+2547 2222 7066</a>
-                </li>
-                <li>
-                  <a href="tel:+254790730302">+2547 9073 0302</a>
-                </li>
-                <li>
-                  <a href="mailto:101properties@gmail.com">
-                    101properties@gmail.com
-                  </a>
-                </li>
+                <li><a href="tel:+254708929173">+254 700 101 101 (Sales)</a></li>
+                <li><a href="tel:+254722227066">+254 7222 27066</a></li>
+                <li><a href="tel:+254790730302">+254 7907 0302</a></li>
+                <li><a href="mailto:101properties@gmail.com">101properties@gmail.com</a></li>
               </ul>
             </div>
           </div>
 
           {/* Social Media Icons */}
-          <div className={styles.socialIcons}>
-            <a
-              href="https://www.facebook.com/101PropertiesKe/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-            >
-              <FontAwesomeIcon icon={faFacebookF} />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <FontAwesomeIcon icon={faTwitter} />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram"
-            >
-              <FontAwesomeIcon icon={faInstagram} />
-            </a>
-            <a
-              href="https://www.tiktok.com/@101plotsproperties?_t=8pIbUcayFPS&_r=1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok"
-            >
-              <FontAwesomeIcon icon={faTiktok} />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <FontAwesomeIcon icon={faLinkedinIn} />
-            </a>
-            <a
-              href="https://youtube.com/@101propertiesmedia?si=bJiXFvk2sLyZFjo6"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube"
-            >
-              <FontAwesomeIcon icon={faYoutube} />
-            </a>
-            <a
-              href="https://www.google.com/maps/place/..."
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Location"
-            >
-              <FontAwesomeIcon icon={faMapMarkerAlt} />
-            </a>
-          </div>
+          <SocialIcons />
         </div>
       </section>
 
