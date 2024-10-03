@@ -94,7 +94,7 @@ const StatisticsSection = () => {
       <div
         className={styles.statisticsBackground}
         style={{
-          backgroundImage: data?.image ? `url(${data.image})` : 'url(/logo/STATISTICS 2.svg)',
+          backgroundImage: data?.image ? `url(${data.image})` : 'url(/logo/STATISTICS2.svg)',
         }}
       >
         <h2>Current Statistics</h2>
