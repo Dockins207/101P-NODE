@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { sanityClient } from '../sanity/lib/client';
-import { urlFor } from '../sanity/lib/image'; // Make sure this imports the URL builder
+import { urlFor } from '../sanity/lib/image'; // Ensure this imports the URL builder
 import styles from './StatisticsSection.module.css';
 
 const StatisticsSection = () => {
@@ -45,26 +45,26 @@ const StatisticsSection = () => {
 
   return (
     <section className={styles.statisticsSection}>
-      <div
-        className={styles.statisticsBackground}
-        style={{
-          backgroundImage: data?.imageUrl ? `url(${data.imageUrl})` : 'url(/path/to/default-image.jpg)',
-        }}
-      >
-        <h2>Current Statistics</h2>
-        <div className={styles.statisticsContainer}>
-          <div className={styles.statBox}>
-            <h3 className={styles.statHeading}>Happy Clients</h3>
-            <p className={styles.statNumber}>{data?.happyClients || 0}+</p>
-          </div>
-          <div className={styles.statBox}>
-            <h3 className={styles.statHeading}>Years of Experience</h3>
-            <p className={styles.statNumber}>{data?.yearsOfExperience || 0}+</p>
-          </div>
-          <div className={styles.statBox}>
-            <h3 className={styles.statHeading}>Title Deeds Awarded</h3>
-            <p className={styles.statNumber}>{data?.titleDeeds || 0}+</p>
-          </div>
+      <h2>Current Statistics</h2>
+      {data?.imageUrl && (
+        <img 
+          src={data.imageUrl} 
+          alt="Statistics Background" 
+          className={styles.statisticsImage} // Add your own CSS class for styling
+        />
+      )}
+      <div className={styles.statisticsContainer}>
+        <div className={styles.statBox}>
+          <h3 className={styles.statHeading}>Happy Clients</h3>
+          <p className={styles.statNumber}>{data?.happyClients || 0}+</p>
+        </div>
+        <div className={styles.statBox}>
+          <h3 className={styles.statHeading}>Years of Experience</h3>
+          <p className={styles.statNumber}>{data?.yearsOfExperience || 0}+</p>
+        </div>
+        <div className={styles.statBox}>
+          <h3 className={styles.statHeading}>Title Deeds Awarded</h3>
+          <p className={styles.statNumber}>{data?.titleDeeds || 0}+</p>
         </div>
       </div>
     </section>

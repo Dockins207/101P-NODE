@@ -7,7 +7,11 @@
 .statisticsBackground {
   padding: 0.5rem;
 }
-
+.statisticsImage {
+  width: 100%; /* Adjust the width as necessary */
+  height: auto; /* Keep the aspect ratio */
+  margin-bottom: 20px; /* Space between the image and stats */
+}
 .statisticsSection h2 {
   font-size: 2.5rem;
   margin-bottom: 7rem;
