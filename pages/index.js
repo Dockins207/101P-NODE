@@ -7,7 +7,7 @@ import StatisticsSection from '../components/StatisticsSection';
 import FloatingIcons from '../components/FloatingIcons';
 import LatestBlogs from '../components/LatestBlogs';
 import BriefFAQs from '../components/BriefFAQs';
-import SEO from '../components/SEO'; // Add the import for the SEO component
+import SEO from '../components/SEO';
 
 export default function HomePage() {
   return (
@@ -17,7 +17,7 @@ export default function HomePage() {
         title="101 Properties - Buy Affordable Land in Kenya"
         description="Discover affordable land for sale in Kenya. 101 Properties offers flexible payment plans and guaranteed title deeds for buyers."
         keywords={['land for sale', 'buy land in Kenya', 'affordable land', 'real estate Kenya', 'property Kenya']}
-        image="https://101-properties.com/home-image.jpg" // Use the actual URL for the homepage image
+        image="https://101-properties.com/home-image.jpg"
         url="https://101-properties.com/"
       />
       
