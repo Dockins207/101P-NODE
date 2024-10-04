@@ -4,7 +4,7 @@ import offers from './offers';
 import newProperties from './newProperties';
 import soldOut from './soldOut';
 import news from './news';
-import blogPost from './blogPost';
+import blog from './blog';
 import blockContent from './blockContent';
 import banner from './banner';
 import featuredProperties from './featuredProperties';
@@ -19,7 +19,7 @@ export const schemaTypes = [
   soldOut,
   gallery,
   news,
-  blogPost,
+  blog,
   blockContent,
   statistics,
 ];

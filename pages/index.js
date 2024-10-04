@@ -5,9 +5,10 @@ import ClientReviews from '../components/ClientReviews';
 import VideoGallery from '../components/VideoGallery';
 import StatisticsSection from '../components/StatisticsSection';
 import FloatingIcons from '../components/FloatingIcons';
-import LatestBlogs from '../components/LatestBlogs';
 import BriefFAQs from '../components/BriefFAQs';
 import SEO from '../components/SEO';
+// import Button from '../components/Button';
+// import BlogCard from '../components/BlogCard';
 
 export default function HomePage() {
   return (
@@ -29,7 +30,11 @@ export default function HomePage() {
       <VideoGallery />
       <StatisticsSection />
       <FloatingIcons />
-      <LatestBlogs />
+      {/* <BlogCard /> */}
+      {/* <section>
+        <h2>Latest Blogs</h2>
+        <Button href="/blogs" text="View All Blogs" />
+      </section> */}
       <BriefFAQs />
     </div>
   );

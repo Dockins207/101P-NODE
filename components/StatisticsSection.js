@@ -33,7 +33,7 @@ const StatisticsSection = () => {
         console.log('Fetch Result:', result);
         if (result.length > 0) {
           const statisticsData = result[0];
-          statisticsData.image = urlFor(statisticsData.image).url(); // Ensure the URL is correctly generated
+          statisticsData.image = urlFor(statisticsData.image).url();
           setData(statisticsData);
         } else {
           setError('No statistics found.');
