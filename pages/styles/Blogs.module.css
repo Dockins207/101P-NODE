@@ -1,45 +1,46 @@
-/* styles/Blogs.module.css */
-
 .blogsContainer {
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
+  margin-top: 8rem;
 }
+
 .blogsList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 3 columns */
-  gap: 20px; /* Space between cards */
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 1.5rem;
 }
 
 .blogCard {
-  border: 1px solid #ccc; /* Border around each card */
-  border-radius: 8px; /* Rounded corners */
-  padding: 15px; /* Padding inside cards */
-  transition: transform 0.2s; /* Smooth transition for hover effect */
-  text-align: center; /* Center text */
-  background-color: #fff; /* White background for cards */
+  border: 0.1rem solid #ccc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.2s;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 2rem;
 }
 
 .blogCard:hover {
-  transform: scale(1.05); /* Scale up on hover */
+  transform: scale(1.05);
 }
 
 .blogImage {
-  width: 100%; /* Responsive image */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 5px; /* Rounded corners for images */
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
 }
 
 .readMore {
-  display: inline-block; /* Button-like appearance */
-  margin-top: 10px; /* Space above */
-  padding: 10px 15px; /* Padding for button */
-  background-color: #0070f3; /* Blue background */
-  color: white; /* White text */
-  text-decoration: none; /* Remove underline */
-  border-radius: 5px; /* Rounded corners for button */
-  transition: background-color 0.2s; /* Smooth transition for hover effect */
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #0070f3;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s;
 }
 
 .readMore:hover {
-  background-color: #005bb5; /* Darker blue on hover */
+  background-color: #005bb5;
 }
