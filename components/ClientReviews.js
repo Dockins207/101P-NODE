@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './ClientReviews.module.css';
+import Button from '../components/Button'; // Import the reusable button
 
 export default function ClientReviews() {
   return (
@@ -54,8 +55,8 @@ export default function ClientReviews() {
             have made my experience seamless and profitable. I highly recommend
             them to anyone looking to invest in real estate."
           </p>
-
         </div>
+
         <div className={styles['review-item']}>
           <div className={styles['review-header']}>
             <img
@@ -79,6 +80,7 @@ export default function ClientReviews() {
             in Kitengela, all thanks to their excellent service."
           </p>
         </div>
+
         <div className={styles['review-item']}>
           <div className={styles['review-header']}>
             <img
@@ -103,11 +105,12 @@ export default function ClientReviews() {
           </p>
         </div>
       </div>
-      <a href="https://www.google.com/search?q=101-properties&oq=101-properties&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MggIAhBFGCcYOzIGCAMQABgeMgYIBBAAGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQkxMjI3NmowajGoAgiwAgE&sourceid=chrome&ie=UTF-8#lrd=0x182f0b4d8656b079:0xe14d117316261f89,1,,,," className={styles['read-more-link']}>
-        <button className={styles['read-more-button']}>
-          Read More Reviews
-        </button>
-      </a>
+      
+      {/* Use the reusable button for reading more reviews */}
+      <Button 
+        href="https://www.google.com/search?q=101-properties&oq=101-properties&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MggIAhBFGCcYOzIGCAMQABgeMgYIBBAAGB4yBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQkxMjI3NmowajGoAgiwAgE&sourceid=chrome&ie=UTF-8#lrd=0x182f0b4d8656b079:0xe14d117316261f89,1,,," 
+        text="Read More Reviews" 
+      />
     </section>
   );
 }

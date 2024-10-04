@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './BannerSection.module.css';
+import Button from '../components/Button'; // Import the reusable button
 
 const BannerSection = () => {
   const [slides, setSlides] = useState([]);
@@ -80,9 +81,9 @@ const BannerSection = () => {
               {slide.location && <p>{slide.location}</p>}
               {slide.description && <p>{slide.description}</p>}
               {slide.price && <p>{slide.price}</p>}          
-              <a href="#" className={styles.moreInfoButton}>
-                More Info
-              </a>
+              
+              {/* Replacing 'More Info' button with the reusable Button component */}
+              <Button href="#" text="More Info" />
             </div>
           </div>
         ))

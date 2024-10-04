@@ -1,0 +1,77 @@
+/* BlogDetails.module.css */
+
+.container {
+    max-width: 90%; /* Max width of container is 90% of the viewport */
+    margin: 0 auto; /* Center the container */
+    padding: 2rem;
+    background-color: #f9f9f9; /* Light grey background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    border-radius: 0.75rem; /* Rounded corners */
+    overflow: hidden; /* To clip children with border-radius */
+    margin-top: 8rem;
+}
+
+.image {
+    width: 50%; /* Image takes 80% of the container width */
+    height: auto;
+    border-bottom: 0.25rem solid #007bff; /* Blue border under image */
+    border-radius: 0.75rem; /* Round the image corners */
+    margin: 0 auto 1.5rem; /* Center the image */
+    display: block; /* Make it a block element to center */
+    transition: transform 0.3s ease; /* Image scaling on hover */
+}
+
+.image:hover {
+    transform: scale(1.03); /* Scale effect on hover */
+}
+
+.title {
+    font-size: 2rem; /* Font size using rem for flexibility */
+    color: #333; /* Dark text color */
+    margin-bottom: 1rem;
+    text-align: center; /* Center title */
+    text-transform: uppercase; /* Uppercase title */
+    letter-spacing: 0.1em; /* Spacing between letters */
+}
+
+.content {
+    font-size: 1.1rem; /* Font size using rem for flexibility */
+    line-height: 1.8; /* Improved line height */
+    color: #444; /* Slightly lighter text color */
+    margin: 0 auto 2rem; /* Center the content and add bottom margin */
+    padding: 1rem; /* Add padding to content */
+    background-color: #fff; /* White background for content area */
+    border-radius: 0.5rem; /* Rounded corners for content area */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for content area */
+    max-width: 10000px; /* Set a max width for content */
+}
+
+.paragraph {
+    margin-bottom: 1rem; /* Spacing between paragraphs */
+}
+
+.backButton {
+    display: block;
+    width: 10%; /* Full width button */
+    padding: 1rem;
+    background-color: #007bff; /* Primary button color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 0.3125rem; /* Rounded button */
+    cursor: pointer;
+    font-size: 1rem; /* Font size using rem for flexibility */
+    margin-top: 1rem; /* Space above the button */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+}
+
+.backButton:hover {
+    background-color: #0056b3; /* Darker button on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.5rem; /* Font size using rem for flexibility */
+    color: #007bff; /* Loading text color */
+    margin-top: 2rem; /* Space above loading text */
+}

@@ -1,5 +1,8 @@
+// VideoGallery.js
+
 import React from 'react';
 import styles from './VideoGallery.module.css'; // Import CSS module
+import Button from '../components/Button'; // Import the reusable button
 
 const videos = [
   { src: 'https://www.youtube.com/embed/CBEj2CPIXXE', title: 'Video Title 1' },
@@ -26,13 +29,8 @@ export default function VideoGallery() {
           </div>
         ))}
       </div>
-      {/* Add the button below the video grid */}
-      <a
-        href="https://www.youtube.com/@101propertiesmedia" // Add your YouTube channel link here
-        className={styles['youtube-button']}
-      >
-        Visit Our YouTube Channel
-      </a>
+      {/* Use the reusable button for the YouTube channel */}
+      <Button href="https://www.youtube.com/@101propertiesmedia" text="Visit Our YouTube Channel" />
     </section>
   );
 }

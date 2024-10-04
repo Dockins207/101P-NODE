@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './AboutSection.module.css';
 import { motion } from 'framer-motion';
+import Button from '../components/Button'; // Import the reusable button
 
 export default function AboutSection() {
   return (
@@ -23,9 +24,11 @@ export default function AboutSection() {
         perfect property to guiding you through every step, we ensure that your
         journey to owning a home is as smooth and rewarding as possible.
       </p>
-      <Link href="/sellingnow" passHref>
-        <button className={styles.ctaButton}>Get Started</button>
-      </Link>
+      {/* Use the reusable button for getting started */}
+      <Button 
+        href="/sellingnow" 
+        text="Get Started" 
+      />
     </motion.section>
   );
 }

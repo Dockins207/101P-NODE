@@ -48,7 +48,7 @@
   background-color: red; /* Red background */
   color: white;
   font-size: 0.8rem;
-  text-align: center;
+  
   text-decoration: none;
   border-radius: 0.6rem;
   transition: background-color 0.3s ease;
@@ -57,10 +57,7 @@
 .youtube-button:hover {
   background-color: green;
   color: white;
-}
-.video-gallery h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+
 }
 
 /* For medium screens, switch to two columns */

@@ -1,80 +1,45 @@
-.blogSection {
-  padding: 50px 20px;
-  background-color: #ffffff;
-  margin-top: 7rem;
-}
+/* styles/Blogs.module.css */
 
-.blogGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-}
-
-/* Adjust grid layout for smaller screens */
-@media (max-width: 768px) {
-  .blogGrid {
-    grid-template-columns: 1fr; /* Stack blog posts vertically */
-  }
-}
-
-.blogPost {
-  background-color: #f9f9f9;
+.blogsContainer {
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  cursor: pointer;
+  text-align: center;
+}
+.blogsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 3 columns */
+  gap: 20px; /* Space between cards */
 }
 
-.blogPost:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+.blogCard {
+  border: 1px solid #ccc; /* Border around each card */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Padding inside cards */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+  text-align: center; /* Center text */
+  background-color: #fff; /* White background for cards */
 }
 
-.blogExcerpt {
-  color: #333;
-  margin-bottom: 15px;
+.blogCard:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.blogImage {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners for images */
 }
 
 .readMore {
-  color: red;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  display: inline-block; /* Button-like appearance */
+  margin-top: 10px; /* Space above */
+  padding: 10px 15px; /* Padding for button */
+  background-color: #0070f3; /* Blue background */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded corners for button */
+  transition: background-color 0.2s; /* Smooth transition for hover effect */
 }
 
 .readMore:hover {
-  color: green;
-}
-
-/* Popup styles */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.popupContent {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 600px;
-  position: relative;
-}
-
-.popupContent .close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
+  background-color: #005bb5; /* Darker blue on hover */
 }

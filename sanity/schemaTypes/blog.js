@@ -1,4 +1,3 @@
-// schemas/blog.js
 import { v4 as uuidv4 } from 'uuid';
 
 export default {
@@ -16,7 +15,7 @@ export default {
       title: 'UUID',
       type: 'string',
       readOnly: true,
-      initialValue: () => uuidv4(), // Automatically generate UUID
+      initialValue: () => uuidv4(),
     },
     {
       name: 'slug',
