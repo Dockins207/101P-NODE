@@ -11,7 +11,7 @@ export default function TopBar() {
       <div className={styles.contactInfo}>
         <span className={styles.topBarPhone}>
           <a href="tel:+254700101101" className={styles.contactLink} aria-label="Call 0700 101 101">
-            <strong>0700 101 101</strong>
+            <strong>0700 101 101 </strong><strong> | </strong>
           </a>
           {/* Uncomment if needed
           <a href="tel:+254722227066" className={styles.contactLink} aria-label="Call +254 722 227 066">
