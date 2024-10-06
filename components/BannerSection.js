@@ -24,7 +24,7 @@ const BannerSection = () => {
         }
       } catch (error) {
         console.error('Error fetching data:', error);
-        setError('Failed to load banners.');
+        setError('Failed to load banners. Please try again later.');
       } finally {
         setLoading(false);
       }
@@ -70,7 +70,7 @@ const BannerSection = () => {
           >
             <img
               src={slide.imageUrl}
-              alt={slide.description}
+              alt={slide.description || "Banner image"}
               className={styles.image}
               loading="lazy"
               width="600"
@@ -80,7 +80,7 @@ const BannerSection = () => {
               {slide.propertyName && <h2>{slide.propertyName}</h2>}
               {slide.location && <p>{slide.location}</p>}
               {slide.description && <p>{slide.description}</p>}
-              {slide.price && <p>{slide.price}</p>}          
+              {slide.price && <p>{slide.price}</p>}
               
               {/* Replacing 'More Info' button with the reusable Button component */}
               <Button href="#" text="More Info" />

@@ -24,11 +24,6 @@ export default function AboutSection() {
         perfect property to guiding you through every step, we ensure that your
         journey to owning a home is as smooth and rewarding as possible.
       </p>
-      {/* Use the reusable button for getting started */}
-      <Button 
-        href="/sellingnow" 
-        text="Get Started" 
-      />
     </motion.section>
   );
 }

@@ -1,5 +1,3 @@
-// schemas/featuredProperties.js
-
 export default {
   name: 'featuredProperties',
   title: 'Featured Properties',
@@ -27,20 +25,34 @@ export default {
       validation: Rule => Rule.required(),
     },
     {
-      name: 'price',
-      title: 'Price',
+      name: 'purpose',
+      title: 'Purpose',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Residential', value: 'Residential' },
+          { title: 'Commercial', value: 'Commercial' }
+        ]
+      },
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'size',
+      title: 'Size',
+      type: 'string',
+      validation: Rule => Rule.required(),
+    },
+    {
+      name: 'cashPrice',
+      title: 'Cash Price',
       type: 'number', 
       validation: Rule => Rule.required().min(0),
     },
     {
-      name: 'slug',
-      title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'name',
-        maxLength: 96,
-      },
-      validation: Rule => Rule.required(),
-    },
+      name: 'installmentPrice',
+      title: 'Installment Price',
+      type: 'number', 
+      validation: Rule => Rule.required().min(0),
+    }
   ],
 };

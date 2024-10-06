@@ -35,7 +35,7 @@ export default function Search() {
 
   const fetchSuggestions = async (searchValue) => {
     const results = await client.fetch(
-      `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties",] && location match $location]{
+      `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location]{
         location
       }`,
       { location: `${searchValue}*` }
@@ -61,6 +61,7 @@ export default function Search() {
     setSuggestions([]);
     setNoResults(false); 
   };
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       const dropdown = document.querySelector(`.${styles.suggestionsDropdown}`);
@@ -74,6 +75,7 @@ export default function Search() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      if (debounceTimer) clearTimeout(debounceTimer);
     };
   }, []);
 
@@ -87,9 +89,7 @@ export default function Search() {
         onFocus={() => setDropdownVisible(true)}
       />
       {loading && <div className={styles.loading}>Loading...</div>}
-      {noResults && !loading && (
-        <div className={styles.noResults}>No location found</div>
-      )}
+      {noResults && !loading && <div className={styles.noResults}>No location found</div>}
       {isDropdownVisible && suggestions.length > 0 && (
         <ul className={styles.suggestionsDropdown}>
           {suggestions.map((location, index) => (

@@ -1,75 +1,16 @@
 .socialIcons {
   display: flex;
-  gap: 0.5rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1vw;
 }
 
 .icon {
+  font-size: 1.3rem;
   color: white;
-  font-size: rem;
-  text-decoration: none;
-  padding: 0.25rem;
-  max-width: 40px;
-  max-height: 40px;
-  display: inline-block;
+  transition: color 0.3s ease;
 }
 
 .icon:hover {
-  color: lightgray;
-}
-
-.topBar {
-  background: blue;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  z-index: 1500;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  white-space: nowrap;
-}
-
-.contactInfo {
-  display: flex;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.contactLink {
-  color: white;
-  text-decoration: none;
-  font-size: 0.6rem;
-}
-
-.contactLink:hover {
-  color: black; 
-}
-
-
-@media (max-width: 768px) {
-  .topBar {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0.25rem 0.5rem;
-  }
-
-  .socialIcons {
-    margin-bottom: 0;
-  }
-
-  .contactInfo {
-    margin-bottom: 0;
-  }
-
-  .icon {
-    font-size: 0.5rem;
-    padding: 0.1rem;
-  }
-
-  .contactLink {
-    font-size: 0.5rem;
-  }
+  color: lightblue;
 }
