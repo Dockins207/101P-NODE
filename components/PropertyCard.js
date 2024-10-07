@@ -1,24 +1,26 @@
-import React from 'react';
-import styles from './PropertyCard.module.css';
+// components/PropertyCard.js
 
-const PropertyCard = ({ imageUrl, title, location, purpose, size, cashPrice, installmentPrice }) => {
+import Link from 'next/link';
+import styles from './FeaturedProperties.module.css'; // Move the card styles here
+
+const PropertyCard = ({ imageUrl, title, location, price, slug }) => {
   return (
-    <div className={styles.propertyCard}>
-      <div className={styles.propertyImage}>
-        <img src={imageUrl} alt={title} />
+    <Link href={`/property/${slug}`} className={styles.propertyCard} role="link">
+      <div
+        className={styles.propertyImage}
+        style={{ backgroundImage: `url(${imageUrl})` }}
+        onError={(e) => {
+          e.target.onerror = null;
+          e.target.style.backgroundImage = 'url(https://101-properties.com/default-image.jpg)';
+        }}
+      ></div>
+
+      <div className={styles.propertyInfo}>
+        <h2 className={styles.propertyTitle}>{title}</h2>
+        <p className={styles.propertyLocation}>{location}</p>
+        <p className={styles.propertyPrice}>{price}</p>
       </div>
-      <div className={styles.propertyDetails}>
-        <h2>{title}</h2>
-        <p><strong>Location:</strong> {location}</p>
-        <p><strong>Purpose:</strong> {purpose}</p>
-        <p><strong>Sizes:</strong> <span className={styles.sizeTag}>{size}</span></p>
-        <div className={styles.priceSection}>
-          <p><strong>Cash price:</strong> {cashPrice.toLocaleString('en-US')}</p>
-          <p><strong>Installments:</strong> {installmentPrice.toLocaleString('en-US')}</p>
-        </div>
-      </div>
-      <button className={styles.viewDetailsBtn}>View Details</button>
-    </div>
+    </Link>
   );
 };
 

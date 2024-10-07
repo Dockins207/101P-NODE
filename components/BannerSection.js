@@ -80,7 +80,7 @@ const BannerSection = () => {
               {slide.propertyName && <h2>{slide.propertyName}</h2>}
               {slide.location && <p>{slide.location}</p>}
               {slide.description && <p>{slide.description}</p>}
-              {slide.price && <p>{slide.price}</p>}
+              {slide.price && <p>Ksh. {slide.price}</p>}
               
               {/* Replacing 'More Info' button with the reusable Button component */}
               <Button href="#" text="More Info" />

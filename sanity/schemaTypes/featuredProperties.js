@@ -45,14 +45,13 @@ export default {
     {
       name: 'cashPrice',
       title: 'Cash Price',
-      type: 'number', 
+      type: 'string', 
       validation: Rule => Rule.required().min(0),
     },
     {
       name: 'installmentPrice',
       title: 'Installment Price',
-      type: 'number', 
-      validation: Rule => Rule.required().min(0),
+      type: 'string', 
     }
   ],
 };
