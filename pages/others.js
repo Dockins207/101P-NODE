@@ -83,7 +83,7 @@ const Gallery = ({ galleryItems }) => {
                     tabIndex={0} 
                     onKeyPress={(e) => e.key === 'Enter' && handleImageClick(img)} 
                     onError={(e) => {
-                      e.target.onerror = null; // Prevent infinite loop
+                      e.target.onerror = null;
                       e.target.src = 'https://101-properties.com/default-image.jpg'; 
                     }}
                     loading="lazy" 

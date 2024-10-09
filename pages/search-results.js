@@ -1,7 +1,9 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 import { sanityClient as client } from '../sanity/lib/client';
 import Link from 'next/link';
 import styles from './styles/Properties.module.css';
+import PropertyCard from '../components/PropertyCard'; // Import PropertyCard
 
 export default function NewSearchResults({ properties, totalPages, currentPage }) {
   const router = useRouter();
@@ -17,16 +19,7 @@ export default function NewSearchResults({ properties, totalPages, currentPage }
       <div className={styles.gridContainer}>
         {properties.length > 0 ? (
           properties.map((property) => (
-            <Link key={property._id} href={`/property/${property.slug.current}`} passHref>
-              <div className={styles.propertyCard}>
-                <img src={property.mainImage?.asset?.url} alt={property.title} className={styles.propertyImage} />
-                <div className={styles.propertyDetails}>
-                  <h2 className={styles.propertyTitle}>{property.title}</h2>
-                  <p className={styles.propertyLocation}>{property.location}</p>
-                  <p className={styles.propertyPrice}>Ksh. {property.price}</p>
-                </div>
-              </div>
-            </Link>
+            <PropertyCard key={property._id} property={property} slug={property.slug.current} /> // Use PropertyCard
           ))
         ) : (
           <p>No properties found in {location}.</p>
@@ -55,13 +48,11 @@ export default function NewSearchResults({ properties, totalPages, currentPage }
   );
 }
 
-// Get server-side properties for search results
 export async function getServerSideProps(context) {
   const { location, page = 1 } = context.query;
   const perPage = 10;
   const start = (page - 1) * perPage;
 
-  // Query to fetch limited properties for the current page
   const query = `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location] | order(_createdAt desc) {
     _id,
     title,
@@ -77,7 +68,6 @@ export async function getServerSideProps(context) {
 
   const properties = await client.fetch(query, { location: `${location}*` });
 
-  // Get the total number of properties for the location
   const totalQuery = `count(*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location])`;
   const totalResults = await client.fetch(totalQuery, { location: `${location}*` });
 

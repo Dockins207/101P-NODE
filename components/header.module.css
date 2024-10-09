@@ -1,7 +1,7 @@
 .headerWrapper {
     position: static;
     width: 100%;
-    background-color: #fff;
+    background-color: #ffffff00;
     box-shadow: 0 0.625rem 1rem rgba(0, 0, 255, 0.6);
     display: flex;
     flex-direction: column;
@@ -10,8 +10,6 @@
     z-index: 1000;
     transition: transform 0.4s ease-in-out;
 }
-
-/* Top Section */
 .topSection {
     width: 100%;
     background-color: #007bff;
@@ -28,8 +26,9 @@
     margin-right: 0.5vw;
 }
 
-/* Bottom Section */
+
 .bottomSection {
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,7 +95,6 @@
 }
 
 .dropdownContent a:hover {
-    color: red;
     background-color: rgba(53, 53, 53, 0.1);
 }
 .mobileSearch {
@@ -118,8 +116,88 @@
     font-size: 1rem;
   }
   
-/* Hamburger Menu */
 .hamburger {
+    flex-direction: column;
+    cursor: pointer;
+    padding: rem;
     display: none;
+    position: static;
 }
 
+.hamburger .bar {
+    width: 3rem;
+    height: 0.5rem;
+    background-color: #007bff;
+    margin: 0.1rem 0;
+    transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+    .headerNav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 9%;
+        left: 0;
+        width: 100%;
+        background-color: rgb(230, 229, 229);
+        padding: 1rem;
+        box-shadow: 0 0.625rem 1rem rgba(0, 0, 255, 0.6);
+        z-index: 999;
+    }
+
+    .headerNav.active {
+        display: flex;
+    }
+
+    .navLinks {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .navLinks > li {
+        margin: 0.5rem 0;
+        position: relative;
+    }
+
+    .navLinks a {
+        font-size: 1.2rem;
+        padding: 0.5rem 0;
+    }
+
+    .dropdownContent {
+        display: none;
+        position: static;
+        width: 100%;
+        color: #007bff;
+        padding-left: 1.5rem;
+    }
+
+    .headerDropdown.active .dropdownContent {
+        display: block;
+        color: #007bff;
+    }
+
+    .mobileSearch {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .searchContainer {
+        display: flex;
+        align-items: center;
+    }
+
+    .searchInput {
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        border-radius: 0.6rem;
+        font-size: 1rem;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}

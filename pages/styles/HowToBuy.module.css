@@ -3,7 +3,7 @@
   color: #333;
   width: 90%;
   max-width: 100%;
-  margin-top: 8rem;
+  margin-top: 1rem;
   padding: 1.25rem;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
@@ -13,8 +13,7 @@
 
 .howToBuyContainer h2 {
   text-align: center;
-  color: black;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .step {

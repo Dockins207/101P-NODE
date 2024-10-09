@@ -6,7 +6,6 @@ const Newsletter = () => {
   const handleSubscription = (event) => {
     event.preventDefault(); 
     const emailInput = event.target.elements.email.value;
-    // Handle subscription logic here, e.g., sending the email to your backend or a third-party service
     alert(`Thank you for subscribing with ${emailInput}`);
     event.target.reset();n
   };
@@ -31,7 +30,7 @@ const Newsletter = () => {
           className={styles.newsletterRow}
           onClick={() => (window.location.href = 'newsletter1.html')}
           role="button"
-          tabIndex={0} // Makes the div focusable
+          tabIndex={0}
           onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter1.html')} 
         >
           <div className={styles.imageContainer}>
@@ -39,7 +38,7 @@ const Newsletter = () => {
               src="newsletter1.jpg"
               alt="Newsletter Image 1"
               className={styles.newsletterImg}
-              loading="lazy" // Enable lazy loading
+              loading="lazy" 
             />
           </div>
           <div className={styles.newsletterContent}>

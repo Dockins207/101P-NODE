@@ -1,0 +1,163 @@
+.card,
+.card * {
+  box-sizing: border-box;
+}
+
+.card {
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  background-color: #fcfcfc;
+  box-shadow: 0 4px 8px rgba(34, 0, 129, 0.589);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(34, 0, 129, 0.7);
+}
+
+.property-image {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.property-image:hover {
+  transform: scale(1.05);
+}
+
+.property-name {
+  margin-top: 1rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.property-details {
+  padding: 0;
+}
+
+.detail {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  direction: ltr; /* Prevent RTL inheritance */
+}
+
+.detail:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: bold;
+  display: inline-block;
+  width: 60%;
+  text-align: left;
+}
+
+.value {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+}
+
+.size-value {
+  border: 1px solid #007bff;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.price-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.cash-price-container,
+.installment-price-container {
+  display: inline-block;
+  width: 48%;
+}
+
+.cash-price,
+.installment-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.view-details {
+  display: block;
+  padding: 0.4rem 0;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-details:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%;
+  }
+
+  .property-name {
+    font-size: 0.9rem;
+  }
+
+  .property-image {
+    height: 20vh;
+  }
+
+  .detail {
+    font-size: 0.9rem;
+  }
+
+  .view-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    max-width: 100%;
+    box-shadow: 0 2px 4px rgba(34, 0, 129, 0.5);
+  }
+
+  .property-name {
+    font-size: 0.8rem;
+  }
+
+  .property-image {
+    height: 20vh;
+  }
+
+  .detail {
+    font-size: 0.8rem;
+  }
+
+  .view-details {
+    width: 100%;
+  }
+
+  .cash-price-container,
+  .installment-price-container {
+    width: 100%;
+  }
+}

@@ -6,9 +6,9 @@ import { PortableText } from '@portabletext/react';
 import ContactForm from '../ContactForm';
 
 // Query to get property details
-const query = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut"] && slug.current == $slug][0]{
-  title,
-  price,
+const query = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"] && slug.current == $slug][0]{
+  name,
+  cashPrice,
   location,
   "mainImage": mainImage.asset->url,
   detailedPage {
@@ -23,7 +23,7 @@ const query = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut"] &
 }`;
 
 export async function getStaticPaths() {
-  const pathsQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut"]]{ "slug": slug.current }`;
+  const pathsQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"]]{ "slug": slug.current }`;
   const properties = await sanityClient.fetch(pathsQuery);
   const paths = properties.map((property) => ({
     params: { slug: String(property.slug) },
@@ -58,7 +58,7 @@ const PropertyDetails = ({ property }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>{`${property.title} - Property Details`}</title>
+        <title>{`${property.name} - Property Details`}</title>
         <meta name="description" content={property.detailedPage?.description} />
       </Head>
 
@@ -67,12 +67,12 @@ const PropertyDetails = ({ property }) => {
         <div className={styles.leftSide}>
           <section className={styles.heroSection}>
             <div className={styles.heroText}>
-              <h1>{property.title}</h1>
-              <p className={styles.price}>${property.price}</p>
+              <h1>{property.name}</h1>
+              <p className={styles.price}>Ksh. {property.cashPrice}</p>
             </div>
             <img
               src={selectedImage}
-              alt={property.title}
+              alt={property.name}
               className={styles.heroImage}
             />
           </section>

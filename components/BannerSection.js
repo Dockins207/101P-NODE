@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './BannerSection.module.css';
-import Button from '../components/Button'; // Import the reusable button
+import Button from '../components/Button';
 
 const BannerSection = () => {
   const [slides, setSlides] = useState([]);
@@ -8,7 +8,7 @@ const BannerSection = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Fetch the complete data including description, location, and price
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,7 +33,6 @@ const BannerSection = () => {
     fetchData();
   }, []);
 
-  // Preload images for smoother transitions
   useEffect(() => {
     slides.forEach(slide => {
       const img = new Image();
@@ -41,7 +40,7 @@ const BannerSection = () => {
     });
   }, [slides]);
 
-  // Auto-rotate slides every 5 seconds
+
   useEffect(() => {
     if (slides.length === 0) return;
 
@@ -78,11 +77,10 @@ const BannerSection = () => {
             />
             <div className={styles.bannerText}>
               {slide.propertyName && <h2>{slide.propertyName}</h2>}
-              {slide.location && <p>{slide.location}</p>}
-              {slide.description && <p>{slide.description}</p>}
-              {slide.price && <p>Ksh. {slide.price}</p>}
+              {slide.location && <strong><p>{slide.location}</p></strong>}
+              {slide.description && <strong><p>{slide.description}</p></strong>}
+              {slide.price && <strong><p>Ksh. {slide.price}</p></strong>}
               
-              {/* Replacing 'More Info' button with the reusable Button component */}
               <Button href="#" text="More Info" />
             </div>
           </div>

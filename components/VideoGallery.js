@@ -14,9 +14,9 @@ const videos = [
 export default function VideoGallery() {
   return (
     <section className={styles['video-gallery']}>
-      <h2>
+      {/* <h2>
         <strong>Watch and Discover Our Projects</strong>
-      </h2>
+      </h2> */}
       <div className={styles['video-grid']}>
         {videos.map((video, index) => (
           <div key={index} className={styles['video-item']}>

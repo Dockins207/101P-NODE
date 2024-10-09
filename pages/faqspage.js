@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Head from 'next/head'; // Import Head from next/head
 import styles from './styles/FAQ.module.css';
 import FeaturedProperties from '../components/FeaturedProperties';
 
@@ -11,14 +12,14 @@ const FAQ = () => {
 
   return (
     <>
-      <head>
+      <Head> {/* Use Head instead of head */}
         <title>Frequently Asked Questions - Land Properties</title>
         <meta
           name="description"
           content="Find answers to the most frequently asked questions about buying land, financing options, and property details on our website."
         />
         <meta name="robots" content="index, follow" />
-      </head>
+      </Head>
       <section className={styles.faqSection}>
         <h2>Frequently Asked Questions</h2>
 
@@ -118,7 +119,7 @@ const FAQ = () => {
         </div>
 
         <div className={styles.backToHome}>
-          <a href="../index.html" className={styles.backHomeLink}>
+          <a href="/" className={styles.backHomeLink}>
             Back Home &rarr;
           </a>
         </div>

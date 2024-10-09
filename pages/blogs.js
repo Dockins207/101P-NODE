@@ -44,7 +44,7 @@ export async function getServerSideProps() {
       briefContent, 
       image, 
       uuid
-    }`; // Fetch only the latest 3 blogs based on publishedAt
+    }`; 
     const blogs = await sanityClient.fetch(query);
   
     return {

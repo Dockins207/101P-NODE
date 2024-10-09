@@ -24,7 +24,7 @@
 .content {
   display: flex;
   align-items: flex-start;
-  justify-content: center; /* Center content */
+  justify-content: center;
   min-height: 100%;
   padding-bottom: 50px;
 }
@@ -34,9 +34,8 @@
   grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
   grid-gap: 1rem;
   flex-grow: 1;
-  justify-items: center; /* Center grid items */
+  justify-items: center;
 }
-
 .propertyCard {
   display: block;
   width: 18.75rem;

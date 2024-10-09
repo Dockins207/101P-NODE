@@ -1,8 +1,8 @@
 .title {
   text-align: center;
   font-size: 2.5rem;
-  color: black;
-  margin-top: 9rem;
+  color: #007bff;
+  margin-top: 1rem;
 }
 
 .galleryContainer {
@@ -66,7 +66,6 @@
 
 .contentSection h2 {
   font-size: 1.8rem;
-  color: black;
 }
 
 .contentSection p {

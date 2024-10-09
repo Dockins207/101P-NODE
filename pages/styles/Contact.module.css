@@ -1,13 +1,13 @@
 #contactPageSection {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center; /* Center the items horizontally */
   max-width: 75%;
-  margin: 7rem auto;
+  margin: 0 auto; /* Center the section itself */
   padding: 1.25rem;
   border-radius: 1rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
 }
-
 
 .contactSection {
   flex: 1;
@@ -132,5 +132,36 @@
 
   .formSection {
     margin-top: 1.25rem; 
+  }
+}
+
+@media (max-width: 480px) {
+  .contactHeader h1 {
+    font-size: 2rem;
+  }
+
+  .contactHeader p {
+    font-size: 1rem;
+  }
+
+  .contactBox h2 {
+    font-size: 1.5rem;
+  }
+
+  .contactBox p {
+    font-size: 1rem;
+  }
+
+  .formSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .formGroup input,
+  .formGroup textarea {
+    width: 100%;
+  }
+
+  .submitBtn {
+    width: 100%;
   }
 }

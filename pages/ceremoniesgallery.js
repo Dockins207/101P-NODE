@@ -1,6 +1,6 @@
 import { sanityClient } from '../sanity/lib/client';
 import { useState } from 'react';
-import styles from './styles/Ceremoniesgallery.module.css';
+import styles from './styles/Staffgallery.module.css';
 import Head from 'next/head';
 import { NextSeo } from 'next-seo';
 
@@ -42,7 +42,7 @@ const Gallery = ({ galleryItems }) => {
           title: 'Memorable Ceremonies Gallery',
           description: 'Explore our memorable ceremonies celebrating property handovers and milestone events at 101 Properties.',
           images: galleryItems.map(item => ({
-            url: item.images[0], // Example, include URLs for Open Graph images
+            url: item.images[0],
             width: 800,
             height: 600,
             alt: item.title,
@@ -67,7 +67,7 @@ const Gallery = ({ galleryItems }) => {
               <div key={`${item.title}-${index}`} className={styles.gridItem}>
                 <img
                   src={img}
-                  alt={`Ceremony event: ${item.title}`}  // Use meaningful alt text
+                  alt={`Ceremony event: ${item.title}`}
                   className={styles.gridImage}
                   onClick={() => handleImageClick(img)}
                 />

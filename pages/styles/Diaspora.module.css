@@ -1,43 +1,40 @@
 .diasporaSection {
-  padding: 50px 20px;
-  max-width: 1200px;
-  margin: 4rem auto;
+  padding: 1vw 2vw;
+  max-width: 80%;
+  margin: 0 auto;
 }
 
-/* Content Styling */
 .diasporaContent {
   background-color: #ffffff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 4vw;
+  border-radius: 1vw;
+  box-shadow: 0 0.5vw 1vw rgba(0, 0, 0, 0.1);
 }
 
-/* Relationship Manager Section */
 .relationshipManager {
   color: #555;
   font-style: italic;
-  margin-top: 30px;
+  margin-top: 3vw;
   text-align: center;
 }
 
-/* Call-to-action Button */
 .ctaLink {
   display: inline-flex;
   align-items: center;
-  padding: 12px 20px;
+  padding: 1.2vw 2vw;
   color: red;
   text-decoration: none;
   font-size: 1.2rem;
   transition: color 0.3s ease;
   border: none;
-  border-radius: 5px;
-  margin-top: 20px;
+  border-radius: 0.5vw;
+  margin-top: 2vw;
   font-weight: bold;
 }
 
 .ctaLink::after {
   content: '\2192';
-  margin-left: 10px;
+  margin-left: 1vw;
   font-size: 1.5rem;
 }
 

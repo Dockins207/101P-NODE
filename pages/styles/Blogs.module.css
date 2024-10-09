@@ -1,7 +1,6 @@
 .blogsContainer {
   padding: 2rem;
   text-align: center;
-  margin-top: rem;
 }
 
 .blogsList {
@@ -28,18 +27,10 @@
   height: auto;
   border-radius: 0.5rem;
 }
-
-.readMore {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #0070f3;
-  color: white;
-  text-decoration: none;
-  border-radius: 0.5rem;
-  transition: background-color 0.2s;
+.blogLink {
+  transition: color 0.3s ease;
 }
 
-.readMore:hover {
-  background-color: #005bb5;
+.blogLink:hover {
+  color: #007bff;
 }

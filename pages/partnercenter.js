@@ -22,7 +22,7 @@ const PartnerCenter = () => {
           property="og:description"
           content="Invite your friends and family to invest in affordable properties and earn a rewarding 2% commission on every successful sale."
         />
-        <meta property="og:image" content="https://101-properties.com/partner-image.jpg" /> {/* Replace with a relevant image URL */}
+        <meta property="og:image" content="https://101-properties.com/partner-image.jpg" />
         <meta name="robots" content="index, follow" />
         <meta property="og:url" content="https://101-properties.com/partner" />
         <meta property="og:type" content="website" />

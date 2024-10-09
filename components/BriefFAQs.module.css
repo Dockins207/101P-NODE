@@ -1,19 +1,18 @@
-/* components/BriefFAQs.module.css */
-
 .briefFaqSection {
   padding: 2.5rem 1.25rem;
-  text-align: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
   width: 100%;
+  background-color: #f0f0f0;
+  text-align: center;
 }
 
 .briefFaqSection h2 {
   font-size: 1.75rem;
-  color: blue;
   margin-bottom: 1.875rem;
 }
 
 .briefFaqItem {
+  text-align: center;
   margin-bottom: 1.25rem;
 }
 
@@ -24,19 +23,21 @@
 }
 
 .briefAnswer {
+  text-align: center;
   font-size: 1rem;
   color: #555;
   margin-top: 0.3125rem;
 }
 
 .briefAnswer a {
-  color: #ff0000;
+  text-align: center;
+  color: #0070f3;
   text-decoration: none;
   font-weight: bold;
 }
 
 .briefAnswer a:hover {
-  color: green;
+  color: #005bb5;
   text-decoration: underline;
 }
 
@@ -45,14 +46,15 @@
 }
 
 .seeAllLink {
-  color: #ff0000;
+  text-align: center;
+  color: #0070f3;
   font-size: 1rem;
   text-decoration: none;
   font-weight: bold;
 }
 
 .seeAllLink:hover {
-  color: green;
+  color: #005bb5;
 }
 
 .seeAllLink::after {

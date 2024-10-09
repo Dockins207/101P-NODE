@@ -4,27 +4,24 @@ export default {
   type: 'document',
   fields: [
     {
-      name: 'happyClients',
-      title: 'Happy Clients',
+      name: 'clientsServed',
+      title: 'Clients Served',
+      type: 'number',
+    },
+    {
+      name: 'projectsCompleted',
+      title: 'Projects Completed',
+      type: 'number',
+    },
+    {
+      name: 'diasporaClients',
+      title: 'International Clients',
       type: 'number',
     },
     {
       name: 'yearsOfExperience',
       title: 'Years of Experience',
       type: 'number',
-    },
-    {
-      name: 'titleDeeds',
-      title: 'Title Deeds Awarded',
-      type: 'number',
-    },
-    {
-      name: 'image',
-      title: 'Background Image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
     },
   ],
 };

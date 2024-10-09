@@ -1,17 +1,18 @@
+import Head from 'next/head'; // Import Head from next/head
 import styles from './styles/Diaspora.module.css';
 import FeaturedProperties from '../components/FeaturedProperties';
 
 const Diaspora = () => {
   return (
     <>
-      <head>
+      <Head>
         <title>Invest in Kenyan Real Estate from Abroad - 101 Properties</title>
         <meta
           name="description"
           content="Simplifying Kenyan real estate investment for the diaspora. Trustworthy processes and dedicated support for your investment journey."
         />
         <meta name="robots" content="index, follow" />
-      </head>
+      </Head>
       <section className={styles.diasporaSection}>
         <div className={styles.diasporaContent}>
           <h1>Investing in Kenyan Real Estate from Abroad Made Easy</h1>
@@ -50,15 +51,12 @@ const Diaspora = () => {
             of the way."
           </div>
 
-          <a
-            href="../101 properties pages/sellingnow.html"
-            className={styles.ctaLink}
-          >
+          <a href="/sellingnow" className={styles.ctaLink}>
             Start Your Investment Journey
           </a>
         </div>
-        <FeaturedProperties />
       </section>
+      <FeaturedProperties />
     </>
   );
 };

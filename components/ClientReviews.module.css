@@ -1,17 +1,16 @@
 .client-reviews {
   padding: 2.5rem 1.25rem;
-  color: #fff;
+  color: #0a0000;
   text-align: center;
 }
 
 .review-item {
-  background-color: #2c2c2c;
+  background-color: #ddddddf1;
   padding: 0.75rem;
   border-radius: 0.625rem;
   text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 0.5rem;
   font-size: 0.9rem;
   width: 90%;
@@ -35,15 +34,17 @@
 }
 
 .review-info {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .review-info strong {
   font-size: 1rem;
+  margin-bottom: 0.1rem;
 }
 
 .review-date {
-  color: #ccc;
+  color: #020000;
   font-size: 0.75rem;
 }
 
@@ -52,52 +53,27 @@
   justify-content: flex-start;
   color: gold;
   font-size: 1rem;
-  margin-bottom: 0.25rem;
 }
 
 .review-item p {
-  color: #ffffff;
+  color: #070000;
   margin: 0.25rem 0;
   line-height: 1.4;
-  overflow: visible;
-  text-overflow: ellipsis;
-}
-
-.read-more {
-  color: #ff0000;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 0.5rem;
-}
-
-.read-more:hover {
-  color: green;
-  text-decoration: underline;
 }
 
 .reviews {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1.25rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
   width: 100%;
-  margin: 0 auto;
   padding: 0 1.25rem;
 }
 
-.read-more-button {
-  margin-top: 1.5rem;
-  padding: 0.75rem 2rem;
-  background-color: #ff0000;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.read-more-button:hover {
-  background-color: green;
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10rem;
+  margin-top: 20px;
 }
 
 @media (max-width: 75rem) {
@@ -118,7 +94,6 @@
   .review-item {
     max-height: 220px;
     font-size: 0.9rem;
-    overflow: visible;
   }
 }
 
@@ -133,7 +108,6 @@
 
   .review-item {
     padding: 0.625rem;
-    max-height: none;
     width: 100%;
     font-size: 0.85rem;
   }
@@ -145,7 +119,6 @@
 
 @media (max-width: 36rem) {
   .review-item {
-    max-height: none;
     font-size: 0.75rem;
   }
 
@@ -155,9 +128,5 @@
 
   .review-stars {
     font-size: 0.85rem;
-  }
-
-  .read-more {
-    margin-top: 0.3rem;
   }
 }

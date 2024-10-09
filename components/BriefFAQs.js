@@ -33,7 +33,7 @@ const BriefFAQs = () => {
       </div>
       <div className={styles.seeAllFaqs}>
         <a href="/faqspage" className={styles.seeAllLink}>
-          View More FAQs &rarr;
+           FAQs &rarr;
         </a>
       </div>
     </section>

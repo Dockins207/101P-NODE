@@ -8,7 +8,7 @@ const ContactForm = () => {
     email: '',
     message: '',
     siteVisit: false,
-    visitDate: '', // New state for date
+    visitDate: '', 
   });
 
   const handleChange = (e) => {
@@ -26,7 +26,7 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.contactForm}>
-      <h2>Book Site Visit</h2> {/* Changed heading */}
+      <h2>Book Site Visit</h2>
       <input
         type="text"
         name="name"

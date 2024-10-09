@@ -1,17 +1,18 @@
+import Head from 'next/head'; // Import the Head component
 import styles from './styles/Contact.module.css';
 import FeaturedProperties from '../components/FeaturedProperties';
 
 const Contact = () => {
   return (
     <>
-      <head>
+      <Head>
         <title>Contact Us - 101 Properties</title>
         <meta
           name="description"
           content="Get in touch with 101 Properties for inquiries about Kenyan real estate. We’re here to help you with your property investment questions."
         />
         <meta name="robots" content="index, follow" />
-      </head>
+      </Head>
       <section id={styles.contactPageSection}>
         <div className={styles.contactSection}>
           <div className={styles.contactHeader}>

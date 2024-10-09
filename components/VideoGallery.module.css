@@ -11,7 +11,7 @@
 
 .video-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   justify-content: center;
   padding: 0 2rem;
@@ -40,24 +40,6 @@
   transform: scale(1.05);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
   z-index: 10;
-}
-.youtube-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin-top: 2rem;
-  background-color: red; /* Red background */
-  color: white;
-  font-size: 0.8rem;
-  
-  text-decoration: none;
-  border-radius: 0.6rem;
-  transition: background-color 0.3s ease;
-}
-
-.youtube-button:hover {
-  background-color: green;
-  color: white;
-
 }
 
 /* For medium screens, switch to two columns */

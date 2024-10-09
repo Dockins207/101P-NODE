@@ -1,17 +1,13 @@
-// HomePage.js
-
 import BannerSection from '../components/BannerSection';
 import FeaturedProperties from '../components/FeaturedProperties';
 import AboutSection from '../components/AboutSection';
-import ClientReviews from '../components/ClientReviews';
-import VideoGallery from '../components/VideoGallery';
 import StatisticsSection from '../components/StatisticsSection';
 import FloatingIcons from '../components/FloatingIcons';
 import BriefFAQs from '../components/BriefFAQs';
 import SEO from '../components/SEO';
-import Button from '../components/Button'; // Import the reusable button
 import { sanityClient, urlFor } from '../sanity/lib/client';
-import styles from './styles/Blogs.module.css'; // Import the Blogs CSS module
+import styles from './styles/Blogs.module.css'; 
+import Testimonials from '../components/Testimonials';
 
 export default function HomePage({ blogs }) {
   return (
@@ -29,8 +25,7 @@ export default function HomePage({ blogs }) {
       <BannerSection />
       <AboutSection />
       <FeaturedProperties />
-      <ClientReviews />
-      <VideoGallery />
+      <Testimonials />
       <StatisticsSection />
       <FloatingIcons />
 
@@ -39,7 +34,7 @@ export default function HomePage({ blogs }) {
         <div className={styles.blogsContainer}>
           <div className={styles.blogsList}>
             {blogs && blogs.length > 0 ? (
-              blogs.slice(0, 4).map((blog) => (  // Display only 3 latest blogs
+              blogs.slice(0, 4).map((blog) => (  
                 <div className={styles.blogCard} key={blog._id}>
                   {blog.image ? (
                     <img
@@ -54,10 +49,13 @@ export default function HomePage({ blogs }) {
                       alt="Default Image"
                     />
                   )}
-                  <h3>{blog.title}</h3>
+                  {/* Make the title clickable */}
+                  <h3>
+                    <a href={`/blog/${blog.uuid}`} className={styles.blogLink}>
+                      {blog.title}
+                    </a>
+                  </h3>
                   <p>{blog.briefContent}</p>
-                  {/* Use the reusable button */}
-                  <Button href={`/blogs/${blog.uuid}`} text="Read More" />
                 </div>
               ))
             ) : (
@@ -65,8 +63,6 @@ export default function HomePage({ blogs }) {
             )}
           </div>
         </div>
-        {/* Use the reusable button here too */}
-        <Button href="/blogs" text="View All Blogs" />
       </section>
 
       <BriefFAQs />

@@ -1,110 +1,65 @@
-/* FeaturedProperties.module.css */
-.card,
-.card * {
-  box-sizing: border-box;
-}
-
-.featured-properties {
-  width: 100%;
+.selling-now {
   padding: 2rem;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  background-color: #f0f0f0;
 }
 
-.card {
-  display: block; /* Ensure the card behaves as a block element */
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+.property-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.property-image {
-  width: 100%;
-  height: auto;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.property-name {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  margin-left: 1rem;
-  text-align: left;
-}
-
-.property-details {
-  padding: 0 1rem; /* Add padding to prevent content from touching the card's edges */
-}
-
-.detail {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #ddd; /* Add a light gray divider */
-  overflow: hidden; /* Ensure floating elements are contained */
-}
-
-.detail:last-child {
-  border-bottom: none;
-}
-
-.label {
-  font-weight: bold;
-  width: 30%; /* Set label width */
-  float: left; /* Float the label to the left */
-  text-align: left;
-}
-
-.value {
-  width: 70%; /* Set value width */
-  float: right; /* Float the value to the right */
-  text-align: right;
-}
-
-.size-value {
-  border: 1px solid #007bff;
-  color: #007bff;
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  display: inline-block; /* Keep the size-value inline */
-}
-
-.price-container {
-  display: block;
-  margin-top: 1.5rem;
-  text-align: left;
-}
-
-.cash-price-container,
-.installment-price-container {
-  display: inline-block;
-  width: 38%;
-  margin-left: 3rem;
-  vertical-align: top;
-}
-
-.cash-price,
-.installment-price {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.view-details {
-  width: 40%;
-  padding: 0.4rem 0;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.error {
+  color: red;
   margin-top: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.view-details:hover {
+.retry-button {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.retry-button:hover {
   background-color: #0056b3;
+}
+.title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #555;
+    margin-bottom: 20px; 
+    line-height: 1.6;
+  }
+  
+@media (max-width: 48rem) {
+  .property-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .selling-now {
+    padding: 1.5rem; 
+  }
+}
+
+@media (max-width: 30rem) {
+  .property-list {
+    grid-template-columns: 1fr; 
+  }
+
+  .selling-now {
+    padding: 1rem; 
+  }
+
+  .retry-button {
+    width: 100%; 
+    padding: 1.2rem 0; 
+  }
 }

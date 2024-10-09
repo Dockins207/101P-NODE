@@ -31,12 +31,12 @@ export default function Footer() {
             <div className={styles.column}>
               <h4>Plots for Sale</h4>
               <ul>
-                <li><a href="#">Isinya</a></li>
-                <li><a href="#">Kisaju</a></li>
-                <li><a href="#">Watamu</a></li>
-                <li><a href="#">Lenchani</a></li>
-                <li><a href="#">Malindi-Boulala</a></li>
-                <li><a href="#">Chuna Estate-Kitengela</a></li>
+                <li><a href="#">Plots for sale Isinya</a></li>
+                <li><a href="#">Plots for sale Kisaju</a></li>
+                <li><a href="#">Plots for sale Watamu</a></li>
+                <li><a href="#">Plots for sale Lenchani</a></li>
+                <li><a href="#">Plots for sale Malindi-Boulala</a></li>
+                <li><a href="#">Plots for sale Chuna Estate-Kitengela</a></li>
               </ul>
             </div>
 
@@ -45,7 +45,7 @@ export default function Footer() {
               <h4>Office Location</h4>
               <ul>
                 <li>
-                  <a href="https://www.google.com/maps/place/1%C2%B025'02.7%22S+36%C2%B057'13.3%22E/@-1.4174069,36.9511254,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.4174069!4d36.9537003?hl=en&entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">Location</a>
+                  <a href="https://www.google.com/maps/place/1%C2%B025'02.7%22S+36%C2%B057'13.3%22E/@-1.4174069,36.9511254,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.4174069!4d36.9537003?hl=en&entry=ttu&g_ep=EgoyMDI0MDkyOS4wIKXMDSoASAFQAw%3D%3D">Signature Mall, Mombasa Road, Nairobi</a>
                 </li>
               </ul>
             </div>

@@ -1,7 +1,6 @@
 .container {
   padding: 1.25rem;
   position: relative;
-  margin-top: 7rem;
 }
 
 .headerContainer {
@@ -12,6 +11,7 @@
 .header {
   font-size: 2.5rem;
   margin: 0;
+  color: #007bff;
 }
 
 .headerText {
@@ -23,7 +23,7 @@
 .content {
   display: flex;
   align-items: flex-start;
-  justify-content: center; /* Center content */
+  justify-content: center;
   min-height: 100%;
   padding-bottom: 50px;
 }
@@ -33,7 +33,7 @@
   grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
   grid-gap: 0.625rem;
   flex-grow: 1;
-  justify-items: center; /* Center grid items */
+  justify-items: center; 
 }
 
 .gridItem {

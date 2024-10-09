@@ -1,7 +1,7 @@
 import { sanityClient } from '../sanity/lib/client';
 import { useState } from 'react';
 import Head from 'next/head';
-import styles from './styles/Sitevisitsgallery.module.css';
+import styles from './styles/Staffgallery.module.css';
 
 const query = `*[_type == "gallery" && category == "Site Visits"]{
   title,

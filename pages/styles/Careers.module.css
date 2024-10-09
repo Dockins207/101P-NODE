@@ -2,7 +2,7 @@
   padding: 3.125rem;
   background-color: #ffffff;
   max-width: 75rem;
-  margin: 7.5rem auto; /* Centering the section by using auto left/right margins */
+  margin: 1rem auto;
   text-align: center;
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
 }
@@ -57,7 +57,6 @@
   color: #004182;
 }
 
-/* Responsive Design */
 @media (max-width: 48rem) {
   .careersSection {
     padding: 1.25rem;

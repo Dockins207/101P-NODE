@@ -1,6 +1,5 @@
-/* Info Links Section Styling */
 .infoLinks {
-  background-color: blue;
+  background-color: #007bff;
   padding: 2rem 0;
   color: white;
 }
@@ -54,7 +53,7 @@
   text-decoration: underline;
 }
 
-/* Social Icons Styling */
+
 .socialIcons {
   text-align: right;
   margin-top: 1rem;
@@ -73,9 +72,9 @@
   color: lightgray;
 }
 
-/* Footer Bottom Section Styling */
+
 .footerBottom {
-  background-color: red;
+  background-color: #007bff;
   color: white;
   padding: 1rem 0;
 }

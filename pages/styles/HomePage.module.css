@@ -1,0 +1,14 @@
+/* styles/HomePage.module.css */
+
+.homepage {
+    background-image: url('/background.jpg'); /* Ensure image is in the public folder */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; /* Full height of the viewport */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  

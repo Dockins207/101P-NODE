@@ -1,21 +1,19 @@
 .statisticsSection {
-  padding: 0.5rem 0;
+  padding: 2rem;
   position: relative;
-  height: auto;
+  height: 30rem;
   text-align: center;
+  background-color: #f0f0f0;
 }
 
 .statisticsBackground {
-  padding: 0.5rem;
-}
-.statisticsImage {
-  width: 100%;
-  height: auto;
-  margin-bottom: 20px; 
-}
-.statisticsSection h2 {
-  font-size: 2.5rem;
-  color: blue;
+  padding: 1rem;
+  height: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .statisticsContainer {
@@ -24,39 +22,78 @@
   gap: 2rem;
   flex-wrap: wrap;
   opacity: 0;
-  transform: translateX(3.125rem);
+  transform: translateY(2rem);
   transition: all 0.8s ease;
 }
 
 .statBox {
+  margin-top: 6rem;
   background-color: white;
   border-radius: 0.9375rem;
   padding: 1rem;
   text-align: center;
-  width: 18.75rem;
-  height: 6.25rem;
+  width: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  border: 0.0625rem solid #ddd;
+  border: 1px solid #ddd;
 }
 
 .statHeading {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   color: black;
 }
 
+.statNumberWrapper {
+  position: relative;
+  display: inline-block; /* To control the position of both elements */
+}
+
 .statNumber {
-  font-size: 3rem;
-  color: blue;
+  font-size: 2.5rem;
+  color: #0070f3;
+  font-weight: 900;
+  display: inline-block;
+  line-height: 1;
+}
+
+.plusSign {
+  font-size: 1.5rem; /* Slightly smaller than the number */
+  color: #0070f3;
+  position: absolute;
+  top: -0.5rem; /* Adjust the position above the number */
+  right: -1rem; /* Adjust to the right of the number */
+}
+
+
+.statisticsSection h2 {
+  font-size: 2.5rem;
+  margin: 0;
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+}
+
+.statDescription {
+  font-size: 1rem;
+  margin: 0;
+  position: absolute;
+  top: 6rem;
+  left: 1rem;
+}
+
+.subHeader {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 2rem;
 }
 
 .show {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 @media (max-width: 1024px) {
@@ -65,39 +102,146 @@
   }
 
   .statBox {
+    margin-top: 3rem;
     width: calc(50% - 1rem);
   }
 }
 
 @media (max-width: 768px) {
   .statisticsContainer {
-    flex-direction: column;
+    margin-top: 4rem;
+    flex-direction: row;
     align-items: center;
     gap: 1rem;
   }
 
   .statBox {
-    width: 90%;
+    width: calc(50% - 1rem);
     height: auto;
   }
 
   .statisticsSection h2 {
     font-size: 2rem;
-    margin-bottom: 5rem;
+  }
+
+  .subHeader {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .statisticsSection h2 {
-    font-size: 1.5rem;
-    margin-bottom: 3rem;
+  .statisticsContainer {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .statHeading {
-    font-size: 1rem;
+  .statBox {
+    display: flex;
+    width: 90%;
+  }
+
+  .statisticsSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .subHeader {
+    font-size: 0.9rem;
   }
 
   .statNumber {
     font-size: 1.5rem;
+  }
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+@media (max-width: 1280px) {
+  .statBox {
+    width: calc(40% - 1rem);
+  }
+}
+
+@media (max-width: 1024px) {
+  .statisticsContainer {
+    gap: 1.5rem;
+  }
+
+  .statBox {
+    margin-top: 3rem;
+    width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .statisticsContainer {
+    margin-top: 4rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .statBox {
+    width: calc(50% - 1rem);
+    height: auto;
+  }
+
+  .statisticsSection h2 {
+    font-size: 2rem;
+  }
+
+  .subHeader {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statisticsContainer {
+    margin-top: 4rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .statBox {
+    display: flex;
+    width: 90%;
+  }
+
+  .statisticsSection h2 {
+    font-size: 1.5rem;
+  }
+
+  .subHeader {
+    font-size: 0.9rem;
+  }
+
+  .statNumber {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .statisticsSection {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .statBox {
+    margin-top: 2rem;
+    width: 90%;
+  }
+
+  .statisticsSection h2 {
+    font-size: 1.25rem;
+  }
+
+  .subHeader {
+    font-size: 0.75rem;
+  }
+
+  .statNumber {
+    font-size: 1.25rem;
   }
 }

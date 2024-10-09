@@ -1,13 +1,12 @@
-/* Gallery.module.css */
 .container {
-  padding: 1.25rem; /* 20px equivalent */
+  padding: 1.25rem;
   position: relative;
   margin-top: 7rem;
 }
 
 .headerContainer {
   text-align: center;
-  margin-bottom: 1.25rem; /* Adjusted margin for spacing */
+  margin-bottom: 1.25rem;
 }
 
 .header {
@@ -16,7 +15,7 @@
 }
 
 .headerText {
-  margin-top: 0.625rem; /* 10px equivalent */
+  margin-top: 0.625rem;
   font-size: 1rem;
   color: #555;
 }
@@ -25,31 +24,19 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  min-height: 100%; /* Ensures full height as the content grows */
-  padding-bottom: 50px; /* Ensure some space at the bottom */
+  min-height: 100%;
+  padding-bottom: 50px;
 }
-
-.divider {
-  width: 2px; /* Adjust thickness if needed */
-  background-color: blue;
-  height: auto; /* Automatically adjusts based on content */
-  min-height: 100%; /* Ensures the line is as tall as the tallest section */
-  position: relative; /* Adjusts within its container */
-}
-
 .right {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(18.75rem, 1fr)
-  ); /* 300px equivalent */
-  grid-gap: 0.625rem; /* 10px equivalent */
+  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
+  grid-gap: 0.625rem;
   flex-grow: 1;
 }
 
 .gridItem {
-  width: 18.75rem; /* 300px equivalent */
-  height: 18.75rem; /* 300px equivalent */
+  width: 18.75rem;
+  height: 18.75rem;
   overflow: hidden;
   cursor: pointer;
 }
@@ -80,38 +67,31 @@
 
 .closeButton {
   position: absolute;
-  top: 1.25rem; /* 20px equivalent */
-  right: 1.25rem; /* 20px equivalent */
+  top: 1.25rem;
+  right: 1.25rem;
   font-size: 2rem;
   color: #fff;
   cursor: pointer;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
   .right {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(12.5rem, 1fr)
-    ); /* 200px equivalent */
+    grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
   }
 
   .gridItem {
-    width: 12.5rem; /* 200px equivalent */
-    height: 12.5rem; /* 200px equivalent */
+    width: 12.5rem;
+    height: 12.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .right {
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(10rem, 1fr)
-    ); /* 160px equivalent */
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
   }
 
   .gridItem {
-    width: 10rem; /* 160px equivalent */
-    height: 10rem; /* 160px equivalent */
+    width: 10rem;
+    height: 10rem;
   }
 }
