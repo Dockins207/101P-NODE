@@ -42,7 +42,7 @@ export default function Header() {
       <div className={styles.bottomSection}>
         <div className={styles.headerLogo}>
           <Link href="/">
-            <img id="logo" src="/logo/logo2-1-3-.png" alt="" />
+            <img id="logo" src="/logo/logo2-1-3-.png" alt="." />
           </Link>
         </div>
 
