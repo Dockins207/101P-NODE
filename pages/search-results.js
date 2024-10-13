@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { sanityClient as client } from '../sanity/lib/client';
 import Link from 'next/link';
 import styles from './styles/Properties.module.css';
-import PropertyCard from '../components/PropertyCard'; // Import PropertyCard
+import PropertyCard from '../components/PropertyCard';
 
 export default function NewSearchResults({ properties, totalPages, currentPage }) {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function NewSearchResults({ properties, totalPages, currentPage }
       <div className={styles.gridContainer}>
         {properties.length > 0 ? (
           properties.map((property) => (
-            <PropertyCard key={property._id} property={property} slug={property.slug.current} /> // Use PropertyCard
+            <PropertyCard key={property._id} property={property} slug={property.slug.current} />
           ))
         ) : (
           <p>No properties found in {location}.</p>
@@ -53,31 +53,47 @@ export async function getServerSideProps(context) {
   const perPage = 10;
   const start = (page - 1) * perPage;
 
-  const query = `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location] | order(_createdAt desc) {
-    _id,
-    title,
-    location,
-    mainImage {
-      asset -> {
-        url
+  try {
+    const query = `*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location] | order(_createdAt desc) {
+      _id,
+      name, // Property Name from the schema
+      location,
+      image {
+        asset -> {
+          url
+        }
+      },
+      cashPrice, // Cash Price from the schema
+      slug {
+        current
+      },
+      detailedPage {
+        description // Optional detailed page description
       }
-    },
-    price,
-    slug // Ensure you include the slug in the query
-  } [${start}...${start + perPage}]`;
+    } [${start}...${start + perPage}]`;
 
-  const properties = await client.fetch(query, { location: `${location}*` });
+    const properties = await client.fetch(query, { location: `${location}*` });
 
-  const totalQuery = `count(*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location])`;
-  const totalResults = await client.fetch(totalQuery, { location: `${location}*` });
+    const totalQuery = `count(*[_type in ["featuredProperties", "sellingNow", "offers", "newProperties"] && location match $location])`;
+    const totalResults = await client.fetch(totalQuery, { location: `${location}*` });
 
-  const totalPages = Math.ceil(totalResults / perPage);
+    const totalPages = Math.ceil(totalResults / perPage);
 
-  return {
-    props: {
-      properties,
-      totalPages,
-      currentPage: Number(page),
-    },
-  };
+    return {
+      props: {
+        properties,
+        totalPages,
+        currentPage: Number(page),
+      },
+    };
+  } catch (error) {
+    console.error('Error fetching properties:', error);
+    return {
+      props: {
+        properties: [],
+        totalPages: 1,
+        currentPage: 1,
+      },
+    };
+  }
 }

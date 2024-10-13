@@ -13,16 +13,16 @@ export default function Header() {
   const toggleNav = () => setIsNavActive(!isNavActive);
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
-    setIsNavActive(false); // Close nav when toggling search
+    setIsNavActive(false);
   };
 
   const handleLinkClick = (e, isExternalLink) => {
     if (isExternalLink) {
       setIsNavActive(false);
     } else {
-      setIsNavActive(false); // Close nav for internal links
+      setIsNavActive(false);
     }
-    setIsSearchVisible(false); // Close search when a link is clicked
+    setIsSearchVisible(false);
   };
 
   return (
@@ -42,7 +42,7 @@ export default function Header() {
       <div className={styles.bottomSection}>
         <div className={styles.headerLogo}>
           <Link href="/">
-            <img id="logo" src="/logo/logo2-1-3-.png" alt="Logo" />
+            <img id="logo" src="/logo/logo2-1-3-.png" alt="" />
           </Link>
         </div>
 
