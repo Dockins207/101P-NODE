@@ -119,7 +119,7 @@ const PropertyDetails = ({ property }) => {
       <div className={styles.sectionSeparator}></div>
       
       {/* Map Section */}
-      <section className={styles.mapSection}>
+      {/* <section className={styles.mapSection}>
         <h2 className={styles.heading}>Location</h2>
         <iframe
           src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(
@@ -130,7 +130,7 @@ const PropertyDetails = ({ property }) => {
           style={{ border: 0 }}
           allowFullScreen
         ></iframe>
-      </section>
+      </section> */}
     </div>
   );
 };
