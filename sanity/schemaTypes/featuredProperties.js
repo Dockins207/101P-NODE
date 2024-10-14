@@ -51,7 +51,7 @@ export default {
     },
     {
       name: 'installmentPrice',
-      title: 'Installment Price',
+      title: 'Deposit Price',
       type: 'string',
     },
     {

@@ -1,19 +1,15 @@
 .statisticsSection {
-  padding: 2rem;
   position: relative;
-  height: 30rem;
-  text-align: center;
-  background-color: #f0f0f0;
+  min-height: 30rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; 
 }
 
 .statisticsBackground {
-  padding: 1rem;
-  height: 100%;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  z-index: 1;
+  text-align: center;
 }
 
 .statisticsContainer {
@@ -49,7 +45,7 @@
 
 .statNumberWrapper {
   position: relative;
-  display: inline-block; /* To control the position of both elements */
+  display: inline-block;
 }
 
 .statNumber {
@@ -61,13 +57,12 @@
 }
 
 .plusSign {
-  font-size: 1.5rem; /* Slightly smaller than the number */
+  font-size: 1.5rem;
   color: #0070f3;
   position: absolute;
-  top: -0.5rem; /* Adjust the position above the number */
-  right: -1rem; /* Adjust to the right of the number */
+  top: -0.5rem;
+  right: -1rem;
 }
-
 
 .statisticsSection h2 {
   font-size: 2.5rem;
@@ -85,26 +80,9 @@
   left: 1rem;
 }
 
-.subHeader {
-  font-size: 1.2rem;
-  color: white;
-  margin-bottom: 2rem;
-}
-
 .show {
   opacity: 1;
   transform: translateY(0);
-}
-
-@media (max-width: 1024px) {
-  .statisticsContainer {
-    gap: 1.5rem;
-  }
-
-  .statBox {
-    margin-top: 3rem;
-    width: calc(50% - 1rem);
-  }
 }
 
 @media (max-width: 768px) {
@@ -117,15 +95,10 @@
 
   .statBox {
     width: calc(50% - 1rem);
-    height: auto;
   }
 
   .statisticsSection h2 {
     font-size: 2rem;
-  }
-
-  .subHeader {
-    font-size: 1rem;
   }
 }
 
@@ -136,112 +109,10 @@
   }
 
   .statBox {
-    display: flex;
     width: 90%;
   }
 
   .statisticsSection h2 {
     font-size: 1.5rem;
-  }
-
-  .subHeader {
-    font-size: 0.9rem;
-  }
-
-  .statNumber {
-    font-size: 1.5rem;
-  }
-}
-
-.error {
-  color: red;
-  text-align: center;
-}
-@media (max-width: 1280px) {
-  .statBox {
-    width: calc(40% - 1rem);
-  }
-}
-
-@media (max-width: 1024px) {
-  .statisticsContainer {
-    gap: 1.5rem;
-  }
-
-  .statBox {
-    margin-top: 3rem;
-    width: calc(50% - 1rem);
-  }
-}
-
-@media (max-width: 768px) {
-  .statisticsContainer {
-    margin-top: 4rem;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .statBox {
-    width: calc(50% - 1rem);
-    height: auto;
-  }
-
-  .statisticsSection h2 {
-    font-size: 2rem;
-  }
-
-  .subHeader {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .statisticsContainer {
-    margin-top: 4rem;
-    flex-direction: row;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .statBox {
-    display: flex;
-    width: 90%;
-  }
-
-  .statisticsSection h2 {
-    font-size: 1.5rem;
-  }
-
-  .subHeader {
-    font-size: 0.9rem;
-  }
-
-  .statNumber {
-    font-size: 1.5rem;
-  }
-}
-
-@media (max-width: 375px) {
-  .statisticsSection {
-    height: auto;
-    padding: 1rem;
-  }
-
-  .statBox {
-    margin-top: 2rem;
-    width: 90%;
-  }
-
-  .statisticsSection h2 {
-    font-size: 1.25rem;
-  }
-
-  .subHeader {
-    font-size: 0.75rem;
-  }
-
-  .statNumber {
-    font-size: 1.25rem;
   }
 }

@@ -1,11 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import styles from './StatisticsSection.module.css';
 import { sanityClient } from '../sanity/lib/client';
+import imageUrlBuilder from '@sanity/image-url'; // Import image URL builder
+
+const builder = imageUrlBuilder(sanityClient); // Initialize image URL builder
 
 const StatisticsSection = () => {
   const containerRef = useRef(null);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [imageLoadingError, setImageLoadingError] = useState(false); // State for image loading error
 
   const animateCount = (element, target) => {
     let count = 0;
@@ -31,12 +35,13 @@ const StatisticsSection = () => {
             clientsServed, 
             projectsCompleted, 
             diasporaClients, 
-            yearsOfExperience
+            yearsOfExperience,
+            backgroundImage { asset->{ url } } // Fetch the image URL
           }
         `);
 
         if (result) {
-          setData(result); // Set the fetched data
+          setData(result);
         } else {
           setError('No statistics found.');
         }
@@ -61,20 +66,26 @@ const StatisticsSection = () => {
             });
             containerRef.current.classList.add(styles.show);
           } else {
-            containerRef.current.classList.remove(styles.show); // Reset animation when out of view
+            containerRef.current.classList.remove(styles.show);
           }
         });
       }, { threshold: 0.1 });
 
       observer.observe(containerRef.current);
 
-      return () => observer.disconnect(); // Clean up observer on unmount
+      return () => observer.disconnect();
     }
   }, [data]);
 
   if (error) {
     return <div className={styles.error}>{error}</div>;
   }
+
+  // Fallback function for image loading error
+  const handleImageError = () => {
+    setImageLoadingError(true);
+  };
+
   const renderStatBoxes = () => (
     <>
       <div className={styles.statBox}>
@@ -86,7 +97,7 @@ const StatisticsSection = () => {
           <span className={styles.plusSign}>+</span>
         </div>
       </div>
-  
+
       <div className={styles.statBox}>
         <h3 className={styles.statHeading}>Years of Service</h3>
         <div className={styles.statNumberWrapper}>
@@ -96,7 +107,7 @@ const StatisticsSection = () => {
           <span className={styles.plusSign}>+</span>
         </div>
       </div>
-  
+
       <div className={styles.statBox}>
         <h3 className={styles.statHeading}>Projects Completed</h3>
         <div className={styles.statNumberWrapper}>
@@ -106,7 +117,7 @@ const StatisticsSection = () => {
           <span className={styles.plusSign}>+</span>
         </div>
       </div>
-  
+
       <div className={styles.statBox}>
         <h3 className={styles.statHeading}>International Clients</h3>
         <div className={styles.statNumberWrapper}>
@@ -118,16 +129,15 @@ const StatisticsSection = () => {
       </div>
     </>
   );
-  
 
   return (
-    <section className={styles.statisticsSection} id="statistics">
-      <div
-        className={styles.statisticsBackground}
-        style={{
-          backgroundImage: `url('/logo/STATISTICS2.jpg')`,
-        }}
-      >
+    <section className={styles.statisticsSection} id="statistics" style={{
+      backgroundColor: imageLoadingError ? '#f0f0f0' : 'transparent', // Fallback color
+      backgroundImage: data?.backgroundImage?.asset ? `url(${data.backgroundImage.asset.url})` : 'none', // Correctly access the image URL
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
+      <div className={styles.statisticsBackground}>
         <h2>Why Choose 101 Properties?</h2>
         <p className={styles.statDescription}>Trusted by property buyers worldwide.</p>
         <div className={styles.statisticsContainer} ref={containerRef}>

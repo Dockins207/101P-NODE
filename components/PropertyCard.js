@@ -38,7 +38,7 @@ const PropertyCard = ({ property, slug }) => {
           </div>
 
           <div className={styles['installment-price-container']}>
-            <p className={styles['property-label']} style={{ direction: 'ltr' }}><strong>Installments</strong></p>
+            <p className={styles['property-label']} style={{ direction: 'ltr' }}><strong>Deposit</strong></p>
             <p className={styles['property-value']} style={{ direction: 'ltr' }}>
               Ksh. {property.installmentPrice ? property.installmentPrice.toLocaleString() : '0'}
             </p>

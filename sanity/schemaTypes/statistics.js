@@ -23,5 +23,13 @@ export default {
       title: 'Years of Experience',
       type: 'number',
     },
+    {
+      name: 'backgroundImage',
+      title: 'Background Image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
 };
