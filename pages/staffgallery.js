@@ -56,7 +56,7 @@ const Gallery = ({ galleryItems }) => {
         {/* Header Section */}
         <div className={styles.headerContainer}>
           <h1 className={styles.header}>
-            Meet Our Team: The People Behind Our Success
+            The People Behind Our Success
           </h1>
           <p className={styles.headerText}>
             Get to know the dedicated professionals who drive our success,
