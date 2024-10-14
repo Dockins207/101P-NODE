@@ -12,7 +12,7 @@
 }
 .topSection {
     width: 100%;
-    background-color: #007bff;
+    background-color: #004997;
     color: white;
     padding: 0.5vw 0.5vw;
     display: flex;
@@ -32,7 +32,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3.5vw 2vw;
+    padding: 1vw 2vw;
 }
 
 .headerLogo img {
@@ -88,14 +88,14 @@
 .dropdownContent a {
     display: block;
     padding: 0.5rem 0.75rem;
-    color: #007bff;
+    color: #004997;
     font-size: 0.875rem;
     text-decoration: none;
     width: 10rem;
 }
 
 .dropdownContent a:hover {
-    background-color: rgba(53, 53, 53, 0.1);
+    background-color: rgba(153, 153, 153, 0.1);
 }
 .mobileSearch {
     display: flex;

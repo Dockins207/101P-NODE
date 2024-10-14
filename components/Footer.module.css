@@ -1,5 +1,5 @@
 .infoLinks {
-  background-color: #007bff;
+  background-color:#004997;
   padding: 2rem 0;
   color: white;
 }
@@ -53,28 +53,8 @@
   text-decoration: underline;
 }
 
-
-.socialIcons {
-  text-align: right;
-  margin-top: 1rem;
-}
-
-.socialIcons a {
-  color: white;
-  margin: 0 1.25rem;
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: transform 0.3s ease-in-out;
-}
-
-.socialIcons a:hover {
-  transform: scale(1.2);
-  color: lightgray;
-}
-
-
 .footerBottom {
-  background-color: #007bff;
+  background-color: #004997;
   color: white;
   padding: 1rem 0;
 }
