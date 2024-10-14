@@ -2,32 +2,6 @@ import { useState } from 'react';
 import styles from './FloatingIcons.module.css';
 
 const FloatingIcons = () => {
-  const [isChatVisible, setChatVisible] = useState(false);
-
-  const toggleChat = () => {
-    setChatVisible((prevState) => !prevState);
-  };
-
-  const sendMessage = () => {
-    const input = document.getElementById('chatInput');
-    const messageBody = document.querySelector('.chatBody');
-    const messageError = document.getElementById('messageError');
-
-    if (input.value.trim() === '') {
-      messageError.style.display = 'block';
-      return;
-    }
-
-    messageError.style.display = 'none';
-
-    const message = document.createElement('p');
-    message.className = 'userMessage'; // Fixed class name
-    message.textContent = input.value;
-    messageBody.appendChild(message);
-
-    input.value = '';
-  };
-
   return (
     <>
       <a
@@ -41,34 +15,6 @@ const FloatingIcons = () => {
           alt="WhatsApp"
         />
       </a>
-
-      <div
-        className={`${styles.chatBox} ${isChatVisible ? styles.active : ''}`}
-        id="chatBox"
-      >
-        <div className={styles.chatHeader}>
-          <h3>Hi there</h3>
-          <button className={styles.closeChat} onClick={toggleChat}>
-            ✖
-          </button>
-        </div>
-        <div className={styles.chatBody}>
-          {/* Sent messages will be appended here */}
-        </div>
-        <div className={styles.chatFooter}>
-          <input
-            type="text"
-            id="chatInput"
-            placeholder="Enter your message..."
-          />
-          <button className={styles.sendBtn} onClick={sendMessage}>
-            Send
-          </button>
-        </div>
-        <div className={styles.messageError} id="messageError">
-          Message is empty
-        </div>
-      </div>
     </>
   );
 };
