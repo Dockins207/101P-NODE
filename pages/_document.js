@@ -5,9 +5,10 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        {/* Link to favicon */}
-        <link rel="icon" href="/favicon.ico" /> {/* or /favicon.png */}
-        {/* Add any other metadata */}
+        {/* Link to the favicon */}
+        <link rel="icon" href="/favicon.ico" />
+        {/* Optionally link to a PNG favicon */}
+        <link rel="icon" type="image/png" href="/favicon.png" /> */
       </Head>
       <body>
         <Main />
