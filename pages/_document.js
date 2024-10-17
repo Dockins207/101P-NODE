@@ -8,7 +8,7 @@ export default function Document() {
         {/* Link to the favicon */}
         <link rel="icon" href="/favicon.ico" />
         {/* Optionally link to a PNG favicon */}
-        <link rel="icon" type="image/png" href="/favicon.png" /> */
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <body>
         <Main />

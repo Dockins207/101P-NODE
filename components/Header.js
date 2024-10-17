@@ -27,7 +27,6 @@ export default function Header() {
 
   return (
     <header className={styles.headerWrapper}>
-      {/* Top Section with clickable email, phone, and social icons */}
       <div className={styles.topSection}>
         <p>
           <strong>
