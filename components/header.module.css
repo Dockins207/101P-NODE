@@ -95,8 +95,10 @@
 }
 
 .dropdownContent a:hover {
-    background-color: rgba(153, 153, 153, 0.1);
+    background-color: rgba(153, 153, 153, 0.192);
+    border-radius: 2rem;
 }
+
 .mobileSearch {
     display: flex;
     align-items: center;
