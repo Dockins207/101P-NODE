@@ -1,0 +1,45 @@
+.noticeContainer {
+    background-color: #f83d4c;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 5px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 300px;
+    text-align: center;
+    border: 1px solid #f5c6cb;
+    z-index: 9999;
+    animation: bounce 20s infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes bounce {
+    0% { top: 10px; left: 10px; }
+    25% { top: 10px; left: calc(100% - 310px); }
+    50% { top: calc(100% - 90px); left: calc(100% - 310px); }
+    75% { top: calc(100% - 90px); left: 10px; }
+    100% { top: 10px; left: 10px; }
+  }
+  
+  .noticeContainer:hover {
+    animation-play-state: paused;
+  }
+  
+  @media (max-width: 768px) {
+    .noticeContainer {
+      width: 200px;
+      padding: 15px;
+      font-size: 14px;
+      animation: bounce 25s infinite;
+    }
+  
+    @keyframes bounce {
+      0% { top: 10px; left: 10px; }
+      25% { top: 10px; left: calc(100% - 210px); }
+      50% { top: calc(100% - 70px); left: calc(100% - 210px); }
+      75% { top: calc(100% - 70px); left: 10px; }
+      100% { top: 10px; left: 10px; }
+    }
+  }
+  
