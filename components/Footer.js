@@ -55,8 +55,8 @@ export default function Footer() {
               <h4>Contacts</h4>
               <ul>
                 <li><a href="tel:+254708929173">+254 700 101 101 (Sales)</a></li>
-                <li><a href="tel:+254722227066">+254 7222 27066</a></li>
-                <li><a href="tel:+254790730302">+254 7907 0302</a></li>
+                <li><a href="tel:+254722227066">+254 722 227 066</a></li>
+                <li><a href="tel:+254790730302">+254 790 730 302</a></li>
                 <li><a href="mailto:101properties@gmail.com">101properties@gmail.com</a></li>
               </ul>
             </div>
