@@ -22,22 +22,6 @@ const propertyQuery = `*[_type in ["sellingNow", "offers", "newProperties", "sol
   }
 }`;
 
-// Query to get related properties
-const relatedPropertiesQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"]]{
-  name,
-  cashPrice,
-  location,
-  "mainImage": mainImage.asset->url,
-  detailedPage {
-    detailedGallery[] {
-      asset-> {
-        url
-      }
-    },
-    description,
-    detailedInformation
-  }
-}`;
 export async function getStaticPaths() {
   const pathsQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"]]{ "slug": slug.current }`;
   const properties = await sanityClient.fetch(pathsQuery);
@@ -50,24 +34,28 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const property = await sanityClient.fetch(propertyQuery, { slug });
+  try {
+    const property = await sanityClient.fetch(propertyQuery, { slug });
 
-  if (!property) {
+    if (!property) {
+      return { notFound: true };
+    }
+
+    return {
+      props: { property },
+      revalidate: 10,
+    };
+  } catch (error) {
+    console.error(error);
     return { notFound: true };
   }
-
-  const relatedProperties = await sanityClient.fetch(relatedPropertiesQuery);
-
-  return {
-    props: { property, relatedProperties },
-    revalidate: 10,
-  };
 }
 
-const PropertyDetails = ({ property, relatedProperties }) => {
-  const images = property.detailedPage?.detailedGallery || [];
+const PropertyDetails = ({ property }) => {
+  const images = property?.detailedPage?.detailedGallery || [];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false); // Error state
 
   useEffect(() => {
     if (property) {
@@ -95,11 +83,19 @@ const PropertyDetails = ({ property, relatedProperties }) => {
     return <div className={styles.loading}>Loading...</div>;
   }
 
+  if (error) {
+    return <div className={styles.error}>Error loading property details. Please try again later.</div>;
+  }
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>{`${property.name} - Property Details`}</title>
-        <meta name="description" content={property.detailedPage?.description} />
+        <title>{`${property?.name || 'Property'} - Property Details`}</title>
+        <meta name="description" content={property?.detailedPage?.description || 'Property details'} />
+        <meta property="og:title" content={`${property?.name} - Property Details`} />
+        <meta property="og:description" content={property?.detailedPage?.description || 'Property details'} />
+        <meta property="og:image" content={property?.mainImage} />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
       <div className={styles.mainContent}>
@@ -109,21 +105,21 @@ const PropertyDetails = ({ property, relatedProperties }) => {
             {/* Combined Hero Section with Gallery */}
             <section className={styles.heroSection}>
               <div className={styles.heroText}>
-                <h1>{property.name}</h1>
-                <p className={styles.price}>Ksh. {property.cashPrice}</p>
+                <h1>{property?.name}</h1>
+                <p className={styles.price}>Ksh. {property?.cashPrice}</p>
               </div>
 
               <div className={styles.heroSlider}>
-                <button className={styles.navArrow} onClick={handlePrevImage}>
+                <button className={styles.navArrow} onClick={handlePrevImage} aria-label="Previous image">
                   &#8249;
                 </button>
                 <img
-                  src={images.length > 0 ? images[currentImageIndex]?.asset?.url : property.mainImage}
-                  alt={property.name}
+                  src={images.length > 0 ? images[currentImageIndex]?.asset?.url : property?.mainImage}
+                  alt={property?.name}
                   className={styles.heroImage}
                   loading="lazy"
                 />
-                <button className={styles.navArrow} onClick={handleNextImage}>
+                <button className={styles.navArrow} onClick={handleNextImage} aria-label="Next image">
                   &#8250;
                 </button>
               </div>
@@ -134,9 +130,7 @@ const PropertyDetails = ({ property, relatedProperties }) => {
                   {images.map((image, index) => (
                     <div
                       key={index}
-                      className={`${styles.imageThumbnail} ${
-                        index === currentImageIndex ? styles.activeThumbnail : ''
-                      }`}
+                      className={`${styles.imageThumbnail} ${index === currentImageIndex ? styles.activeThumbnail : ''}`}
                       onClick={() => handleImageClick(index)}
                     >
                       <img
@@ -158,7 +152,7 @@ const PropertyDetails = ({ property, relatedProperties }) => {
             {/* Description Section */}
             <div className={styles.description}>
               <h2 className={styles.heading}>Description</h2>
-              <p>{property.detailedPage?.description || 'No description available.'}</p>
+              <p>{property?.detailedPage?.description || 'No description available.'}</p>
             </div>
           </div>
 
@@ -166,7 +160,7 @@ const PropertyDetails = ({ property, relatedProperties }) => {
             {/* Additional Information */}
             <div className={styles.detailedInformation}>
               <h2 className={styles.heading}>Additional Information</h2>
-              <PortableText value={property.detailedPage?.detailedInformation || 'No additional information available.'} />
+              <PortableText value={property?.detailedPage?.detailedInformation || 'No additional information available.'} />
             </div>
           </div>
         </div>
@@ -176,28 +170,6 @@ const PropertyDetails = ({ property, relatedProperties }) => {
           <div className={styles.card}>
             <ContactForm />
           </div>
-        </div>
-      </div>
-
-      {/* Related Properties Section */}
-      <div className={`${styles.card} ${styles.relatedSection}`}>
-        <h2 className={styles.heading}>Related Properties</h2>
-        <div className={styles.relatedSlider}>
-          {relatedProperties.length > 0 ? (
-            relatedProperties.map((relatedProperty, index) => (
-              <div className={styles.relatedCard} key={index}>
-                <img
-                  src={relatedProperty.mainImage || '/fallback.jpg'}
-                  alt={relatedProperty.name}
-                  loading="lazy"
-                />
-                <h3>{relatedProperty.name}</h3>
-                <p>Ksh. {relatedProperty.cashPrice}</p>
-              </div>
-            ))
-          ) : (
-            <p>No related properties available.</p>
-          )}
         </div>
       </div>
     </div>

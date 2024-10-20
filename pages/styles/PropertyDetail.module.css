@@ -75,41 +75,40 @@
 .navArrow:last-of-type {
   right: 10px;
 }
-/* ---------- Gallery Section ---------- */
-.gallerySection {
-  position: relative;
-  margin-top: 1.5rem;
-  overflow: hidden;
-}
-
-.gallery {
+.thumbnailGallery {
   display: flex;
-  gap: 10px;
+  flex-wrap: nowrap;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 10px;
+  overflow-y: hidden;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .imageThumbnail {
   cursor: pointer;
-  flex: 0 0 auto; /* Prevent shrinking */
-  width: 150px;
-  height: 100px;
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
   overflow: hidden;
 }
 
-.image {
-  width: 100%; /* Fill thumbnail */
+.thumbnailImage {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
   transition: transform 0.3s ease;
 }
 
-.imageThumbnail:hover .image {
+.activeThumbnail {
+  border: 2px solid #007BFF;
+}
+
+.imageThumbnail:hover .thumbnailImage {
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* ---------- Arrow Buttons ---------- */
 .galleryArrow {
