@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { sanityClient } from '../../sanity/lib/client';
 import styles from '../styles/PropertyDetail.module.css';
 import Head from 'next/head';
@@ -6,7 +6,7 @@ import { PortableText } from '@portabletext/react';
 import ContactForm from '../ContactForm';
 
 // Query to get property details
-const query = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"] && slug.current == $slug][0]{
+const propertyQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"] && slug.current == $slug][0]{
   name,
   cashPrice,
   location,
@@ -22,6 +22,22 @@ const query = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "
   }
 }`;
 
+// Query to get related properties
+const relatedPropertiesQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"]]{
+  name,
+  cashPrice,
+  location,
+  "mainImage": mainImage.asset->url,
+  detailedPage {
+    detailedGallery[] {
+      asset-> {
+        url
+      }
+    },
+    description,
+    detailedInformation
+  }
+}`;
 export async function getStaticPaths() {
   const pathsQuery = `*[_type in ["sellingNow", "offers", "newProperties", "soldOut", "featuredProperties"]]{ "slug": slug.current }`;
   const properties = await sanityClient.fetch(pathsQuery);
@@ -34,26 +50,50 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
-  const property = await sanityClient.fetch(query, { slug });
+  const property = await sanityClient.fetch(propertyQuery, { slug });
 
   if (!property) {
     return { notFound: true };
   }
 
+  const relatedProperties = await sanityClient.fetch(relatedPropertiesQuery);
+
   return {
-    props: { property },
+    props: { property, relatedProperties },
     revalidate: 10,
   };
 }
 
-const PropertyDetails = ({ property }) => {
-  const [selectedImage, setSelectedImage] = useState(
-    property.mainImage || property.detailedPage?.detailedGallery?.[0]?.asset?.url
-  );
+const PropertyDetails = ({ property, relatedProperties }) => {
+  const images = property.detailedPage?.detailedGallery || [];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const handleImageClick = (img) => {
-    setSelectedImage(img);
+  useEffect(() => {
+    if (property) {
+      setLoading(false);
+    }
+  }, [property]);
+
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
   };
+
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  if (loading) {
+    return <div className={styles.loading}>Loading...</div>;
+  }
 
   return (
     <div className={styles.container}>
@@ -63,74 +103,103 @@ const PropertyDetails = ({ property }) => {
       </Head>
 
       <div className={styles.mainContent}>
-        {/* Left side with property details */}
+        {/* Left Side */}
         <div className={styles.leftSide}>
-          <section className={styles.heroSection}>
-            <div className={styles.heroText}>
-              <h1>{property.name}</h1>
-              <p className={styles.price}>Ksh. {property.cashPrice}</p>
-            </div>
-            <img
-              src={selectedImage}
-              alt={property.name}
-              className={styles.heroImage}
-            />
-          </section>
+          <div className={styles.card}>
+            {/* Combined Hero Section with Gallery */}
+            <section className={styles.heroSection}>
+              <div className={styles.heroText}>
+                <h1>{property.name}</h1>
+                <p className={styles.price}>Ksh. {property.cashPrice}</p>
+              </div>
 
-          <div className={styles.gallerySection}>
-            <div className={styles.gallery}>
-              {property.detailedPage?.detailedGallery?.map((image, index) => (
-                <div
-                  key={index}
-                  className={styles.imageThumbnail}
-                  onClick={() => handleImageClick(image.asset.url)}
-                >
-                  <img
-                    src={image.asset.url}
-                    alt={`Detail ${index}`}
-                    className={styles.image}
-                  />
+              <div className={styles.heroSlider}>
+                <button className={styles.navArrow} onClick={handlePrevImage}>
+                  &#8249;
+                </button>
+                <img
+                  src={images.length > 0 ? images[currentImageIndex]?.asset?.url : property.mainImage}
+                  alt={property.name}
+                  className={styles.heroImage}
+                  loading="lazy"
+                />
+                <button className={styles.navArrow} onClick={handleNextImage}>
+                  &#8250;
+                </button>
+              </div>
+
+              {/* Thumbnail Gallery under Hero Section */}
+              {images.length > 0 ? (
+                <div className={styles.thumbnailGallery}>
+                  {images.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`${styles.imageThumbnail} ${
+                        index === currentImageIndex ? styles.activeThumbnail : ''
+                      }`}
+                      onClick={() => handleImageClick(index)}
+                    >
+                      <img
+                        src={image.asset.url}
+                        alt={`Detail ${index}`}
+                        className={styles.thumbnailImage}
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              ) : (
+                <p>No additional images available.</p>
+              )}
+            </section>
+          </div>
+
+          <div className={styles.card}>
+            {/* Description Section */}
+            <div className={styles.description}>
+              <h2 className={styles.heading}>Description</h2>
+              <p>{property.detailedPage?.description || 'No description available.'}</p>
             </div>
           </div>
 
-          <div className={styles.description}>
-            <h2 className={styles.heading}>Description</h2>
-            <p>{property.detailedPage?.description}</p>
-          </div>
-
-          {/* Blue separator line */}
-          <div className={styles.sectionSeparator}></div>
-
-          <div className={styles.detailedInformation}>
-            <h2 className={styles.heading}>Additional Information</h2>
-            <PortableText value={property.detailedPage?.detailedInformation} />
+          <div className={styles.card}>
+            {/* Additional Information */}
+            <div className={styles.detailedInformation}>
+              <h2 className={styles.heading}>Additional Information</h2>
+              <PortableText value={property.detailedPage?.detailedInformation || 'No additional information available.'} />
+            </div>
           </div>
         </div>
 
-        {/* Right side with the contact form */}
+        {/* Right Side with Contact Form */}
         <div className={styles.rightSide}>
-          <ContactForm />
+          <div className={styles.card}>
+            <ContactForm />
+          </div>
         </div>
       </div>
 
-      {/* Blue separator line */}
-      <div className={styles.sectionSeparator}></div>
-      
-      {/* Map Section */}
-      {/* <section className={styles.mapSection}>
-        <h2 className={styles.heading}>Location</h2>
-        <iframe
-          src={`https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=${encodeURIComponent(
-            property.location
-          )}`}
-          width="100%"
-          height="400"
-          style={{ border: 0 }}
-          allowFullScreen
-        ></iframe>
-      </section> */}
+      {/* Related Properties Section */}
+      <div className={`${styles.card} ${styles.relatedSection}`}>
+        <h2 className={styles.heading}>Related Properties</h2>
+        <div className={styles.relatedSlider}>
+          {relatedProperties.length > 0 ? (
+            relatedProperties.map((relatedProperty, index) => (
+              <div className={styles.relatedCard} key={index}>
+                <img
+                  src={relatedProperty.mainImage || '/fallback.jpg'}
+                  alt={relatedProperty.name}
+                  loading="lazy"
+                />
+                <h3>{relatedProperty.name}</h3>
+                <p>Ksh. {relatedProperty.cashPrice}</p>
+              </div>
+            ))
+          ) : (
+            <p>No related properties available.</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
