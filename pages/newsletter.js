@@ -7,7 +7,7 @@ const Newsletter = () => {
     event.preventDefault(); 
     const emailInput = event.target.elements.email.value;
     alert(`Thank you for subscribing with ${emailInput}`);
-    event.target.reset();n
+    event.target.reset();
   };
 
   return (
@@ -28,7 +28,7 @@ const Newsletter = () => {
       <section className={styles.newsletterSection}>
         <div
           className={styles.newsletterRow}
-          onClick={() => (window.location.href = 'newsletter1.html')}
+          onClick={() => (window.location.href = '#')}
           role="button"
           tabIndex={0}
           onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter1.html')} 
@@ -52,7 +52,7 @@ const Newsletter = () => {
 
         <div
           className={styles.newsletterRow}
-          onClick={() => (window.location.href = 'newsletter2.html')}
+          onClick={() => (window.location.href = '#')}
           role="button"
           tabIndex={0}
           onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter2.html')}
@@ -76,7 +76,7 @@ const Newsletter = () => {
 
         <div
           className={styles.newsletterRow}
-          onClick={() => (window.location.href = 'newsletter3.html')}
+          onClick={() => (window.location.href = '#')}
           role="button"
           tabIndex={0}
           onKeyPress={(e) => e.key === 'Enter' && (window.location.href = 'newsletter3.html')}

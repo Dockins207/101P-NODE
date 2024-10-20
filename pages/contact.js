@@ -1,4 +1,4 @@
-import Head from 'next/head'; // Import the Head component
+import Head from 'next/head';
 import styles from './styles/Contact.module.css';
 import FeaturedProperties from '../components/FeaturedProperties';
 
@@ -30,7 +30,7 @@ const Contact = () => {
             <div className={styles.contactBox}>
               <h2>Sales</h2>
               <p>
-                Phone: <a href="tel:+254700101101">+2547 0010 1101</a>
+                Phone: <a href="tel:+254700101101">+254 700 101 101</a>
               </p>
               <p>
                 Email: <a href="mailto:101properties@gmail.com">101properties@gmail.com</a>
@@ -39,10 +39,10 @@ const Contact = () => {
             <div className={styles.contactBox}>
               <h2>Customer Support</h2>
               <p>
-                Phone: <a href="tel:+254722227066">+2547 2222 7066</a>
+                Phone: <a href="tel:+254722227066">+254 722 227 066</a>
               </p>
               <p>
-                Phone: <a href="tel:+254790730302">+2547 9073 0302</a>
+                Phone: <a href="tel:+254790730302">+254 790 730 302</a>
               </p>
               <p>
                 Email: <a href="mailto:101properties@gmail.com">101properties@gmail.com</a>
@@ -64,7 +64,7 @@ const Contact = () => {
               <input type="email" placeholder="Enter Your Email" required />
             </div>
             <div className={styles.formGroup}>
-              <textarea placeholder="Email Message..." required></textarea>
+              <textarea placeholder="Message..." required></textarea>
             </div>
             <button type="submit" className={styles.submitBtn}>
               Send Message

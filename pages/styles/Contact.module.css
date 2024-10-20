@@ -1,9 +1,9 @@
 #contactPageSection {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Center the items horizontally */
+  justify-content: center;
   max-width: 75%;
-  margin: 0 auto; /* Center the section itself */
+  margin: 0 auto;
   padding: 1.25rem;
   border-radius: 1rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
@@ -22,7 +22,6 @@
 
 .contactHeader h1 {
   font-size: 2.5rem;
-  color: #000;
   margin-bottom: 0.625rem;
 }
 
@@ -45,7 +44,6 @@
 }
 
 .contactBox h2 {
-  color: #000;
   font-size: 1.8rem;
   margin-bottom: 1.25rem;
 }
@@ -74,7 +72,6 @@
 }
 
 .formSection h2 {
-  color: #000;
   font-size: 2rem;
   margin-bottom: 1.25rem;
 }
