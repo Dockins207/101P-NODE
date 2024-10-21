@@ -81,7 +81,7 @@ const BannerSection = () => {
               {slide.description && <strong><p>{slide.description}</p></strong>}
               {slide.price && <strong><p>Ksh. {slide.price}</p></strong>}
               
-              <Button href="#" text="More Info" />
+              <Button href="#" text="Buy Now" />
             </div>
           </div>
         ))

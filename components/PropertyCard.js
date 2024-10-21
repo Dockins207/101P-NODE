@@ -46,7 +46,7 @@ const PropertyCard = ({ property, slug }) => {
         </div>
 
         <button className={styles['view-details']} onClick={handleViewDetails}>
-          View Details
+          Buy Now
         </button>
       </div>
     </div>
