@@ -55,7 +55,7 @@ const PropertyDetails = ({ property }) => {
   const images = property?.detailedPage?.detailedGallery || [];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false); // Error state
+  const [error, setError] = useState(false); 
 
   useEffect(() => {
     if (property) {

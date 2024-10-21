@@ -11,8 +11,8 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 2rem;
+  padding: 10px;
+  margin-bottom: 1rem;
   width: 100%;
 }
 
@@ -151,13 +151,18 @@
 .description {
   margin-top: 1rem;
 }
-
+.description h2{
+  text-align: left;
+}
 .heading {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
 }
 
 .detailedInformation {
   margin-top: 1.5rem;
+}
+.detailedInformation h2{
+  text-align: left;
 }
 
 /* ---------- Map Section ---------- */

@@ -14,37 +14,36 @@ const PropertyCard = ({ property, slug }) => {
       <img src={property.imageUrl} alt={property.name} className={styles['property-image']} />
       <div className={styles['card-content']}>
         <h3 className={styles['property-name']}>{property.name || 'No Name Provided'}</h3>
-        <div className={styles['property-details']}>
-          <div className={styles['detail']}>
-            <span className={styles['label']}>Location </span>
+
+        {/* Property Details as a list */}
+        <ul className={styles['property-details']}>
+          <li className={styles['detail']}>
+            <span className={styles['label']}>Location: </span>
             <span className={styles['value']} style={{ direction: 'ltr' }}>{property.location || 'N/A'}</span>
-          </div>
-          <div className={styles['detail']}>
-            <span className={styles['label']}>Purpose </span>
+          </li>
+          <li className={styles['detail']}>
+            <span className={styles['label']}>Purpose: </span>
             <span className={styles['value']} style={{ direction: 'ltr' }}>{property.purpose || 'N/A'}</span>
-          </div>
-          <div className={styles['detail']}>
-            <span className={styles['label']}>Size </span>
+          </li>
+          <li className={styles['detail']}>
+            <span className={styles['label']}>Size: </span>
             <span className={styles['size-value']} style={{ direction: 'ltr' }}>{property.size || 'N/A'}</span>
-          </div>
-        </div>
+          </li>
+        </ul>
 
-        <div className={styles['price-container']}>
-          <div className={styles['cash-price-container']}>
-            <p className={styles['property-label']} style={{ direction: 'ltr' }}><strong>Price</strong></p>
-            <p className={styles['property-value']} style={{ direction: 'ltr' }}>
-              Ksh. {property.cashPrice ? property.cashPrice.toLocaleString() : 'N/A'}
-            </p>
-          </div>
+        {/* Prices in a list format */}
+        <ul className={styles['price-container']}>
+          <li className={styles['cash-price-container']}>
+            <strong>Price: </strong>
+            Ksh. {property.cashPrice ? property.cashPrice.toLocaleString() : 'N/A'}
+          </li>
+          <li className={styles['installment-price-container']}>
+            <strong>Deposit: </strong>
+            Ksh. {property.installmentPrice ? property.installmentPrice.toLocaleString() : '0'}
+          </li>
+        </ul>
 
-          <div className={styles['installment-price-container']}>
-            <p className={styles['property-label']} style={{ direction: 'ltr' }}><strong>Deposit</strong></p>
-            <p className={styles['property-value']} style={{ direction: 'ltr' }}>
-              Ksh. {property.installmentPrice ? property.installmentPrice.toLocaleString() : '0'}
-            </p>
-          </div>
-        </div>
-
+        {/* Button for viewing details */}
         <button className={styles['view-details']} onClick={handleViewDetails}>
           Buy Now
         </button>
