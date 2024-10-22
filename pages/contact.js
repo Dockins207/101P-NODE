@@ -1,8 +1,62 @@
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import styles from './styles/Contact.module.css';
 import FeaturedProperties from '../components/FeaturedProperties';
+import { sanityClient } from '../sanity/lib/client';
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    phone: '',
+    email: '',
+    message: '',
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState(null);
+  const [responseType, setResponseType] = useState('');
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      await sanityClient.create({
+        _type: 'contactSubmission',
+        fullName: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+        createdAt: new Date().toISOString(),
+      });
+
+      setResponseMessage('Thank you for reaching out! Your message has been successfully sent.');
+      setResponseType('success');
+      setFormData({ fullName: '', phone: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Form submission failed:', error);
+      setResponseMessage('Sorry, there was an issue sending your message. Please try again later.');
+      setResponseType('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  useEffect(() => {
+    if (responseMessage) {
+      const timer = setTimeout(() => {
+        setResponseMessage(null);
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [responseMessage]);
+
   return (
     <>
       <Head>
@@ -13,6 +67,7 @@ const Contact = () => {
         />
         <meta name="robots" content="index, follow" />
       </Head>
+
       <section id={styles.contactPageSection}>
         <div className={styles.contactSection}>
           <div className={styles.contactHeader}>
@@ -53,25 +108,64 @@ const Contact = () => {
 
         <div className={styles.formSection}>
           <h2>Quick Enquiry</h2>
-          <form action="#" method="post">
+          <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
-              <input type="text" placeholder="Enter Full Name" required />
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter Full Name"
+                value={formData.fullName}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className={styles.formGroup}>
-              <input type="tel" placeholder="Enter Your Phone" required />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter Your Phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className={styles.formGroup}>
-              <input type="email" placeholder="Enter Your Email" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </div>
             <div className={styles.formGroup}>
-              <textarea placeholder="Message..." required></textarea>
+              <textarea
+                name="message"
+                placeholder="Message..."
+                value={formData.message}
+                onChange={handleChange}
+                required
+              ></textarea>
             </div>
-            <button type="submit" className={styles.submitBtn}>
-              Send Message
+            <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
+
+            {/* Pop-up notification */}
+            {responseMessage && (
+              <div
+                className={`${styles.popupMessage} ${
+                  responseType === 'success' ? styles.successMessage : styles.errorMessage
+                }`}
+              >
+                {responseMessage}
+              </div>
+            )}
           </form>
         </div>
       </section>
+
       <FeaturedProperties />
     </>
   );

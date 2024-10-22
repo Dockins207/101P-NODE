@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { sanityClient } from '../sanity/lib/client'; // Import Sanity client
 import styles from './styles/ContactForm.module.css';
 
 const ContactForm = () => {
@@ -8,8 +9,12 @@ const ContactForm = () => {
     email: '',
     message: '',
     siteVisit: false,
-    visitDate: '', 
+    visitDate: '',
   });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [responseMessage, setResponseMessage] = useState('');
+  const [responseType, setResponseType] = useState(''); // success or error
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -19,9 +24,43 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    try {
+      // Send the form data to Sanity
+      await sanityClient.create({
+        _type: 'siteVisitRequest',
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+        siteVisit: formData.siteVisit,
+        visitDate: formData.visitDate,
+        createdAt: new Date().toISOString(),
+      });
+
+      setResponseMessage('Your request has been submitted successfully.');
+      setResponseType('success');
+      setFormData({
+        name: '',
+        phone: '',
+        email: '',
+        message: '',
+        siteVisit: false,
+        visitDate: '',
+      });
+    } catch (error) {
+      console.error('Form submission failed:', error);
+      setResponseMessage('There was an error submitting your request. Please try again.');
+      setResponseType('error');
+    } finally {
+      setIsSubmitting(false);
+      // Auto-hide the message after 5 seconds
+      setTimeout(() => {
+        setResponseMessage('');
+      }, 5000); // Message will disappear after 5 seconds
+    }
   };
 
   return (
@@ -34,6 +73,7 @@ const ContactForm = () => {
         value={formData.name}
         onChange={handleChange}
         className={styles.input}
+        required
       />
       <input
         type="tel"
@@ -42,6 +82,7 @@ const ContactForm = () => {
         value={formData.phone}
         onChange={handleChange}
         className={styles.input}
+        required
       />
       <input
         type="email"
@@ -50,15 +91,17 @@ const ContactForm = () => {
         value={formData.email}
         onChange={handleChange}
         className={styles.input}
+        required
       />
       <textarea
         name="message"
-        placeholder="Hey, I would like to visit [property name]"
+        placeholder="Message..."
         value={formData.message}
         onChange={handleChange}
         className={styles.textarea}
+        required
       />
-        <input
+      <input
         type="date"
         name="visitDate"
         value={formData.visitDate}
@@ -76,9 +119,15 @@ const ContactForm = () => {
           Site Visit
         </label>
       </div>
-      <button type="submit" className={styles.submitButton}>
-        Send Message
+      <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+        {isSubmitting ? 'Submitting...' : 'Send Request'}
       </button>
+
+      {responseMessage && (
+        <p className={`${styles.responseMessage} ${responseType === 'success' ? styles.success : styles.error}`}>
+          {responseMessage}
+        </p>
+      )}
     </form>
   );
 };

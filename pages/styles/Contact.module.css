@@ -114,6 +114,31 @@
 .submitBtn:hover {
   background-color: green;
 }
+.popupMessage {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  z-index: 1000;
+  animation: fadeOut 5s forwards;
+}
+
+.successMessage {
+  background-color: green;
+}
+
+.errorMessage {
+  background-color: red;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
 
 @media (max-width: 768px) {
   #contactPageSection {

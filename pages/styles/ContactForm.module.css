@@ -45,3 +45,44 @@
 .submitButton:active {
   transform: scale(0.95);
 }
+.contactForm {
+  position: relative;
+}
+
+.responseMessage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInOut 5s ease-in-out;
+}
+
+.success {
+  background-color: green;
+}
+
+.error {
+  background-color: red;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

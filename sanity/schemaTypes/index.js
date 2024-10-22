@@ -9,9 +9,11 @@ import blockContent from './blockContent';
 import banner from './banner';
 import featuredProperties from './featuredProperties';
 import statistics from './statistics';
+import contactSubmission from './contactSubmission';
+import siteVisitRequest from './siteVisitRequest';
 
 export const schemaTypes = [
-  banner, 
+  banner,
   featuredProperties,
   sellingNow,
   offers,
@@ -22,4 +24,6 @@ export const schemaTypes = [
   blog,
   blockContent,
   statistics,
+  contactSubmission,
+  siteVisitRequest,
 ];

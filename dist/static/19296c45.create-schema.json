@@ -2722,5 +2722,135 @@
     ],
     "name": "statistics",
     "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "fullName",
+        "type": "string"
+      },
+      {
+        "name": "phone",
+        "type": "string"
+      },
+      {
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "name": "message",
+        "type": "text"
+      },
+      {
+        "options": {
+          "dateFormat": "YYYY-MM-DD",
+          "timeFormat": "HH:mm",
+          "timeStep": 5
+        },
+        "name": "createdAt",
+        "type": "datetime",
+        "title": "Submitted At"
+      }
+    ],
+    "name": "contactSubmission",
+    "type": "document",
+    "title": "Contact Submissions"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error",
+            "message": "Name is required"
+          }
+        ],
+        "name": "name",
+        "type": "string",
+        "title": "Full Name"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error",
+            "message": "Phone number is required"
+          }
+        ],
+        "name": "phone",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "regex",
+                "constraint": {
+                  "pattern": "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/",
+                  "name": "email",
+                  "invert": false
+                }
+              }
+            ],
+            "level": "error",
+            "message": "A valid email address is required"
+          }
+        ],
+        "name": "email",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error",
+            "message": "Message is required"
+          }
+        ],
+        "name": "message",
+        "type": "text"
+      },
+      {
+        "name": "siteVisit",
+        "type": "boolean"
+      },
+      {
+        "options": {
+          "dateFormat": "YYYY-MM-DD"
+        },
+        "name": "visitDate",
+        "type": "date",
+        "title": "Preferred Visit Date"
+      },
+      {
+        "readOnly": true,
+        "name": "createdAt",
+        "type": "datetime",
+        "title": "Submitted At"
+      }
+    ],
+    "name": "siteVisitRequest",
+    "type": "document"
   }
 ]
