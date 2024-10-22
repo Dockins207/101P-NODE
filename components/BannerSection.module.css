@@ -32,7 +32,7 @@
   text-align: center;
   width: 30vw;
   padding: 2rem;
-  border-radius: 10rem;
+  border-radius: 5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 2;
   transition: all 0.3s ease;
@@ -40,7 +40,7 @@
 
 .bannerText h2 {
   margin-top: -0.5rem;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 /* Responsive adjustments */
@@ -62,29 +62,30 @@
   }
 
   .bannerText h2 {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .sliderContainer {
-    height: 40vh;
+    height: 50vh;
   }
 
   .image {
-    height: 40vh;
+    height: 50vh;
   }
 
   .bannerText {
-    width: 70vw;
-    padding: 0.4rem;
-    border-radius: 1rem;
+    font-size: 0.1rem;
+    width: 50vw;
+    padding: 0.5rem;
+    border-radius: 2rem;
     bottom: 1%;
     left: 5%;
   }
 
   .bannerText h2 {
-    font-size: 1rem;
+    font-size: 0.7rem;
   }
 }
 

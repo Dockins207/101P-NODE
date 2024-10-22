@@ -77,7 +77,8 @@ export default {
           type: 'array',
           of: [{ type: 'image', options: { hotspot: true } }],
         },
-        { name: 'description', title: 'Description', type: 'text' },
+        { name: 'description', title: 'Description', type: 'array',
+          of: [{ type: 'block' }], },
         {
           name: 'detailedInformation',
           title: 'Detailed Information',

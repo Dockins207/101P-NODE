@@ -150,6 +150,7 @@
 
 .description {
   margin-top: 1rem;
+  margin-left: 1rem;
 }
 .description h2{
   text-align: left;
@@ -160,6 +161,7 @@
 
 .detailedInformation {
   margin-top: 1.5rem;
+  margin-left: 1rem;
 }
 .detailedInformation h2{
   text-align: left;

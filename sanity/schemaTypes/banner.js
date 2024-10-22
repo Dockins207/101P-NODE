@@ -38,15 +38,40 @@ export default {
       type: 'string',
     },
     {
-      name: 'relatedProperty',
-      title: 'Related Property',
-      type: 'reference',
-      to: [
-        { type: 'sellingNow' },
-        { type: 'offers' },
-        { type: 'newProperties' },
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'propertyName',
+        maxLength: 200,
+        slugify: (input) =>
+          `${input.toLowerCase().replace(/\s+/g, '-').slice(0, 100)}-${uuidv4()}`,
+      },
+    },
+    {
+      name: 'detailedPage',
+      title: 'Detailed Page',
+      type: 'object',
+      fields: [
+        {
+          name: 'detailedGallery',
+          title: 'Detailed Photo Gallery',
+          type: 'array',
+          of: [{ type: 'image', options: { hotspot: true } }],
+        },
+        {
+          name: 'detailedDescription',
+          title: 'Detailed Description',
+          type: 'array',
+          of: [{ type: 'block' }],
+        },
+        {
+          name: 'detailedInformation',
+          title: 'Detailed Information',
+          type: 'array',
+          of: [{ type: 'block' }],
+        },
       ],
-      description: 'The single property linked to this banner.',
     },
   ],
 };

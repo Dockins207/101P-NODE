@@ -8,12 +8,11 @@ const BannerSection = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
- 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*[_type == "banner"]{description, "imageUrl": image.asset->url, propertyName, location, price, uuid}'
+          'https://sqb4dkpp.api.sanity.io/v2023-09-17/data/query/production?query=*[_type == "banner"]{description, "imageUrl": image.asset->url, propertyName, location, price, uuid, "slug": relatedProperty->slug.current}'
         );
         const data = await response.json();
 
@@ -39,7 +38,6 @@ const BannerSection = () => {
       img.src = slide.imageUrl;
     });
   }, [slides]);
-
 
   useEffect(() => {
     if (slides.length === 0) return;
@@ -80,8 +78,9 @@ const BannerSection = () => {
               {slide.location && <strong><p>{slide.location}</p></strong>}
               {slide.description && <strong><p>{slide.description}</p></strong>}
               {slide.price && <strong><p>Ksh. {slide.price}</p></strong>}
-              
-              <Button href="#" text="Buy Now" />
+
+              {/* Buy Now Button with slug */}
+              <Button href={`/property/${slide.slug}`} text="Buy Now" />
             </div>
           </div>
         ))

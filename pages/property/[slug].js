@@ -10,7 +10,7 @@ const propertyQuery = `*[_type in ["sellingNow", "offers", "newProperties", "sol
   name,
   cashPrice,
   location,
-  "mainImage": mainImage.asset->url,
+  "mainImage": image.asset->url,
   detailedPage {
     detailedGallery[] {
       asset-> {
@@ -152,7 +152,7 @@ const PropertyDetails = ({ property }) => {
             {/* Description Section */}
             <div className={styles.description}>
               <h2 className={styles.heading}>Description</h2>
-              <p>{property?.detailedPage?.description || 'No description available.'}</p>
+              <PortableText value={property?.detailedPage?.description || 'No description available.'} />
             </div>
           </div>
 
