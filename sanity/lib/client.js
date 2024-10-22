@@ -2,7 +2,7 @@ import { createClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
 export const sanityClient = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  projectId: "sqb4dkpp",
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2023-09-17',
   useCdn: true,
