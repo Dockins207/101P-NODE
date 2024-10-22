@@ -97,7 +97,7 @@
 
 .formGroup input:focus,
 .formGroup textarea:focus {
-  border-color: #333;
+  border-color: green;
 }
 
 .submitBtn {

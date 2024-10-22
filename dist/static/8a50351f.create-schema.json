@@ -2726,18 +2726,22 @@
   {
     "fields": [
       {
+        "readOnly": true,
         "name": "fullName",
         "type": "string"
       },
       {
+        "readOnly": true,
         "name": "phone",
         "type": "string"
       },
       {
+        "readOnly": true,
         "name": "email",
         "type": "string"
       },
       {
+        "readOnly": true,
         "name": "message",
         "type": "text"
       },
@@ -2747,9 +2751,16 @@
           "timeFormat": "HH:mm",
           "timeStep": 5
         },
+        "readOnly": true,
         "name": "createdAt",
         "type": "datetime",
         "title": "Submitted At"
+      },
+      {
+        "initialValue": false,
+        "description": "Mark this submission as read/unread.",
+        "name": "isRead",
+        "type": "boolean"
       }
     ],
     "name": "contactSubmission",
@@ -2771,6 +2782,7 @@
             "message": "Name is required"
           }
         ],
+        "readOnly": true,
         "name": "name",
         "type": "string",
         "title": "Full Name"
@@ -2788,6 +2800,7 @@
             "message": "Phone number is required"
           }
         ],
+        "readOnly": true,
         "name": "phone",
         "type": "string"
       },
@@ -2812,6 +2825,7 @@
             "message": "A valid email address is required"
           }
         ],
+        "readOnly": true,
         "name": "email",
         "type": "string"
       },
@@ -2828,10 +2842,12 @@
             "message": "Message is required"
           }
         ],
+        "readOnly": true,
         "name": "message",
         "type": "text"
       },
       {
+        "readOnly": true,
         "name": "siteVisit",
         "type": "boolean"
       },
@@ -2839,6 +2855,7 @@
         "options": {
           "dateFormat": "YYYY-MM-DD"
         },
+        "readOnly": true,
         "name": "visitDate",
         "type": "date",
         "title": "Preferred Visit Date"
@@ -2848,6 +2865,13 @@
         "name": "createdAt",
         "type": "datetime",
         "title": "Submitted At"
+      },
+      {
+        "initialValue": false,
+        "readOnly": true,
+        "name": "isRead",
+        "type": "boolean",
+        "title": "Read Status"
       }
     ],
     "name": "siteVisitRequest",

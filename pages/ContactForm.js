@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { sanityClient } from '../sanity/lib/client'; // Import Sanity client
+import { useState } from 'react';
+import { sanityClient } from '../sanity/lib/client';
 import styles from './styles/ContactForm.module.css';
 
 const ContactForm = () => {
@@ -14,7 +14,7 @@ const ContactForm = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
-  const [responseType, setResponseType] = useState(''); // success or error
+  const [responseType, setResponseType] = useState(''); 
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -59,7 +59,7 @@ const ContactForm = () => {
       // Auto-hide the message after 5 seconds
       setTimeout(() => {
         setResponseMessage('');
-      }, 5000); // Message will disappear after 5 seconds
+      }, 5000);
     }
   };
 
@@ -119,7 +119,12 @@ const ContactForm = () => {
           Site Visit
         </label>
       </div>
-      <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
+      {/* Disable button until checkbox is checked */}
+      <button 
+        type="submit" 
+        className={styles.submitButton} 
+        disabled={isSubmitting || !formData.siteVisit}
+      >
         {isSubmitting ? 'Submitting...' : 'Send Request'}
       </button>
 

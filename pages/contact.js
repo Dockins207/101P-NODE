@@ -10,6 +10,7 @@ const Contact = () => {
     phone: '',
     email: '',
     message: '',
+    termsAccepted: false,  // New state for checkbox
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,8 +18,8 @@ const Contact = () => {
   const [responseType, setResponseType] = useState('');
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({ ...formData, [name]: type === 'checkbox' ? checked : value });
   };
 
   const handleSubmit = async (e) => {
@@ -37,7 +38,7 @@ const Contact = () => {
 
       setResponseMessage('Thank you for reaching out! Your message has been successfully sent.');
       setResponseType('success');
-      setFormData({ fullName: '', phone: '', email: '', message: '' });
+      setFormData({ fullName: '', phone: '', email: '', message: '', termsAccepted: false });  // Reset termsAccepted
     } catch (error) {
       console.error('Form submission failed:', error);
       setResponseMessage('Sorry, there was an issue sending your message. Please try again later.');
@@ -148,7 +149,18 @@ const Contact = () => {
                 required
               ></textarea>
             </div>
-            <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+            <div className={styles.checkboxGroup}>
+              <label>
+                <input
+                  type="checkbox"
+                  name="termsAccepted"
+                  checked={formData.termsAccepted}
+                  onChange={handleChange}
+                />{' '}
+                Confirm to send message
+              </label>
+            </div>
+            <button type="submit" className={styles.submitBtn} disabled={isSubmitting || !formData.termsAccepted}>
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
 
