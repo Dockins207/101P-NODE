@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './AboutSection.module.css';
 import { motion } from 'framer-motion';
-import Button from '../components/Button'; // Import the reusable button
+import Button from '../components/Button';
 
 export default function AboutSection() {
   return (
