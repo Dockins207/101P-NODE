@@ -16,7 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@glidejs/glide": "^3.6.2",
-    "@sanity/client": "^7.0.1",
+    "@sanity/client": "^6.29.1",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.0.2",
     "framer-motion": "^11.5.6",
