@@ -70,7 +70,8 @@ export default function Footer() {
       {/* Footer Bottom Section */}
       <div className={styles.footerBottom}>
         <div className={styles.footerContent}>
-          <p>Copyright &copy; 2024 101 Properties. All rights reserved.</p>
+          <p>Copyright &copy; 2025 101 Properties. All rights reserved.</p>
+          <p className={styles.developerText}>Developed by Dockins +254714896310</p>
         </div>
       </div>
     </footer>
