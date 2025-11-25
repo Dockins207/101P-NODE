@@ -10,6 +10,7 @@ const GA_TRACKING_ID = 'G-W82X5Y5T1L';
 
 function Application({ Component, pageProps }) {
   const router = useRouter();
+  const isUpdatePage = router.pathname === '/update-required';
 
   useEffect(() => {
     // Function to track page views
@@ -27,6 +28,11 @@ function Application({ Component, pageProps }) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
+
+  // Don't load scripts for the update page
+  if (isUpdatePage) {
+    return <Component {...pageProps} />;
+  }
 
   return (
     <>

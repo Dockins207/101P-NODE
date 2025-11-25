@@ -1,71 +1,55 @@
-import BannerSection from '../components/BannerSection';
-import FeaturedProperties from '../components/FeaturedProperties';
-import AboutSection from '../components/AboutSection';
-import StatisticsSection from '../components/StatisticsSection';
-import FloatingIcons from '../components/FloatingIcons';
-import BriefFAQs from '../components/BriefFAQs';
-import SEO from '../components/SEO';
-import { sanityClient, urlFor } from '../sanity/lib/client';
-import styles from './styles/Blogs.module.css'; 
-import Testimonials from '../components/Testimonials';
+import Head from 'next/head';
 
-export default function HomePage({ blogs }) {
+export default function UpdateRequired() {
   return (
-    <div>
-      {/* Add the SEO component here */}
-      <SEO
-        title="101 Properties - Buy Affordable Land in Kenya"
-        description="Discover affordable land for sale in Kenya. 101 Properties offers flexible payment plans and guaranteed title deeds for buyers."
-        keywords={['land for sale', 'buy land in Kenya', 'affordable land', 'real estate Kenya', 'property Kenya']}
-        image="https://101-properties.com/home-image.jpg"
-        url="https://101-properties.com/"
-      />
-
-      {/* Page Sections */}
-      <BannerSection />
-      <AboutSection />
-      <FeaturedProperties />
-      <Testimonials />
-      <StatisticsSection />
-      <FloatingIcons />
-
-      <section>
-        <h2>Latest Blogs</h2>
-        <div className={styles.blogsContainer}>
-          <div className={styles.blogsList}>
-            {blogs && blogs.length > 0 ? (
-              blogs.slice(0, 4).map((blog) => (  
-                <div className={styles.blogCard} key={blog._id}>
-                  {blog.image ? (
-                    <img
-                      className={styles.blogImage}
-                      src={urlFor(blog.image).url()}
-                      alt={blog.title}
-                    />
-                  ) : (
-                    <img
-                      className={styles.blogImage}
-                      src="/path/to/default-image.jpg"
-                      alt="Default Image"
-                    />
-                  )}
-                  {/* Make the title clickable */}
-                  <h3>
-                    <a href={`/blog/${blog.uuid}`} className={styles.blogLink}>
-                      {blog.title}
-                    </a>
-                  </h3>
-                  <p>{blog.briefContent}</p>
-                </div>
-              ))
-            ) : (
-              <p>No blogs available at this time.</p>
-            )}
-          </div>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: '0 20px',
+      backgroundColor: '#f8f9fa',
+    }}>
+      <Head>
+        <title>System Update Required</title>
+        <meta name="description" content="System Update Required" />
+        <style jsx global>{`
+          body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+          }
+        `}</style>
+      </Head>
+      <main style={{
+        width: '100%',
+        maxWidth: '600px',
+        margin: '0 auto',
+      }}>
+        <div style={{
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+          padding: '2rem',
+          textAlign: 'center',
+        }}>
+          <h1 style={{
+            color: '#e53e3e',
+            marginBottom: '1rem',
+          }}>System Update Required</h1>
+          <p style={{
+            fontSize: '1.1rem',
+            lineHeight: '1.6',
+            color: '#4a5568',
+          }}>
+            We detected outdated Next.js packages and Sanity CMS components. 
+            Please update to the latest versions to ensure optimal performance and security.
+          </p>
         </div>
-      </section>
-
-      <BriefFAQs />
+      </main>
     </div>
   );
 }
