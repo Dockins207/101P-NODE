@@ -1,0 +1,80 @@
+/* Brief FAQs Section on Home Page */
+.brief-faq-section {
+  /* background-color: #f4f4f4; */
+  padding: 2.5rem 1.25rem; /* Equivalent to 40px and 20px */
+  text-align: center;
+  width: 100%;
+}
+
+.brief-faq-section h2 {
+  font-size: 1.75rem; /* Equivalent to 28px */
+  color: #000000;  /* Black Header */
+  margin-bottom: 1.875rem; /* Equivalent to 30px */
+}
+
+.brief-faq-item {
+  margin-bottom: 1.25rem; /* Equivalent to 20px */
+}
+
+.brief-question {
+  font-size: 1.125rem; /* Equivalent to 18px */
+  font-weight: bold;
+  color: #000000;  /* Black Headers */
+}
+
+.brief-answer {
+  font-size: 1rem; /* Equivalent to 16px */
+  color: #555;
+  margin-top: 0.3125rem; /* Equivalent to 5px */
+}
+
+.brief-answer a {
+  color: #ff0000;  /* Red Learn More Link */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.brief-answer a:hover {
+  color: green;  /* Green Hover Effect */
+  text-decoration: underline;
+}
+
+/* See All FAQs Link (No Button) */
+.see-all-faqs {
+  margin-top: 1.875rem; /* Equivalent to 30px */
+}
+
+.see-all-link {
+  color: #ff0000;  /* Red color for link */
+  font-size: 1rem; /* Equivalent to 16px */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.see-all-link:hover {
+  color: green;  /* Green hover color */
+}
+
+.see-all-link::after {
+  content: ' \2192';  /* Right arrow */
+  transition: color 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brief-faq-section {
+      padding: 1.875rem 0.9375rem; /* Equivalent to 30px and 15px */
+  }
+
+  .brief-faq-section h2 {
+      font-size: 1.5rem; /* Equivalent to 24px */
+  }
+
+  .brief-question {
+      font-size: 1rem; /* Equivalent to 16px */
+  }
+
+  .brief-answer {
+      font-size: 0.875rem; /* Equivalent to 14px */
+  }
+}

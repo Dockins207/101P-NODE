@@ -1,0 +1,14 @@
+.dist
+.github
+.ignore
+.next
+.sanity
+.vscode
+.env.local
+node_modules
+.gitignore
+.hintrc
+.prettierignore
+.prettierc
+dist
+sanity
